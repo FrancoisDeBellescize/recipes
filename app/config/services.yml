@@ -7,3 +7,21 @@ services:
     app.form_login_authenticator:
         class: AppBundle\Security\FormLoginAuthenticator
         arguments: ["@router", "@security.password_encoder"]
+
+    admin.recipe:
+        class: AppBundle\Admin\RecipeAdmin
+        arguments: [~, AppBundle\Entity\Recipe, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Recipe, label: Recipe }
+
+    admin.ingredient:
+        class: AppBundle\Admin\IngredientAdmin
+        arguments: [~, AppBundle\Entity\Ingredient, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Recipe, label: Ingredient }
+
+    admin.recipe_has_ingredient:
+        class: AppBundle\Admin\RecipeHasIngredientAdmin
+        arguments: [~, AppBundle\Entity\RecipeHasIngredient, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: RecipeHasIngredient }
