@@ -10,16 +10,23 @@ class IngredientAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('name', 'text');
+      $formMapper->add('name', 'text')
+      ->add('inUnit')
+      ->add('gram')
+      ->add('milliliter');
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('name');
+      $datagridMapper->add('name')
+      ->add('inUnit')
+      ->add('gram')
+      ->add('milliliter');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('name');
+      $listMapper->addIdentifier('name')
+      ->addIdentifier('inUnit');
     }
 }

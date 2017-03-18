@@ -25,3 +25,9 @@ services:
         arguments: [~, AppBundle\Entity\RecipeHasIngredient, SonataAdminBundle:CRUD]
         tags:
             - { name: sonata.admin, manager_type: orm, label: RecipeHasIngredient }
+
+    admin.step:
+        class: AppBundle\Admin\StepAdmin
+        arguments: [~, AppBundle\Entity\Step, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Recipe, label: Step }
