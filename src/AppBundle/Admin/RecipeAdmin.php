@@ -17,6 +17,7 @@ class RecipeAdmin extends AbstractAdmin
     ->add('preparationTime', null, array('label' => 'Preparation Time (in minutes)'))
     ->add('restTime', null, array('label' => 'Rest Time (in minutes)'))
     ->add('forPerson', null, array('label' => 'For x Person'))
+    ->add('description', null, array('label' => 'Description'))
     ->end()
     ->with('Etapes')
     ->add('steps', 'sonata_type_collection',

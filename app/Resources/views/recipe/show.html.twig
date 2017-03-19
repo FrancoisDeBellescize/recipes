@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="col-md-8 col-md-offset-2 well well-lg row">
+  <div class="col-md-12">
+    <h1>{{ recipe.name }}</h1>
+    <hr>
+  </div>
+  <div class="col-md-6">
+    <h2>Informations</h2>
+    <hr>
+    <dl class="dl-horizontal">
+      <dt>
+        Préparation <span class="glyphicon glyphicon-time" aria-hidden="true"></span> :
+      </dt>
+      <dd>{{ recipe.preparationTime }} min</dd>
+      <dt>
+        Cuisson <span class="glyphicon glyphicon-fire" aria-hidden="true"></span> :
+      </dt>
+      <dd>{% if recipe.cookTime is not null %}{{ recipe.cookTime }} min {% else %} - {% endif %}</dd>
+      <dt>
+        Repos <span class="glyphicon glyphicon-glass" aria-hidden="true"></span> :
+      </dt>
+      <dd>{% if recipe.restTime is not null %}{{ recipe.restTime }} min {% else %} - {% endif %}</dd>
+    </dl>
+  </div>
+  <div class="col-md-6">
+    <h2>Ingredients</h2>
+    <hr>
+    <dl class="dl-horizontal">
+      {% for recipeHasIngredient in recipe.ingredients %}
+      <dt>{{ recipeHasIngredient.ingredient.name }} :</dt>
+      <dd>
+        {{ recipeHasIngredient|getUnit }}
+      </dd>
+      {% endfor %}
+    </dl>
+  </div>
+  <div class="col-md-12">
+    <h2>Etapes</h2>
+    <hr>
+      {% for step in recipe.steps %}
+      {{ loop.index }}) {{ step.text }}<br><br>
+      {% endfor %}
+  </div>
+</div>
+{% endblock %}

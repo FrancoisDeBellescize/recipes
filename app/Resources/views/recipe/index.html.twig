@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="col-md-8 col-md-offset-2 well well-lg row">
+  <div class="col-md-12 row">
+    {% for recipe in recipes %}
+    <div class="jumbotron col-md-6">
+      <h3>{{ recipe.name }}</h3>
+      <div class="container">
+      <p>{{ recipe.description }}</p>
+      <p>
+        <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{ recipe.preparationTime }} min
+        <span class="glyphicon glyphicon-fire" aria-hidden="true"></span> {% if recipe.cookTime is not null %}{{ recipe.cookTime }} min {% else %} - {% endif %}
+        <span class="glyphicon glyphicon-glass" aria-hidden="true"></span> {% if recipe.restTime is not null %}{{ recipe.restTime }} min {% else %} - {% endif %}
+      </p>
+      <p><a class="btn btn-primary" href="{{ path('recipe_show', { 'slug': recipe.slug }) }}" role="button">Show</a></p>
+    </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

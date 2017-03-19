@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="col-md-8 col-md-offset-2 well well-lg row">
+  <input id="ingredient_search" type="text">
+</div>
+
+<script>
+$(function(){
+  $("#ingredient_search").autocomplete({
+    source: "{{ path('recipe_search_autocomplete')}}",
+    minLength: 2,
+    select: function( event, ui ) {
+      log( "Selected: " + ui.item.value + " aka " + ui.item.id );
+    }
+  });
+});
+</script>
+{% endblock %}
