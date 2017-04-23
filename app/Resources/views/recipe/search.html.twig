@@ -2,18 +2,87 @@
 
 {% block body %}
 <div class="col-md-8 col-md-offset-2 well well-lg row">
-  <input id="ingredient_search" type="text">
+  <p>Indiquez les ingrédients que vous voulez utiliser et nous vous resortirons les recettes</p>
+  <br><br>
+  {{ form_start(form) }}
+  {{ form_widget(form.ingredients, { 'attr': {'class': 'col-md-6'} }) }}
+  {{ form_widget(form.save, { 'attr': {'class': 'col-md-12 submit_search_form'} }) }}
+  {{ form_end(form) }}
 </div>
 
-<script>
-$(function(){
-  $("#ingredient_search").autocomplete({
-    source: "{{ path('recipe_search_autocomplete')}}",
-    minLength: 2,
-    select: function( event, ui ) {
-      log( "Selected: " + ui.item.value + " aka " + ui.item.id );
+<script type="text/javascript">
+  $(document).ready(function() {
+    var $container = $('#recipe_ingredients');
+
+    var $addLink = $('<a href="#" id="add_category" class="btn btn-default">Ajouter un ingrédient</a><br><br>');
+    $container.append($addLink);
+    $addLink.click(function(e) {
+      addCategory($container);
+      e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+      return false;
+    });
+
+    var index = $container.find(':input').length;
+
+    if (index == 0) {
+      addCategory($container);
+    } else {
+      $container.children('div').each(function() {
+        addDeleteLink($(this));
+      });
+    }
+
+    function addCategory($container) {
+      var $prototype = $($container.attr('data-prototype').replace(/__name__label__/g, 'Ingrédient')
+          .replace(/__name__/g, index));
+
+      addDeleteLink($prototype);
+      $container.append($prototype);
+      index++;
+    }
+
+    function addDeleteLink($prototype) {
+      $deleteLink = $('<a href="#" class="btn btn-danger">Supprimer</a>');
+      $prototype.append($deleteLink);
+      $deleteLink.click(function(e) {
+        $prototype.remove();
+        e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+        return false;
+      });
     }
   });
-});
 </script>
+
+<!-- SCRIPT TO ADD ELEMENT -->
+<!-- <script>
+var $addTagLink = $('<button class="btn btn-primary add_ingredient_link">Add an ingredient</button>');
+var $newLinkLi = $('<div></div>').append($addTagLink);
+
+jQuery(document).ready(function() {
+  var $collectionHolder = $('#recipe_ingredients');
+  $collectionHolder.append($newLinkLi);
+  $collectionHolder.data('index', $collectionHolder.find(':input').length);
+  $addTagLink.on('click', function(e) {
+    e.preventDefault();
+    addTagForm($collectionHolder, $newLinkLi);
+  });
+});
+
+function addTagForm($collectionHolder, $newLinkLi) {
+  var prototype = $collectionHolder.data('prototype');
+  var index = $collectionHolder.data('index');
+  var newForm = prototype.replace('<label class="control-label required">__name__label__</label>', '');
+  $collectionHolder.data('index', index + 1);
+  var $newFormLi = $('<div></div>').append(newForm);
+  $newFormLi.append('<br><br><button class="btn-sm btn-primary remove-ingredient">Supprimer</button><br><br>');
+
+  $newLinkLi.before($newFormLi);
+
+  $('.remove-ingredient').click(function(e) {
+    e.preventDefault();
+    $(this).parent().remove();
+    return false;
+  });
+}
+</script> -->
 {% endblock %}

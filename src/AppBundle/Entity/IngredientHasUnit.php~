@@ -1,0 +1,59 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+
+/**
+ * @ORM\Entity
+ */
+class IngredientHasUnit
+{
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @var \AppBundle\Entity\Ingredient
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Ingredient", inversedBy="units")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $ingredient;
+
+    /**
+     * @var \AppBundle\Entity\Unit
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Unit")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $unit;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $value;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

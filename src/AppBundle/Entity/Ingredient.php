@@ -24,19 +24,21 @@ class Ingredient
     private $name;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Unit", cascade={"persist"},cascade={"all"})
      */
-    private $inUnit;
+    private $defaultUnit;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
-     */
-    private $gram;
+    * @var ArrayCollection Unit
+    * @ORM\OneToMany(targetEntity="AppBundle\Entity\IngredientHasUnit", mappedBy="ingredient",cascade={"all"},orphanRemoval=true )
+    */
+    private $units;
 
-    /**
-     * @ORM\Column(type="float", nullable=true)
-     */
-    private $milliliter;
+    // Constructor
+    public function __construct()
+    {
+      $this->units = new ArrayCollection();
+    }
 
     /**
      * Print for admin
@@ -83,74 +85,61 @@ class Ingredient
     }
 
     /**
-     * Set inUnit
+     * Add unit
      *
-     * @param boolean $inUnit
+     * @param \AppBundle\Entity\IngredientHasUnit $unit
      *
      * @return Ingredient
      */
-    public function setInUnit($inUnit)
+    public function addUnit(\AppBundle\Entity\IngredientHasUnit $unit)
     {
-        $this->inUnit = $inUnit;
+        $unit->setIngredient($this);
+        $this->units[] = $unit;
 
         return $this;
     }
 
     /**
-     * Get inUnit
+     * Remove unit
      *
-     * @return boolean
+     * @param \AppBundle\Entity\IngredientHasUnit $unit
      */
-    public function getInUnit()
+    public function removeUnit(\AppBundle\Entity\IngredientHasUnit $unit)
     {
-        return $this->inUnit;
+        $this->units->removeElement($unit);
     }
 
     /**
-     * Set gram
+     * Get units
      *
-     * @param string $gram
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUnits()
+    {
+        return $this->units;
+    }
+
+    /**
+     * Set defaultUnit
+     *
+     * @param \AppBundle\Entity\Unit $defaultUnit
      *
      * @return Ingredient
      */
-    public function setGram($gram)
+    public function setDefaultUnit(\AppBundle\Entity\Unit $defaultUnit = null)
     {
-        $this->gram = $gram;
+        $this->defaultUnit = $defaultUnit;
 
         return $this;
     }
 
     /**
-     * Get gram
+     * Get defaultUnit
      *
-     * @return string
+     * @return \AppBundle\Entity\Unit
      */
-    public function getGram()
+    public function getDefaultUnit()
     {
-        return $this->gram;
-    }
-
-    /**
-     * Set milliliter
-     *
-     * @param string $milliliter
-     *
-     * @return Ingredient
-     */
-    public function setMilliliter($milliliter)
-    {
-        $this->milliliter = $milliliter;
-
-        return $this;
-    }
-
-    /**
-     * Get milliliter
-     *
-     * @return string
-     */
-    public function getMilliliter()
-    {
-        return $this->milliliter;
+        return $this->defaultUnit;
     }
 }

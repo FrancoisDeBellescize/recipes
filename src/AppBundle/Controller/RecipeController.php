@@ -5,12 +5,13 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class RecipeController extends Controller
 {
   /**
-   * @Route("/recipe", name="recipe_index")
-   */
+  * @Route("/recipe", name="recipe_index")
+  */
   public function indexAction()
   {
     $repository = $this->getDoctrine()->getRepository('AppBundle:Recipe');
@@ -41,16 +42,27 @@ class RecipeController extends Controller
   }
 
   /**
-   * @Route("/search", name="recipe_search")
-   */
-  public function searchAction()
+  * @Route("/search", name="recipe_search")
+  */
+  public function searchAction(Request $request)
   {
-    return $this->render('recipe/search.html.twig');
+    $form = $this->createForm('AppBundle\Form\RecipeType', null);
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+      $data = $form->get('ingredients')->getData();
+
+      $em = $this->getDoctrine()->getManager();
+      $recipes = $em->getRepository('AppBundle:Recipe')->findByIngredients($data);
+      return $this->render('recipe/search_result.html.twig', array('recipes' => $recipes));
+    }
+
+    return $this->render('recipe/search.html.twig', array('form' => $form->createView()));
   }
 
   /**
-   * @Route("/search/autocomplete", name="recipe_search_autocomplete")
-   */
+  * @Route("/search/autocomplete", name="recipe_search_autocomplete")
+  */
   public function searchAutocompleteAction(Request $request)
   {
     $names = array();
@@ -59,14 +71,14 @@ class RecipeController extends Controller
     $em = $this->getDoctrine()->getManager();
 
     $entities = $em->getRepository('AppBundle:Ingredient')->createQueryBuilder('c')
-       ->where('c.name LIKE :name')
-       ->setParameter('name', '%'.$term.'%')
-       ->getQuery()
-       ->getResult();
+    ->where('c.name LIKE :name')
+    ->setParameter('name', '%'.$term.'%')
+    ->getQuery()
+    ->getResult();
 
     foreach ($entities as $entity)
     {
-        $names[] = $entity->getName();
+      $names[] = array("name" => $entity->getName(), "id" => $entity->getId());
     }
 
     $response = new JsonResponse();

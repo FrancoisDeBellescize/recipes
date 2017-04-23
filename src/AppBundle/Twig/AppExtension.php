@@ -12,20 +12,13 @@ class AppExtension extends \Twig_Extension
 
   public function getUnit($recipeHasIngredient)
   {
-    if ($recipeHasIngredient->getIngredient()->getInUnit() == true)
-    return $recipeHasIngredient->getValue();
+    $value = $recipeHasIngredient->getValue();
+    $display = $value . $recipeHasIngredient->getIngredient()->getDefaultUnit()->getSymbol();
 
-    if ($recipeHasIngredient->getIngredient()->getGram() == null && $recipeHasIngredient->getIngredient()->getMilliliter() != null)
-    return ($recipeHasIngredient->getValue() . " ml");
-
-    if ($recipeHasIngredient->getIngredient()->getGram() != null && $recipeHasIngredient->getIngredient()->getMilliliter() == null)
-    return ($recipeHasIngredient->getValue() . " gr");
-
-    if ($recipeHasIngredient->getIngredient()->getGram() != null && $recipeHasIngredient->getIngredient()->getMilliliter() != null){
-      $ml = $recipeHasIngredient->getValue() / $recipeHasIngredient->getIngredient()->getGram() * $recipeHasIngredient->getIngredient()->getMilliliter();
-      return ($recipeHasIngredient->getValue() . " gr / " . intval($ml) . " ml");
+    $units = $recipeHasIngredient->getIngredient()->getUnits();
+    foreach ($units as $ingredientHasUnit){
+      $display = $display . " / " . $value * $ingredientHasUnit->getValue() . $ingredientHasUnit->getUnit()->getSymbol();
     }
-
-    return ($recipeHasIngredient->getValue());
+    return $display;
   }
 }

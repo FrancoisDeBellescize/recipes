@@ -9,8 +9,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Gedmo\Sluggable\Util\Urlizer;
 
 /**
-* @ORM\Entity
-*/
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\RecipeRepository")
+ */
 class Recipe
 {
   /**

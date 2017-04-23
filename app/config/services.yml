@@ -26,11 +26,23 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, label: RecipeHasIngredient }
 
+    admin.ingredient_has_unit:
+        class: AppBundle\Admin\IngredientHasUnitAdmin
+        arguments: [~, AppBundle\Entity\IngredientHasUnit, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: IngredientHasUnit }
+
     admin.step:
         class: AppBundle\Admin\StepAdmin
         arguments: [~, AppBundle\Entity\Step, SonataAdminBundle:CRUD]
         tags:
             - { name: sonata.admin, manager_type: orm, group: Recipe, label: Step }
+
+    admin.unit:
+        class: AppBundle\Admin\UnitAdmin
+        arguments: [~, AppBundle\Entity\Unit, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Recipe, label: Unit }
 
     ## Twig Extension
 

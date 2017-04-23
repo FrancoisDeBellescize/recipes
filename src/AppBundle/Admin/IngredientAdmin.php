@@ -11,22 +11,24 @@ class IngredientAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
       $formMapper->add('name', 'text')
-      ->add('inUnit')
-      ->add('gram')
-      ->add('milliliter');
+      ->add('defaultUnit')
+      ->add('units', 'sonata_type_collection',
+      array('label' => 'Unités',
+      'by_reference' => false,
+      'required' => false),
+      array(
+        'edit' => 'inline',
+        'inline' => 'table',
+      ));
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-      $datagridMapper->add('name')
-      ->add('inUnit')
-      ->add('gram')
-      ->add('milliliter');
+      $datagridMapper->add('name');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-      $listMapper->addIdentifier('name')
-      ->addIdentifier('inUnit');
+      $listMapper->addIdentifier('name');
     }
 }
