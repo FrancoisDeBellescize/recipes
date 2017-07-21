@@ -1,5 +1,5 @@
 imports:
-    - { resource: parameters_prodution.php }
+    - { resource: parameters_production.php }
     - { resource: security.yml }
     - { resource: services.yml }
 
