@@ -28,20 +28,25 @@
     <h2>Ingredients</h2>
     <hr>
     <dl class="dl-horizontal">
-      {% for recipeHasIngredient in recipe.ingredients %}
+      {% for test in recipe.ingredients|sortByPart %}
+      {% if test.id is defined %}
+        <h4>{{ test.name }} : </h4>
+      {% endif %}
+      {% for recipeHasIngredient in test.ingredients %}
       <dt>{{ recipeHasIngredient.ingredient.name }} :</dt>
       <dd>
         {{ recipeHasIngredient|getUnit }}
       </dd>
+      {% endfor %}
       {% endfor %}
     </dl>
   </div>
   <div class="col-md-12">
     <h2>Etapes</h2>
     <hr>
-      {% for step in recipe.steps %}
-      {{ loop.index }}) {{ step.text }}<br><br>
-      {% endfor %}
+    {% for step in recipe.steps %}
+    {{ loop.index }}) {{ step.text }}<br><br>
+    {% endfor %}
   </div>
 </div>
 {% endblock %}

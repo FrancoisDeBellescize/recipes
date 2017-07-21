@@ -38,7 +38,7 @@ class RecipeController extends Controller
       throw $this->createNotFoundException('The recipe does not exist');
     }
 
-    return $this->render('recipe/show.html.twig', array("recipe" => $recipe));
+    return $this->render('recipe/show.html.twig', array("recipe" => $recipe, "orderedIngredients" => $recipe->getIngredientsGroupByPart()));
   }
 
   /**

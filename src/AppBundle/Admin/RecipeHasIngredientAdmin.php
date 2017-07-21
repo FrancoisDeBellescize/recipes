@@ -12,12 +12,14 @@ class RecipeHasIngredientAdmin extends AbstractAdmin
     {
       $formMapper->add('value', null, array('label' => 'Valeur (Unité/Grammes)'))
       ->add('ingredient', 'sonata_type_model_list', array(), array('link_parameters' => array()))
-      ->add('position', 'hidden');
+      ->add('position', 'hidden')
+      ->add('part', 'sonata_type_model_list', array(), array('link_parameters' => array()));
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
       $datagridMapper->add('position');
+      $datagridMapper->add('part');
     }
 
     protected function configureListFields(ListMapper $listMapper)

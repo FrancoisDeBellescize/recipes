@@ -46,6 +46,13 @@ class Recipe
   private $steps;
 
   /**
+  * @var ArrayCollection Parts
+  * @ORM\OneToMany(targetEntity="AppBundle\Entity\Part", mappedBy="recipe",cascade={"all"},orphanRemoval=true )
+  * @ORM\OrderBy({"position" = "ASC"})
+  */
+  private $parts;
+
+  /**
   * @ORM\Column(type="integer", nullable=true)
   */
   private $cookTime;
@@ -124,7 +131,15 @@ class Recipe
     return $this;
   }
 
-
+  public function getIngredientsGroupByPart(){
+    $orderedIngredients = array();
+    foreach ($this->ingredients as $recipeHasIngredient){
+      if ($recipeHasIngredient->getPart() != null){
+        $orderedIngredients[$recipeHasIngredient->getPart()->getId()] = $recipeHasIngredient->getPart();
+      }
+    }
+    return $orderedIngredients;
+  }
 
 
 

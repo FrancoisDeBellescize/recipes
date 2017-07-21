@@ -45,6 +45,14 @@ class RecipeHasIngredient
     private $position;
 
     /**
+     * @var \AppBundle\Entity\Part
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Part")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $part;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -164,5 +172,29 @@ class RecipeHasIngredient
     public function getPosition()
     {
         return $this->position;
+    }
+
+    /**
+     * Set part
+     *
+     * @param \AppBundle\Entity\Part $part
+     *
+     * @return RecipeHasIngredient
+     */
+    public function setPart(\AppBundle\Entity\Part $part = null)
+    {
+        $this->part = $part;
+
+        return $this;
+    }
+
+    /**
+     * Get part
+     *
+     * @return \AppBundle\Entity\Part
+     */
+    public function getPart()
+    {
+        return $this->part;
     }
 }
