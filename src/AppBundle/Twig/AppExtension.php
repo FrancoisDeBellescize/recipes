@@ -7,7 +7,7 @@ class AppExtension extends \Twig_Extension
   {
     return array(
       new \Twig_SimpleFilter('getUnit', array($this, 'getUnit')),
-      new \Twig_SimpleFilter('sortByPart', array($this, 'sortByPart')),
+      new \Twig_SimpleFilter('sortByPart', array($this, 'sortByPartFilter')),
     );
   }
 
@@ -23,7 +23,7 @@ class AppExtension extends \Twig_Extension
     return $display;
   }
 
-  public function sortByPart($ingredients)
+  public function sortByPartFilter($ingredients)
   {
     $parts = array();
     foreach ($ingredients as $recipeHasIngredient){

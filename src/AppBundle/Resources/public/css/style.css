@@ -1,4 +1,31 @@
+.submit_search_form {
+	margin-top: 20px;
+}
 
-.submit_search_form{
-  margin-top:20px;
+#recipe_media {
+	background-repeat: no-repeat;
+	background-position: right center;
+	background-size: cover;
+	height: 200px;
+	position: relative;
+	width: 100%;
+	-moz-box-shadow: inset 0px 0px 3px 1px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: inset 0px 0px 3px 1px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 0px 0px 50px 10px rgba(0, 0, 0, 0.5);
+
+	-webkit-transition: all 1s ease; /* Safari and Chrome */
+	-moz-transition: all 1s ease; /* Firefox */
+	-ms-transition: all 1s ease; /* IE 9 */
+	-o-transition: all 1s ease; /* Opera */
+	transition: all 1s ease;
+}
+
+#recipe_media_wrapper {
+	overflow: hidden;
+	border-radius: 10px;
+}
+
+#recipe_media_wrapper:hover #recipe_media {
+	-webkit-transform: scale(1.08);
+	transform: scale(1.08);
 }

@@ -5,6 +5,10 @@
   <div class="col-md-12">
     <h1>{{ recipe.name }}</h1>
     <hr>
+    <div id="recipe_media_wrapper">
+      <div id="recipe_media" style="background-image: url({% path recipe.media, 'big' %})">
+      </div>
+    </div>
   </div>
   <div class="col-md-6">
     <h2>Informations</h2>
@@ -30,7 +34,7 @@
     <dl class="dl-horizontal">
       {% for test in recipe.ingredients|sortByPart %}
       {% if test.id is defined %}
-        <h4>{{ test.name }} : </h4>
+      <h4>{{ test.name }} : </h4>
       {% endif %}
       {% for recipeHasIngredient in test.ingredients %}
       <dt>{{ recipeHasIngredient.ingredient.name }} :</dt>

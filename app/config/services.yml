@@ -49,10 +49,13 @@ services:
         arguments: [~, AppBundle\Entity\Part, SonataAdminBundle:CRUD]
         tags:
             - { name: sonata.admin, manager_type: orm, group: Recipe, label: Part }
-    ## Twig Extension
 
+## Twig Extension
     app.twig_extension:
         class: AppBundle\Twig\AppExtension
         public: false
         tags:
             - { name: twig.extension }
+
+parameters:
+    sonata.media.admin.media.class: AppBundle\Admin\MediaAdmin

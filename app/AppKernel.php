@@ -32,6 +32,14 @@ class AppKernel extends Kernel
       // And finally, the storage and SonataAdminBundle
       new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
       new Sonata\AdminBundle\SonataAdminBundle(),
+
+      // Sonata Media
+      new Sonata\MediaBundle\SonataMediaBundle(),
+      new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+      new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
+
+      new JMS\SerializerBundle\JMSSerializerBundle(),
+
       new AppBundle\AppBundle(),
     ];
 

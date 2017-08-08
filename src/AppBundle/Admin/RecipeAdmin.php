@@ -13,6 +13,10 @@ class RecipeAdmin extends AbstractAdmin
   {
     $formMapper->with('Général')
     ->add('name')
+    ->add('media', 'sonata_type_model_list',
+      array('label' => 'Image', 'required' => false),
+      array('link_parameters' => array('context' => $this->getRequest()->get('context')))
+    )
     ->add('cookTime', null, array('label' => 'Cook Time (in minutes)'))
     ->add('preparationTime', null, array('label' => 'Preparation Time (in minutes)'))
     ->add('restTime', null, array('label' => 'Rest Time (in minutes)'))
