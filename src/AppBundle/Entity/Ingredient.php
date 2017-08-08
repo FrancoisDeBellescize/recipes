@@ -38,6 +38,7 @@ class Ingredient
     // Constructor
     public function __construct()
     {
+      $this->name = "New Ingredient";
       $this->units = new ArrayCollection();
     }
 

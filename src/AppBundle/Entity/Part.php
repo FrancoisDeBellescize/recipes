@@ -29,6 +29,7 @@ class Part
   // Constructor
   public function __construct()
   {
+    $this->name = "New Part";
   }
 
   public function __toString(){

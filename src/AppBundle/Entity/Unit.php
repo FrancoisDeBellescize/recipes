@@ -28,6 +28,12 @@ class Unit
      */
     private $symbol;
 
+    // Constructor
+    public function __construct()
+    {
+      $this->name = "New Unit";
+    }
+
     /**
      * Print for admin
      *

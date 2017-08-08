@@ -36,6 +36,11 @@ class Step
      */
     private $position;
 
+    // Constructor
+    public function __construct()
+    {
+    }
+
     /**
      * Get id
      *

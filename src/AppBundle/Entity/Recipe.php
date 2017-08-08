@@ -81,6 +81,7 @@ class Recipe
   // Constructor
   public function __construct()
   {
+    $this->name = "New Recipe";
     $this->ingredients = new ArrayCollection();
     $this->steps = new ArrayCollection();
   }
@@ -273,9 +274,7 @@ class Recipe
   }
 
   public function __toString(){
-    if ($this->getName())
-      return $this->getName();
-    return "new";
+    return $this->getName();
   }
 
   /**
