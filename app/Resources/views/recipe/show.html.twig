@@ -1,7 +1,35 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="col-md-8 col-md-offset-2 well well-lg row">
+
+<div id="tools" class="col-md-3">
+  <h3>Tools</h3>
+
+  <!-- Large modal -->
+  <button id="without-hand" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Mode mains libres</button>
+
+  <a class="tool-menu-item" data-toggle="collapse" data-target="#timer"><h4>Minuterie</h4></a>
+  <div id="timer" class="collapse">
+    <span id="tmp"></span>
+    Battre la meringue : 10 min<br>
+    Laisser à température ambiant : 30 min<br>
+    Faire cuire : 12 min
+  </div>
+  <hr>
+  <a class="tool-menu-item" data-toggle="collapse" data-target="#vocabulary"><h4>Vocabulaire</h4></a>
+  <div id="vocabulary" class="collapse">
+    "Tant pour Tant" : Mélange de la poudre d'amande et du sucre
+  </div>
+  <hr>
+  <a class="tool-menu-item" data-toggle="collapse" data-target="#change_ingredients"><h4>Remplacer les ingrédients</h4></a>
+  <div id="change_ingredients" class="collapse">
+    <small>Aucune information</small>
+  </div>
+
+</div>
+
+
+<div class="col-md-8 col-md-offset-1 well well-lg row">
   <div class="col-md-12">
     <h1>{{ recipe.name }}</h1>
     <hr>
@@ -14,6 +42,10 @@
     <h2>Informations</h2>
     <hr>
     <dl class="dl-horizontal">
+      <dt>
+        Quantité <span class="glyphicon glyphicon-user" aria-hidden="true"></span> :
+      </dt>
+      <dd>{% if recipe.forPerson is not null %}{{ recipe.forPerson }} personnes {% else %} - {% endif %}</dd>
       <dt>
         Préparation <span class="glyphicon glyphicon-time" aria-hidden="true"></span> :
       </dt>
@@ -39,7 +71,17 @@
       {% for recipeHasIngredient in test.ingredients %}
       <dt>{{ recipeHasIngredient.ingredient.name }} :</dt>
       <dd>
+        {% if recipeHasIngredient.ingredient.units|length > 0  %}
+        <span>{{ recipeHasIngredient.value }}</span>
+        <select class="selectIngredient" data="{{ recipeHasIngredient.value }}">
+          <option value="1">{{ recipeHasIngredient.ingredient.defaultUnit.symbol }}</option>
+          {% for ingredientHasUnit in recipeHasIngredient.ingredient.units %}
+          <option value="{{ ingredientHasUnit.value }}">{{ ingredientHasUnit.unit.symbol }}</option>
+          {% endfor %}
+        </select>
+        {% else %}
         {{ recipeHasIngredient|getUnit }}
+        {% endif %}
       </dd>
       {% endfor %}
       {% endfor %}
@@ -49,8 +91,170 @@
     <h2>Etapes</h2>
     <hr>
     {% for step in recipe.steps %}
-    {{ loop.index }}) {{ step.text }}<br><br>
+    <div>{{ loop.index }}) {{ step.text }}</div><br>
     {% endfor %}
   </div>
 </div>
+
+
+<!-- MODAL -->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+
+        <div id="jarvis_status"></div>
+
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="null">
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              Prochaine étape: <span class="commands" id="step_next"></span><br>
+              Précédente étape: <span class="commands" id="step_prev"></span><br>
+              Arréter : <span class="commands" id="stop"></span>
+            </div>
+            {% for step in recipe.steps %}
+            <div class="item">
+              <h3>Etape {{ loop.index }},</h3>
+              {{ step.text }}
+            </div>
+            {% endfor %}
+            <div class="item">
+              Dites "Fermer" pour fermer la popup
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$(".selectIngredient").change(function(){
+  $(this).prev().html($(this).attr("data") * $(this).val());
+})
+
+function get_elapsed_time_string(total_seconds){
+  function pretty_time_string(num){
+    return (num < 10 ? "0" : "") + num;
+  }
+
+  var hours = Math.floor(total_seconds / 3600);
+  total_seconds = total_seconds % 3600;
+
+  var minutes = Math.floor(total_seconds / 60);
+  total_seconds = total_seconds % 60;
+
+  var seconds = Math.floor(total_seconds);
+
+  hours = pretty_time_string(hours);
+  minutes = pretty_time_string(minutes);
+  seconds = pretty_time_string(seconds);
+
+  var currentTimeString = hours + ":" + minutes + ":" + seconds;
+
+  return currentTimeString;
+}
+
+var elapsed_seconds = 1000;
+setInterval(function(){
+  elapsed_seconds = elapsed_seconds - 1;
+  $("#tmp").text(get_elapsed_time_string(elapsed_seconds));
+}, 1000);
+
+function toString(array){
+  ret = "";
+  $.each( array, function( key, value ) {
+    if (key > 0)
+      ret += ", ";
+    ret += "<span class='command'>" + value + "</span>";
+  });
+  return ret;
+}
+
+
+// Jarvis
+var next = ["suivant", "ensuite", "next"];
+var prev = ["précédent", "avant", "prev"];
+var stop = ["stop", "fermer"];
+
+$("#step_next").html(toString(next));
+$("#step_prev").html(toString(prev));
+$("#stop").html(toString(stop));
+
+const Jarvis = new Artyom();
+console.log(Jarvis.getVoices());
+
+var commands = [
+  {
+    indexes: next,
+    action: function(){
+      $(".carousel").carousel('next');
+      Jarvis.say($(".item.active").next().text(), {
+        onStart() {
+          Jarvis.dontObey();
+        },
+        onEnd() {
+          Jarvis.obey();
+        }
+      });
+    }
+  },
+  {
+    indexes: prev,
+    action: function(){
+      $(".carousel").carousel('prev');
+      Jarvis.say($(".item.active").prev().text(), {
+        onStart() {
+          Jarvis.dontObey();
+        },
+        onEnd() {
+          Jarvis.obey();
+        }
+      });
+    }
+  },
+  {
+    indexes: stop,
+    action: function(){
+      $(".modal").modal('hide')
+    }
+  }
+];
+
+Jarvis.when("NOT_COMMAND_MATCHED",function(){
+  $("#jarvis_status").text("Je n'ai pas compris");
+});
+
+Jarvis.when("COMMAND_MATCHED",function(){
+  $("#jarvis_status").text("");
+});
+
+Jarvis.addCommands(commands); // Add the command with addCommands method. Now
+
+$('.modal').on('show.bs.modal', function (e) {
+  Jarvis.initialize({
+    lang: "fr-FR",
+    continuous: true,
+    debug: true,
+    listen: true,
+    speed: 1.2
+  });
+})
+
+$('.modal').on('hide.bs.modal', function (e) {
+  Jarvis.shutUp();
+  Jarvis.fatality();
+})
+
+</script>
 {% endblock %}

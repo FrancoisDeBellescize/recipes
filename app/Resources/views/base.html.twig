@@ -12,7 +12,8 @@
 </head>
 <body>
   {% javascripts '@AppBundle/Resources/public/js/jquery-1.9.1.js'
-  '@AppBundle/Resources/public/bootstrap/js/bootstrap.min.js'%}
+  '@AppBundle/Resources/public/bootstrap/js/bootstrap.min.js'
+  '@AppBundle/Resources/public/js/artyom.window.min.js' %}
   <script src="{{ asset_url }}"></script>
   {% endjavascripts %}
   <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
@@ -45,10 +46,11 @@
       </div>
     </div>
   </nav>
-
+<div class="container">
   <div class="row">
     {% block body %}
     {% endblock %}
   </div>
+</div>
 </body>
 </html>

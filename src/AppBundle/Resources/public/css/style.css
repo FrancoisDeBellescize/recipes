@@ -29,3 +29,28 @@
 	-webkit-transform: scale(1.08);
 	transform: scale(1.08);
 }
+
+#tools {
+	padding-left: 30px;
+	height: 100%;
+}
+
+.tool-menu-item {
+	text-align: center;
+	cursor: pointer;
+	background-color: #eeeeee;
+	z-index: 20;
+	display: block;
+	padding: 10px;
+}
+
+.command {
+	color: #ff8888;
+	font-style: italic;
+}
+
+#jarvis_status {
+	color: #ff8888;
+	font-style: italic;
+	text-align: center;
+}
