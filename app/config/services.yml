@@ -38,6 +38,12 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: Recipe, label: Step }
 
+    admin.timer:
+        class: AppBundle\Admin\TimerAdmin
+        arguments: [~, AppBundle\Entity\Timer, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Recipe, label: Timer }
+
     admin.unit:
         class: AppBundle\Admin\UnitAdmin
         arguments: [~, AppBundle\Entity\Unit, SonataAdminBundle:CRUD]

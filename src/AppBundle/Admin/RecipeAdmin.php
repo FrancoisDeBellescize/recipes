@@ -34,6 +34,17 @@ class RecipeAdmin extends AbstractAdmin
       'inline' => 'table',
     ))
     ->end()
+    ->with('Etapes')
+    ->add('timers', 'sonata_type_collection',
+    array('label' => 'Timers',
+    'by_reference' => false,
+    'required' => false),
+    array(
+      'edit' => 'inline',
+      'sortable' => 'position',
+      'inline' => 'table',
+    ))
+    ->end()
     ->with('Ingredients')
     ->add('ingredients', 'sonata_type_collection',
     array('label' => 'Ingrédients',

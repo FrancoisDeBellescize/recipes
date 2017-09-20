@@ -1,34 +1,30 @@
 {% extends 'base.html.twig' %}
 
+{% block sidenav %}
+<li class="no-padding">
+  <ul class="collapsible collapsible-accordion">
+    <li>
+      <a class="collapsible-header">Minuteries<i class="material-icons">arrow_drop_down</i></a>
+      <div class="collapsible-body">
+        <ul>
+          <li>
+            <a class="chrono" running=false data="1000" init="1000">
+              Cuisson :  <span class="time">00 : 00 : 00</span>
+              <i class="material-icons timer reset">refresh</i>
+              <i class="material-icons timer play">play_circle_filled</i>
+            </a>
+          </li>
+          <li><a href="#!">Second</a></li>
+          <li><a href="#!">Third</a></li>
+          <li><a href="#!">Fourth</a></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</li>
+{% endblock %}
+
 {% block body %}
-
-<div id="tools" class="col-md-3">
-  <h3>Tools</h3>
-
-  <!-- Large modal -->
-  <button id="without-hand" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Mode mains libres</button>
-
-  <a class="tool-menu-item" data-toggle="collapse" data-target="#timer"><h4>Minuterie</h4></a>
-  <div id="timer" class="collapse">
-    <span id="tmp"></span>
-    Battre la meringue : 10 min<br>
-    Laisser à température ambiant : 30 min<br>
-    Faire cuire : 12 min
-  </div>
-  <hr>
-  <a class="tool-menu-item" data-toggle="collapse" data-target="#vocabulary"><h4>Vocabulaire</h4></a>
-  <div id="vocabulary" class="collapse">
-    "Tant pour Tant" : Mélange de la poudre d'amande et du sucre
-  </div>
-  <hr>
-  <a class="tool-menu-item" data-toggle="collapse" data-target="#change_ingredients"><h4>Remplacer les ingrédients</h4></a>
-  <div id="change_ingredients" class="collapse">
-    <small>Aucune information</small>
-  </div>
-
-</div>
-
-
 <div class="col-md-8 col-md-offset-1 well well-lg row">
   <div class="col-md-12">
     <h1>{{ recipe.name }}</h1>
@@ -139,122 +135,50 @@
 </div>
 
 <script>
-$(".selectIngredient").change(function(){
-  $(this).prev().html($(this).attr("data") * $(this).val());
-})
 
-function get_elapsed_time_string(total_seconds){
-  function pretty_time_string(num){
-    return (num < 10 ? "0" : "") + num;
+$(function() {
+  function timer(){
+    $(".chrono").each(function(){
+      var run = $(this).attr("running");
+      if (run == "true"){
+        var data = $(this).attr("data");
+        $(this).children(".time").html(timeToString(data));
+        $(this).attr("data", --data)
+        // console.log(date["value"]);
+      }
+    })
   }
-
-  var hours = Math.floor(total_seconds / 3600);
-  total_seconds = total_seconds % 3600;
-
-  var minutes = Math.floor(total_seconds / 60);
-  total_seconds = total_seconds % 60;
-
-  var seconds = Math.floor(total_seconds);
-
-  hours = pretty_time_string(hours);
-  minutes = pretty_time_string(minutes);
-  seconds = pretty_time_string(seconds);
-
-  var currentTimeString = hours + ":" + minutes + ":" + seconds;
-
-  return currentTimeString;
-}
-
-var elapsed_seconds = 1000;
-setInterval(function(){
-  elapsed_seconds = elapsed_seconds - 1;
-  $("#tmp").text(get_elapsed_time_string(elapsed_seconds));
-}, 1000);
-
-function toString(array){
-  ret = "";
-  $.each( array, function( key, value ) {
-    if (key > 0)
-      ret += ", ";
-    ret += "<span class='command'>" + value + "</span>";
-  });
-  return ret;
-}
-
-
-// Jarvis
-var next = ["suivant", "ensuite", "next"];
-var prev = ["précédent", "avant", "prev"];
-var stop = ["stop", "fermer"];
-
-$("#step_next").html(toString(next));
-$("#step_prev").html(toString(prev));
-$("#stop").html(toString(stop));
-
-const Jarvis = new Artyom();
-console.log(Jarvis.getVoices());
-
-var commands = [
-  {
-    indexes: next,
-    action: function(){
-      $(".carousel").carousel('next');
-      Jarvis.say($(".item.active").next().text(), {
-        onStart() {
-          Jarvis.dontObey();
-        },
-        onEnd() {
-          Jarvis.obey();
-        }
-      });
-    }
-  },
-  {
-    indexes: prev,
-    action: function(){
-      $(".carousel").carousel('prev');
-      Jarvis.say($(".item.active").prev().text(), {
-        onStart() {
-          Jarvis.dontObey();
-        },
-        onEnd() {
-          Jarvis.obey();
-        }
-      });
-    }
-  },
-  {
-    indexes: stop,
-    action: function(){
-      $(".modal").modal('hide')
-    }
-  }
-];
-
-Jarvis.when("NOT_COMMAND_MATCHED",function(){
-  $("#jarvis_status").text("Je n'ai pas compris");
+  setInterval(timer, 1000);
 });
 
-Jarvis.when("COMMAND_MATCHED",function(){
-  $("#jarvis_status").text("");
-});
-
-Jarvis.addCommands(commands); // Add the command with addCommands method. Now
-
-$('.modal').on('show.bs.modal', function (e) {
-  Jarvis.initialize({
-    lang: "fr-FR",
-    continuous: true,
-    debug: true,
-    listen: true,
-    speed: 1.2
-  });
+$(".play.timer").click(function(){
+  var data = $(this).parent('a');
+  if (data.attr("running") == "true"){
+    data.attr("running", false);
+    data.children('.play').html("play_circle_filled");
+  } else {
+    data.attr("running", true);
+    data.children('.play').html("pause_circle_filled");
+  }
 })
 
-$('.modal').on('hide.bs.modal', function (e) {
-  Jarvis.shutUp();
-  Jarvis.fatality();
+$(".reset.timer").click(function(){
+  var data = $(this).parent('a');
+  data.children('.play').html("play_circle_filled");
+  data.attr("data", data.attr("init"));
+  data.attr("running", false);
+  $(this).prev('.time').html(timeToString(data.attr("init")));
 })
 
+function timeToString(time){
+  var h, m, s;
+  h = Math.floor(time / 3600);
+  if (h<10) h = "0" + h;
+  m = Math.floor(time / 60);
+  if (m<10) m = "0" + m;
+  s = time % 60;
+  if (s<10) s = "0" + s;
+  return (h + ' : ' + m + ' : ' + s);
+}
 </script>
 {% endblock %}

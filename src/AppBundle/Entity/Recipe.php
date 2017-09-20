@@ -47,6 +47,13 @@ class Recipe
   private $steps;
 
   /**
+  * @var ArrayCollection Timers
+  * @ORM\OneToMany(targetEntity="AppBundle\Entity\Timer", mappedBy="recipe",cascade={"all"},orphanRemoval=true )
+  * @ORM\OrderBy({"position" = "ASC"})
+  */
+  private $timers;
+
+  /**
   * @var ArrayCollection Parts
   * @ORM\OneToMany(targetEntity="AppBundle\Entity\Part", mappedBy="recipe",cascade={"all"},orphanRemoval=true )
   * @ORM\OrderBy({"position" = "ASC"})
@@ -444,4 +451,38 @@ class Recipe
   {
     return $this->media;
   }
+
+    /**
+     * Add timer
+     *
+     * @param \AppBundle\Entity\Timer $timer
+     *
+     * @return Recipe
+     */
+    public function addTimer(\AppBundle\Entity\Timer $timer)
+    {
+        $this->timers[] = $timer;
+
+        return $this;
+    }
+
+    /**
+     * Remove timer
+     *
+     * @param \AppBundle\Entity\Timer $timer
+     */
+    public function removeTimer(\AppBundle\Entity\Timer $timer)
+    {
+        $this->timers->removeElement($timer);
+    }
+
+    /**
+     * Get timers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTimers()
+    {
+        return $this->timers;
+    }
 }
