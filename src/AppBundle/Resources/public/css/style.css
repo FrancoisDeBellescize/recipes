@@ -5,6 +5,14 @@ footer {
 	transition: padding 0.3s;
 }
 
+td.flex {
+	display: flex !important;
+}
+
+td.flex > i {
+	margin-right: 5px;
+}
+
 .timer {
 	float: right !important;
 	margin: 0 !important;
@@ -17,4 +25,8 @@ footer {
 
 .time.reset {
 	cursor: pointer;
+}
+
+.collection {
+	border: none !important;
 }

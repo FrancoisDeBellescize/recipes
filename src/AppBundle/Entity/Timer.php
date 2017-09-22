@@ -26,7 +26,7 @@ class Timer
     private $recipe;
 
     /**
-     * @ORM\Column(type="text", unique=false)
+     * @ORM\Column(type="string", unique=false, length=255)
      * @Assert\NotBlank()
      */
     private $name;

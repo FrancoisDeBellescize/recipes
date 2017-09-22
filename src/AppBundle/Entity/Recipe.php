@@ -461,6 +461,7 @@ class Recipe
      */
     public function addTimer(\AppBundle\Entity\Timer $timer)
     {
+        $timer->setRecipe($this);
         $this->timers[] = $timer;
 
         return $this;

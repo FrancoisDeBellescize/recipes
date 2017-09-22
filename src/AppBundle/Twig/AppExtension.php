@@ -8,7 +8,19 @@ class AppExtension extends \Twig_Extension
     return array(
       new \Twig_SimpleFilter('getUnit', array($this, 'getUnit')),
       new \Twig_SimpleFilter('sortByPart', array($this, 'sortByPartFilter')),
+      new \Twig_SimpleFilter('secondToTime', array($this, 'secondToTime')),
     );
+  }
+
+  public function secondToTime($seconde)
+  {
+    $h = floor($seconde / 3600);
+    if ($h < 10) $h = "0" . $h;
+    $m = floor($seconde % 3600 / 60);
+    if ($m < 10) $m = "0" . $m;
+    $s = floor($seconde % 3600 % 60);
+    if ($s < 10) $s = "0" . $s;
+    return ($h . ' : ' . $m . ' : ' . $s);
   }
 
   public function getUnit($recipeHasIngredient)

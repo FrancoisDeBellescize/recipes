@@ -7,16 +7,15 @@
       <a class="collapsible-header">Minuteries<i class="material-icons">arrow_drop_down</i></a>
       <div class="collapsible-body">
         <ul>
+          {% for timer in recipe.timers %}
           <li>
-            <a class="chrono" running=false data="1000" init="1000">
-              Cuisson :  <span class="time">00 : 00 : 00</span>
+            <a class="chrono" running=false data="{{ timer.time }}" init="{{ timer.time }}">
+              {{ timer.name }} :  <span class="time">{{ timer.time|secondToTime }}</span>
               <i class="material-icons timer reset">refresh</i>
               <i class="material-icons timer play">play_circle_filled</i>
             </a>
           </li>
-          <li><a href="#!">Second</a></li>
-          <li><a href="#!">Third</a></li>
-          <li><a href="#!">Fourth</a></li>
+          {% endfor %}
         </ul>
       </div>
     </li>
@@ -25,116 +24,91 @@
 {% endblock %}
 
 {% block body %}
-<div class="col-md-8 col-md-offset-1 well well-lg row">
-  <div class="col-md-12">
+<div class="card hoverable">
+  <div class="card-image">
+    <img src="{% path recipe.media, 'big' %}">
+  </div>
+  <div class="card-content row">
     <h1>{{ recipe.name }}</h1>
-    <hr>
-    <div id="recipe_media_wrapper">
-      <div id="recipe_media" style="background-image: url({% path recipe.media, 'big' %})">
-      </div>
+    <div class="col s6">
+      <ul class="collection with-header">
+        <li class="collection-item">
+          <i class="material-icons">people</i> Quantité
+          <span class="secondary-content">
+            {% if recipe.forPerson is not null %}{{ recipe.forPerson }} personnes {% else %} -- {% endif %}
+          </span>
+        </li>
+        <li class="collection-item">
+          <i class="material-icons">alarm</i>Préparation
+          <span class="secondary-content">
+            {{ recipe.preparationTime }} min
+          </span>
+        </li>
+        <li class="collection-item">
+          <i class="material-icons">whatshot</i>Cuisson
+          <span class="secondary-content">
+            {% if recipe.cookTime is not null %}{{ recipe.cookTime }} min {% else %} -- {% endif %}
+          </span>
+        </li>
+        <li class="collection-item">
+          <i class="material-icons">restore</i>Repos
+          <span class="secondary-content">
+            {% if recipe.restTime is not null %}{{ recipe.restTime }} min {% else %} -- {% endif %}
+          </span>
+        </li>
+      </ul>
     </div>
-  </div>
-  <div class="col-md-6">
-    <h2>Informations</h2>
-    <hr>
-    <dl class="dl-horizontal">
-      <dt>
-        Quantité <span class="glyphicon glyphicon-user" aria-hidden="true"></span> :
-      </dt>
-      <dd>{% if recipe.forPerson is not null %}{{ recipe.forPerson }} personnes {% else %} - {% endif %}</dd>
-      <dt>
-        Préparation <span class="glyphicon glyphicon-time" aria-hidden="true"></span> :
-      </dt>
-      <dd>{{ recipe.preparationTime }} min</dd>
-      <dt>
-        Cuisson <span class="glyphicon glyphicon-fire" aria-hidden="true"></span> :
-      </dt>
-      <dd>{% if recipe.cookTime is not null %}{{ recipe.cookTime }} min {% else %} - {% endif %}</dd>
-      <dt>
-        Repos <span class="glyphicon glyphicon-glass" aria-hidden="true"></span> :
-      </dt>
-      <dd>{% if recipe.restTime is not null %}{{ recipe.restTime }} min {% else %} - {% endif %}</dd>
-    </dl>
-  </div>
-  <div class="col-md-6">
-    <h2>Ingredients</h2>
-    <hr>
-    <dl class="dl-horizontal">
-      {% for test in recipe.ingredients|sortByPart %}
-      {% if test.id is defined %}
-      <h4>{{ test.name }} : </h4>
-      {% endif %}
-      {% for recipeHasIngredient in test.ingredients %}
-      <dt>{{ recipeHasIngredient.ingredient.name }} :</dt>
-      <dd>
-        {% if recipeHasIngredient.ingredient.units|length > 0  %}
-        <span>{{ recipeHasIngredient.value }}</span>
-        <select class="selectIngredient" data="{{ recipeHasIngredient.value }}">
-          <option value="1">{{ recipeHasIngredient.ingredient.defaultUnit.symbol }}</option>
-          {% for ingredientHasUnit in recipeHasIngredient.ingredient.units %}
-          <option value="{{ ingredientHasUnit.value }}">{{ ingredientHasUnit.unit.symbol }}</option>
-          {% endfor %}
-        </select>
-        {% else %}
-        {{ recipeHasIngredient|getUnit }}
+    <div class="col s6">
+      <ul class="collection with-header">
+        {% for part in recipe.ingredients|sortByPart %}
+        {% if part.id is defined %}
+        <li class="collection-header"><h4>First Names</h4></li>
         {% endif %}
-      </dd>
+        {% for recipeHasIngredient in part.ingredients %}
+        <li class="collection-item">
+          {{ recipeHasIngredient.ingredient.name }}
+          <span class="secondary-content">
+            {% if recipeHasIngredient.ingredient.units|length > 0  %}
+            <span>{{ recipeHasIngredient.value }}</span>
+            <select class="selectIngredient" data="{{ recipeHasIngredient.value }}">
+              <option value="1">{{ recipeHasIngredient.ingredient.defaultUnit.symbol }}</option>
+              {% for ingredientHasUnit in recipeHasIngredient.ingredient.units %}
+              <option value="{{ ingredientHasUnit.value }}">{{ ingredientHasUnit.unit.symbol }}</option>
+              {% endfor %}
+            </select>
+            {% else %}
+            {{ recipeHasIngredient|getUnit }}
+            {% endif %}
+          </span>
+        </li>
+        {% endfor %}
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="col s12">
+      {% for step in recipe.steps %}
+      <div>{{ step.text }}</div><br>
       {% endfor %}
-      {% endfor %}
-    </dl>
-  </div>
-  <div class="col-md-12">
-    <h2>Etapes</h2>
-    <hr>
-    {% for step in recipe.steps %}
-    <div>{{ loop.index }}) {{ step.text }}</div><br>
-    {% endfor %}
-  </div>
-</div>
-
-
-<!-- MODAL -->
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-
-        <div id="jarvis_status"></div>
-
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="null">
-
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner" role="listbox">
-            <div class="item active">
-              Prochaine étape: <span class="commands" id="step_next"></span><br>
-              Précédente étape: <span class="commands" id="step_prev"></span><br>
-              Arréter : <span class="commands" id="stop"></span>
-            </div>
-            {% for step in recipe.steps %}
-            <div class="item">
-              <h3>Etape {{ loop.index }},</h3>
-              {{ step.text }}
-            </div>
-            {% endfor %}
-            <div class="item">
-              Dites "Fermer" pour fermer la popup
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
     </div>
   </div>
 </div>
 
 <script>
+function notifyBrowser(title, desc)
+{
+  if (Notification.permission !== "granted")
+  {
+    Notification.requestPermission();
+  }
+  var notification = new Notification(title, {
+    icon:'https://www.google.fr/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiKx--d7bPWAhXCNxQKHXrbCXwQjRwIBw&url=https%3A%2F%2Fwww.mql5.com%2Fen%2Fmarket%2Fproduct%2F4494&psig=AFQjCNERTK2i6oJ06xpbqyn9bwyKzAIxkg&ust=1505999974491909',
+    body: desc,
+  });
+  /* Callback function when the notification is closed. */
+  notification.onclose = function () {
+    console.log('Notification closed');
+  };
+}
 
 $(function() {
   function timer(){
@@ -144,7 +118,11 @@ $(function() {
         var data = $(this).attr("data");
         $(this).children(".time").html(timeToString(data));
         $(this).attr("data", --data)
-        // console.log(date["value"]);
+        if (data == -1){
+          notifyBrowser("Timer End", "");
+          $(this).attr("running", false)
+          $(this).children('.play').html("play_circle_filled");
+        }
       }
     })
   }
@@ -159,6 +137,7 @@ $(".play.timer").click(function(){
   } else {
     data.attr("running", true);
     data.children('.play').html("pause_circle_filled");
+    notifyBrowser("Timer started", timeToString(data.attr("data")) + " left");
   }
 })
 
@@ -174,9 +153,9 @@ function timeToString(time){
   var h, m, s;
   h = Math.floor(time / 3600);
   if (h<10) h = "0" + h;
-  m = Math.floor(time / 60);
+  m = Math.floor(time % 3600 / 60);
   if (m<10) m = "0" + m;
-  s = time % 60;
+  s = Math.floor(time % 3600 % 60);
   if (s<10) s = "0" + s;
   return (h + ' : ' + m + ' : ' + s);
 }
