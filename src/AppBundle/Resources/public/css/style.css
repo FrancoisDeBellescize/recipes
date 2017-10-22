@@ -30,3 +30,9 @@ td.flex > i {
 .collection {
 	border: none !important;
 }
+
+.button-show {
+	position: absolute !important;
+	bottom: 15px;
+	right: 15px;
+}
