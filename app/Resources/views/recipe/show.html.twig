@@ -21,6 +21,11 @@
     </li>
   </ul>
 </li>
+<li>
+  <div data-bring-import data-bring-language="fr" style="display:none">
+    <a href="https://www.getbring.com">Ajouter a ma liste de course</a>
+  </div>
+</li>
 {% endblock %}
 
 {% block body %}
@@ -41,7 +46,7 @@
     </div>
     <div style="display:none" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
       <span itemprop="ratingValue">5</span> stars -
-      based on <span itemprop="reviewCount">0</span> reviews
+      based on <span itemprop="reviewCount">1</span> reviews
     </div>
 
     <div class="col s6">
@@ -60,7 +65,7 @@
         </li>
         <li class="collection-item">
           <i class="material-icons">whatshot</i>Cuisson
-          <span citemprop="cookTime" content="PT{{ recipe.cookTime }}M" lass="secondary-content">
+          <span itemprop="cookTime" content="PT{{ recipe.cookTime }}M" lass="secondary-content">
             {% if recipe.cookTime is not null %}{{ recipe.cookTime }} min {% else %} -- {% endif %}
           </span>
         </li>
@@ -107,6 +112,7 @@
   </div>
 </div>
 
+<script async="async" src="//platform.getbring.com/widgets/import.js"></script>
 <script>
 function notifyBrowser(title, desc)
 {
