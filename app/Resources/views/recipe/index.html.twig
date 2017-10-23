@@ -13,7 +13,7 @@
         <i class="flow-text material-icons">whatshot</i> {% if recipe.cookTime is not null %}{{ recipe.cookTime }} min {% else %} -- {% endif %}
         <i class="material-icons">restore</i> {% if recipe.restTime is not null %}{{ recipe.restTime }} min {% else %} -- {% endif %}
         <br><br>
-        <a href="{{ path('recipe_show', { 'slug': recipe.slug }) }}" class="button-show right btn waves-effect waves-light">Show
+        <a href="{{ path('recipe_show', { 'slug': recipe.slug }) }}" class="button-show right btn waves-effect waves-light">Voir
           <i class="material-icons right">send</i>
         </a>
       </div>

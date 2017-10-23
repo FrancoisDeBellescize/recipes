@@ -36,3 +36,11 @@ td.flex > i {
 	bottom: 15px;
 	right: 15px;
 }
+
+.card-action {
+	display: flex;
+}
+
+.card-title {
+	flex: 1;
+}
