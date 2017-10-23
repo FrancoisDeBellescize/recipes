@@ -30,7 +30,20 @@
   </div>
   <div class="card-content row">
     <h1 itemprop="name">{{ recipe.name }}</h1>
+
+
     <span style="display:none" itemprop="author">My recipes</span>
+    <span style="display:none" itemprop="description">{{ recipe.description }}</span>
+    <div style="display:none" itemprop="nutrition" itemscope itemtype="http://schema.org/NutritionInformation">
+      Nutrition facts:
+      <span itemprop="calories">0 calories</span>,
+      <span itemprop="fatContent">0 grams fat</span>
+    </div>
+    <div style="display:none" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+      <span itemprop="ratingValue">5</span> stars -
+      based on <span itemprop="reviewCount">0</span> reviews
+    </div>
+
     <div class="col s6">
       <ul class="collection with-header">
         <li class="collection-item">
@@ -41,13 +54,13 @@
         </li>
         <li class="collection-item">
           <i class="material-icons">alarm</i>Préparation
-          <span itemprop="prepTime" class="secondary-content">
+          <span itemprop="prepTime" content="PT{{ recipe.preparationTime }}M" class="secondary-content">
             {{ recipe.preparationTime }} min
           </span>
         </li>
         <li class="collection-item">
           <i class="material-icons">whatshot</i>Cuisson
-          <span class="secondary-content">
+          <span citemprop="cookTime" content="PT{{ recipe.cookTime }}M" lass="secondary-content">
             {% if recipe.cookTime is not null %}{{ recipe.cookTime }} min {% else %} -- {% endif %}
           </span>
         </li>
