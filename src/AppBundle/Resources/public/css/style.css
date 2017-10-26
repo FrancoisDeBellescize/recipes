@@ -44,3 +44,9 @@ td.flex > i {
 .card-title {
 	flex: 1;
 }
+
+#bring_button_left_menu {
+	transform: translate(50%);
+	left: -40%;
+	position: relative;
+}

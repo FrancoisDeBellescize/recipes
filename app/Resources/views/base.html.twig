@@ -1,5 +1,8 @@
 <html>
 <head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   {% block stylesheets %}
   {% stylesheets '@AppBundle/Resources/public/css/*' filter='cssrewrite' %}
   <link rel="stylesheet" href="{{ asset_url }}" type="text/css" \>
@@ -30,7 +33,7 @@
     <!--- Top Nav --->
     <nav>
       <div class="nav-wrapper">
-        <a href="#!" data-activates="slide-out" class="brand-logo button-collapse show-on-large show-on-medium-and-down"><i class="material-icons">menu</i></a>
+        <a id="left-bar-menu-button" href="#!" data-activates="slide-out" class="brand-logo button-collapse show-on-large show-on-medium-and-down"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
         </ul>
       </div>

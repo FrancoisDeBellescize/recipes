@@ -1,10 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block sidenav %}
+{% if recipe.timers|length > 0 %}
 <li class="no-padding">
   <ul class="collapsible collapsible-accordion">
     <li>
-      <a class="collapsible-header">Minuteries<i class="material-icons">arrow_drop_down</i></a>
+      <a class="collapsible-header active">Minuteries<i class="material-icons">arrow_drop_down</i></a>
       <div class="collapsible-body">
         <ul>
           {% for timer in recipe.timers %}
@@ -21,7 +22,8 @@
     </li>
   </ul>
 </li>
-<li>
+{% endif %}
+<li id="bring_button_left_menu">
   <div data-bring-import data-bring-language="fr" style="display:none">
     <a href="https://www.getbring.com">Ajouter a ma liste de course</a>
   </div>
@@ -29,6 +31,15 @@
 {% endblock %}
 
 {% block body %}
+<!-- Tap Target Structure -->
+<div class="tap-target" data-activates="left-bar-menu-button">
+  <div class="tap-target-content">
+    <h5>Title</h5>
+    <p>A bunch of text</p>
+  </div>
+</div>
+
+
 <div class="card hoverable" itemscope itemtype="http://schema.org/Recipe">
   <div class="card-image">
     <img itemprop="image" src="{% path recipe.media, 'big' %}">
