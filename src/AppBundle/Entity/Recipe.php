@@ -90,11 +90,17 @@ class Recipe
    */
   protected $media;
 
+  /**
+  * @ORM\Column(type="float", nullable=false)
+  */
+  private $note;
+
 
   // Constructor
   public function __construct()
   {
     $this->name = "New Recipe";
+    $this->note = 3;
     $this->ingredients = new ArrayCollection();
     $this->steps = new ArrayCollection();
   }
@@ -485,5 +491,29 @@ class Recipe
     public function getTimers()
     {
         return $this->timers;
+    }
+
+    /**
+     * Set note
+     *
+     * @param integer $note
+     *
+     * @return Recipe
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
+
+        return $this;
+    }
+
+    /**
+     * Get note
+     *
+     * @return integer
+     */
+    public function getNote()
+    {
+        return $this->note;
     }
 }

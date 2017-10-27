@@ -1,0 +1,28 @@
+<ul class="pagination">
+  <!-- Previous -->
+  {% if previous is defined %}
+  <li class="waves-effect">
+    <a href="{{ path(route, query|merge({(pageParameterName): previous})) }}"><i class="material-icons">chevron_left</i></a>
+  </li>
+  {% else %}
+  <li class="waves-effect disabled">
+    <a href="#"><i class="material-icons">chevron_left</i></a>
+  </li>
+  {% endif %}
+
+  <!-- Pages -->
+  {% for page in pagesInRange %}
+  <li class="waves-effect {% if page == current %}active{% endif %}"><a href="{{ path(route, query|merge({(pageParameterName): page})) }}">{{ page }}</a></li>
+  {% endfor %}
+
+  <!-- Next -->
+  {% if next is defined %}
+  <li class="waves-effect">
+    <a href="{{ path(route, query|merge({(pageParameterName): next})) }}"><i class="material-icons">chevron_right</i></a>
+  </li>
+  {% else %}
+  <li class="waves-effect disabled">
+    <a href="#"><i class="material-icons">chevron_right</i></a>
+  </li>
+  {% endif %}
+</ul>

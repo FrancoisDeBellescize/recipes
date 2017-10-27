@@ -46,7 +46,78 @@ td.flex > i {
 }
 
 #bring_button_left_menu {
+	margin-top: 15px;
 	transform: translate(50%);
 	left: -40%;
 	position: relative;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.recipe_note {
+	vertical-align: text-top;
+}
+.recipe_note > .material-icons {
+	margin-right: -10px;
+}
+
+.tap-target {
+	color: white;
+}
+
+li.search {
+	position: relative;
+	left: 0;
+	right: 0;
+	margin-top: 15px;
+	margin-bottom: 5px;
+	padding: 1px 0 0 0;
+	z-index: 2;
+}
+
+li.search .search-wrapper {
+	margin: 0 12px;
+	-webkit-transition: margin 0.25s ease;
+	transition: margin 0.25s ease;
+}
+
+li.search .search-wrapper input#search {
+	display: block;
+	font-size: 16px;
+	font-weight: 300;
+	width: 100%;
+	height: 45px;
+	margin: 0;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0 45px 0 15px;
+	border: 0;
+}
+
+li.search .search-wrapper i.material-icons {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+}
+
+li.search .search-results {
+	margin: 0;
+	border-top: 1px solid #e9e9e9;
+	background-color: #fff;
+}
+
+#logo_sidenav {
+	text-align: center;
+	margin-top: 30px;
+}
+
+#logo_sidenav > a {
+	height: auto;
+}
+
+#logo_sidenav > a:hover {
+	background-color: transparent;
 }

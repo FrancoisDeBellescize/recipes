@@ -7776,9 +7776,18 @@ footer {
 	transition: padding 0.3s;
 }
 
+td.flex {
+	display: flex !important;
+}
+
+td.flex > i {
+	margin-right: 5px;
+}
+
 .timer {
 	float: right !important;
 	margin: 0 !important;
+	cursor: pointer;
 }
 
 .timer.play {
@@ -7787,4 +7796,36 @@ footer {
 
 .time.reset {
 	cursor: pointer;
+}
+
+.collection {
+	border: none !important;
+}
+
+.button-show {
+	position: absolute !important;
+	bottom: 15px;
+	right: 15px;
+}
+
+.card-action {
+	display: flex;
+}
+
+.card-title {
+	flex: 1;
+}
+
+#bring_button_left_menu {
+	transform: translate(50%);
+	left: -40%;
+	position: relative;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.recipe_note li {
+	margin-left: -5px;
 }

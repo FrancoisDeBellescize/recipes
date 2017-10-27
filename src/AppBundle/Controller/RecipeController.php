@@ -12,16 +12,19 @@ class RecipeController extends Controller
   /**
   * @Route("/recipe", name="recipe_index")
   */
-  public function indexAction()
+  public function indexAction(Request $request)
   {
-    $repository = $this->getDoctrine()->getRepository('AppBundle:Recipe');
-    $recipes = $repository->findAll();
+    $em    = $this->get('doctrine.orm.entity_manager');
+    $dql   = "SELECT r FROM AppBundle:Recipe r";
+    $query = $em->createQuery($dql);
 
-    if (!$recipes){
-      throw $this->createNotFoundException('The recipe does not exist');
-    }
-
-    return $this->render('recipe/index.html.twig', array("recipes" => $recipes));
+    $paginator  = $this->get('knp_paginator');
+    $pagination = $paginator->paginate(
+      $query, /* query NOT result */
+      $request->query->getInt('page', 1) /* page number */,
+      6 /* limit per page */
+    );
+    return $this->render('recipe/index.html.twig', array('recipes' => $pagination));
   }
 
   /**

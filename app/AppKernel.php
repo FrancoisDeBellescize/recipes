@@ -40,6 +40,8 @@ class AppKernel extends Kernel
 
       new JMS\SerializerBundle\JMSSerializerBundle(),
 
+      new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+
       new AppBundle\AppBundle(),
     ];
 

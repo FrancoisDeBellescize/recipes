@@ -5,7 +5,7 @@
 <li class="no-padding">
   <ul class="collapsible collapsible-accordion">
     <li>
-      <a class="collapsible-header active">Minuteries<i class="material-icons">arrow_drop_down</i></a>
+      <a class="collapsible-header active"> Minuteries<i class="material-icons">arrow_drop_down</i><i class="material-icons">timer</i></a>
       <div class="collapsible-body">
         <ul>
           {% for timer in recipe.timers %}
@@ -32,20 +32,47 @@
 
 {% block body %}
 <!-- Tap Target Structure -->
+{% if recipe.timers|length > 0 %}
 <div class="tap-target" data-activates="left-bar-menu-button">
   <div class="tap-target-content">
-    <h5>Title</h5>
-    <p>A bunch of text</p>
+    <h5>Encore plus de possibilités !</h5>
+    <p>Utilisez les minuteries déjà configuré et recevez une alerte lorsqu'elles sont terminées</p>
+    <p>Ajoutez la liste des ingrédients ainsi que leurs quantité à votre liste de course Bring!</p>
+    <a id="discover-feature-recipe-stop" class="waves-effect waves-light btn">Ne plus voir ce message</a>
   </div>
 </div>
 
+<script>
+$( document ).ready(function() {
+  $("#discover-feature-recipe-stop").click(function(){
+    $.cookie("discover-feature-recipe", "false");
+  });
+  if (!$.cookie("discover-feature-recipe")){
+    $('.tap-target').tapTarget('open');
+  }
+});
+</script>
+{% endif %}
 
 <div class="card hoverable" itemscope itemtype="http://schema.org/Recipe">
   <div class="card-image">
     <img itemprop="image" src="{% path recipe.media, 'big' %}">
   </div>
   <div class="card-content row">
-    <h1 itemprop="name">{{ recipe.name }}</h1>
+    <h1 itemprop="name">
+      {{ recipe.name }}
+      <small class="recipe_note">
+        {% for i in 1..5 %}
+        {% if recipe.note - i >= 0 %}
+        <i class="material-icons">star</i>
+        {% elseif recipe.note - i > -1 %}
+        <i class="material-icons">star_half</i>
+        {% else %}
+        <i class="material-icons">star_border</i>
+        {% endif %}
+        {% endfor %}
+      </small>
+    </h1>
 
 
     <span style="display:none" itemprop="author">My recipes</span>
@@ -56,7 +83,7 @@
       <span itemprop="fatContent">0 grams fat</span>
     </div>
     <div style="display:none" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-      <span itemprop="ratingValue">5</span> stars -
+      <span itemprop="ratingValue">{{ recipe.note }}</span> stars -
       based on <span itemprop="reviewCount">1</span> reviews
     </div>
 
@@ -76,7 +103,7 @@
         </li>
         <li class="collection-item">
           <i class="material-icons">whatshot</i>Cuisson
-          <span itemprop="cookTime" content="PT{{ recipe.cookTime }}M" lass="secondary-content">
+          <span itemprop="cookTime" content="PT{{ recipe.cookTime }}M" class="secondary-content">
             {% if recipe.cookTime is not null %}{{ recipe.cookTime }} min {% else %} -- {% endif %}
           </span>
         </li>
@@ -150,7 +177,7 @@ $(function() {
         $(this).children(".time").html(timeToString(data));
         $(this).attr("data", --data)
         if (data == -1){
-          notifyBrowser("Timer End", "");
+          notifyBrowser("Minuterie terminé !", "");
           $(this).attr("running", false)
           $(this).children('.play').html("play_circle_filled");
         }
@@ -168,7 +195,7 @@ $(".play.timer").click(function(){
   } else {
     data.attr("running", true);
     data.children('.play').html("pause_circle_filled");
-    notifyBrowser("Timer started", timeToString(data.attr("data")) + " left");
+    notifyBrowser("Minuterie lancé pour " + timeToString(data.attr("data")), "");
   }
 })
 
