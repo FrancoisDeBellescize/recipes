@@ -5,7 +5,11 @@
 <div class="col s12 m6">
   <div class="hoverable card sticky-action">
     <div class="card-image waves-effect waves-block waves-light">
+      {% if recipe.media %}
       <img class="activator" src="{% path recipe.media, 'big' %}">
+      {% else %}
+      <img class="activator" src="{{ asset('bundles/app/img/default.png') }}">
+      {% endif %}
     </div>
     <div class="card-action">
       <span class="card-title activator grey-text text-darken-4">{{ recipe.name }}<br>

@@ -13,7 +13,9 @@ class RecipeType extends AbstractType
 {
   public function buildForm(FormBuilderInterface $builder, array $options)
   {
-    $builder->add('ingredients', CollectionType::class, array(
+    $builder
+    ->add('name')
+    ->add('ingredients', CollectionType::class, array(
       'entry_type' => RecipeHasIngredientType::class,
       'allow_add' => true,
       'attr' => array("class" => 'row')

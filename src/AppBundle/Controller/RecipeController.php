@@ -60,7 +60,9 @@ class RecipeController extends Controller
       return $this->render('recipe/search_result.html.twig', array('recipes' => $recipes));
     }
 
-    return $this->render('recipe/search.html.twig', array('form' => $form->createView()));
+    $ingredients = $this->getDoctrine()->getRepository('AppBundle:Ingredient')->findAll();
+
+    return $this->render('recipe/search.html.twig', array('form' => $form->createView(), 'ingredients' => $ingredients));
   }
 
   /**

@@ -56,7 +56,11 @@ $( document ).ready(function() {
 
 <div class="card hoverable" itemscope itemtype="http://schema.org/Recipe">
   <div class="card-image">
-    <img itemprop="image" src="{% path recipe.media, 'big' %}">
+    {% if recipe.media %}
+      <img itemprop="image" src="{% path recipe.media, 'big' %}">
+    {% else %}
+      <img itemprop="image" src="{{ asset('bundles/app/img/default.png') }}">
+    {% endif %}
   </div>
   <div class="card-content row">
     <h1 itemprop="name">

@@ -5,52 +5,88 @@
   <p>Indiquez les ingrédients que vous voulez utiliser et nous vous resortirons les recettes</p>
   <br><br>
   {{ form_start(form) }}
-  {{ form_widget(form.ingredients, { 'attr': {'class': 'col-md-6'} }) }}
-  {{ form_widget(form.save, { 'attr': {'class': 'col-md-12 submit_search_form'} }) }}
-  {{ form_end(form) }}
+  <div class="input-field col s12">
+    {{ form_widget(form.name) }}
+    <label for="last_name">Titre de la recette</label>
+  </div>
+  <div class="input-field col s4">
+    <i class="material-icons prefix">textsms</i>
+    <input type="text" id="autocomplete-ingredient" class="autocomplete">
+    <label for="autocomplete-ingredient">Ingredient</label>
+  </div>
+  <div class="input-field col s4">
+    <i class="material-icons prefix">textsms</i>
+    <input type="text" id="autocomplete_value">
+    <label for="autocomplete_value">Quantité</label>
+  </div>
+  <div class="input-field col s1">
+    <input disabled id="autocomplete_unit" value="g" type="text" class="validate">
+    <label for="autocomplete_unit">Unité</label>
+  </div>
+  <div class="col s3">
+    <a id="add_ingredient" class="waves-effect waves-light btn"><i class="material-icons left">add_circle</i>Ajouter</a>
+  </div>
+  <div id="collectionContainer" class="col s12" data-prototype="
+  {% filter escape %}
+  {{ include('templates/ingredient_form.html.twig', { 'form': form.ingredients.vars.prototype }) }}
+  {% endfilter %}">
+    <h4>Liste d'ingrédients :</h4>
+  </div>
+<!-- <div class="input-field col s6 offset-s3">
+{{ form_widget(form.ingredients) }}
+</div> -->
+{{ form_widget(form.save, { 'attr': {'class': 'col s12 submit_search_form'} }) }}
+{{ form_end(form) }}
 </div>
 
 <script type="text/javascript">
-  $(document).ready(function() {
-    var $container = $('#recipe_ingredients');
+$(document).ready(function() {
+  var $container = $('#collectionContainer');
+  var index = $container.find(':input').length;
+  var element = null;
 
-    var $addLink = $('<a href="#" id="add_category" class="btn btn-default">Ajouter un ingrédient</a><br><br>');
-    $container.append($addLink);
-    $addLink.click(function(e) {
-      addCategory($container);
-      e.preventDefault(); // évite qu'un # apparaisse dans l'URL
-      return false;
-    });
-
-    var index = $container.find(':input').length;
-
-    if (index == 0) {
-      addCategory($container);
-    } else {
-      $container.children('div').each(function() {
-        addDeleteLink($(this));
-      });
-    }
-
-    function addCategory($container) {
-      var $prototype = $($container.attr('data-prototype').replace(/__name__label__/g, 'Ingrédient')
-          .replace(/__name__/g, index));
-
-      addDeleteLink($prototype);
-      $container.append($prototype);
-      index++;
-    }
-
-    function addDeleteLink($prototype) {
-      $deleteLink = $('<a href="#" class="btn btn-danger">Supprimer</a>');
-      $prototype.append($deleteLink);
-      $deleteLink.click(function(e) {
-        $prototype.remove();
-        e.preventDefault(); // évite qu'un # apparaisse dans l'URL
-        return false;
-      });
-    }
+  $("#add_ingredient").click(function(){
+    addCategory($container);
   });
+
+  $(document).on("click", ".delete_ingredient_button", function(){
+    console.log($(this).attr("delete"));
+    item = $(this).attr("delete");
+    $(item).remove();
+  });
+
+  function addCategory($container) {
+    var $prototype = $($container.attr('data-prototype').replace(/__id__/g, index));
+    $container.append($prototype);
+    $("#recipe_ingredients_" + index + "_value").val($("#autocomplete_value").val());
+    $("#recipe_ingredients_" + index + "_unite").val(element["unit"]);
+    $("#recipe_ingredients_" + index + "_ingredient").val(element["name"]);
+
+    $("#autocomplete-ingredient").val("");
+    $("#autocomplete_value").val("");
+    index++;
+  }
+
+  ingredients = {
+    {% for ingredient in ingredients %}
+    "{{ ingredient.name }}": {"id" : {{ ingredient.id }}, "name" : "{{ ingredient.name }}", "unit" : "{{ ingredient.defaultUnit.symbol }}"},
+    {% endfor %}
+  };
+
+  $('input.autocomplete').autocomplete({
+    data: {
+      {% for ingredient in ingredients %}
+      "{{ ingredient.name }}": null,
+      {% endfor %}
+    },
+    limit: 20, // The max amount of results that can be shown at once. Default: Infinity.
+    onAutocomplete: function(val) {
+      element = ingredients[val];
+      $('#autocomplete_unit').val(ingredients[val]["unit"]);
+    },
+    minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
+  });
+});
 </script>
 
 <!-- SCRIPT TO ADD ELEMENT -->
@@ -59,30 +95,30 @@ var $addTagLink = $('<button class="btn btn-primary add_ingredient_link">Add an 
 var $newLinkLi = $('<div></div>').append($addTagLink);
 
 jQuery(document).ready(function() {
-  var $collectionHolder = $('#recipe_ingredients');
-  $collectionHolder.append($newLinkLi);
-  $collectionHolder.data('index', $collectionHolder.find(':input').length);
-  $addTagLink.on('click', function(e) {
-    e.preventDefault();
-    addTagForm($collectionHolder, $newLinkLi);
-  });
+var $collectionHolder = $('#recipe_ingredients');
+$collectionHolder.append($newLinkLi);
+$collectionHolder.data('index', $collectionHolder.find(':input').length);
+$addTagLink.on('click', function(e) {
+e.preventDefault();
+addTagForm($collectionHolder, $newLinkLi);
+});
 });
 
 function addTagForm($collectionHolder, $newLinkLi) {
-  var prototype = $collectionHolder.data('prototype');
-  var index = $collectionHolder.data('index');
-  var newForm = prototype.replace('<label class="control-label required">__name__label__</label>', '');
-  $collectionHolder.data('index', index + 1);
-  var $newFormLi = $('<div></div>').append(newForm);
-  $newFormLi.append('<br><br><button class="btn-sm btn-primary remove-ingredient">Supprimer</button><br><br>');
+var prototype = $collectionHolder.data('prototype');
+var index = $collectionHolder.data('index');
+var newForm = prototype.replace('<label class="control-label required">__name__label__</label>', '');
+$collectionHolder.data('index', index + 1);
+var $newFormLi = $('<div></div>').append(newForm);
+$newFormLi.append('<br><br><button class="btn-sm btn-primary remove-ingredient">Supprimer</button><br><br>');
 
-  $newLinkLi.before($newFormLi);
+$newLinkLi.before($newFormLi);
 
-  $('.remove-ingredient').click(function(e) {
-    e.preventDefault();
-    $(this).parent().remove();
-    return false;
-  });
+$('.remove-ingredient').click(function(e) {
+e.preventDefault();
+$(this).parent().remove();
+return false;
+});
 }
 </script> -->
 {% endblock %}

@@ -16,18 +16,8 @@ class RecipeHasIngredientType extends AbstractType
 {
   public function buildForm(FormBuilderInterface $builder, array $options)
   {
-    $builder->add('ingredient', EntityType::class, array(
-      'label' => false,
-      'class' => 'AppBundle:Ingredient',
-      'choice_label' => function ($ingredient) {
-        $symbol = $ingredient->getDefaultUnit()->getSymbol();
-        if ($symbol)
-        return $ingredient->getName() . " (" . $ingredient->getDefaultUnit()->getSymbol() . ")";
-        return $ingredient->getName();
-      },
-      "attr" => array('class' => "col-md-6")))
-      ->add('value', TextType::class, array(
-        "attr" => array('class' => "col-md-6")
-      ));
+    $builder
+      ->add('ingredient', TextType::class)
+      ->add('value', TextType::class);
     }
   }
