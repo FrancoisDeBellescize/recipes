@@ -31,14 +31,49 @@
 {% endblock %}
 
 {% block body %}
+<!-- Modal Structure -->
+<div id="ingredient-modal" class="modal bottom-sheet">
+  <div class="modal-content">
+    <h4>Ingrédients</h4>
+    <div class="row">
+      <div class="col s12">
+        <ul class="collection with-header">
+          {% for part in recipe.ingredients|sortByPart %}
+          {% if part.id is defined %}
+          <li class="collection-header"><h4>{{part.name}}</h4></li>
+          {% endif %}
+          {% for recipeHasIngredient in part.ingredients %}
+          <li itemprop="ingredients" class="collection-item">
+            {{ recipeHasIngredient.ingredient.name }}
+            <span class="secondary-content">
+              {% if recipeHasIngredient.ingredient.units|length > 0  %}
+              <span>{{ recipeHasIngredient.value }}</span>
+              <select class="selectIngredient" data="{{ recipeHasIngredient.value }}">
+                <option value="1">{{ recipeHasIngredient.ingredient.defaultUnit.symbol }}</option>
+                {% for ingredientHasUnit in recipeHasIngredient.ingredient.units %}
+                <option value="{{ ingredientHasUnit.value }}">{{ ingredientHasUnit.unit.symbol }}</option>
+                {% endfor %}
+              </select>
+              {% else %}
+              {{ recipeHasIngredient|getUnit }}
+              {% endif %}
+            </span>
+          </li>
+          {% endfor %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Tap Target Structure -->
 {% if recipe.timers|length > 0 %}
 <div class="tap-target" data-activates="left-bar-menu-button">
   <div class="tap-target-content">
     <h5>Encore plus de possibilités !</h5>
-    <p>Utilisez les minuteries déjà configuré et recevez une alerte lorsqu'elles sont terminées</p>
-    <p>Ajoutez la liste des ingrédients ainsi que leurs quantité à votre liste de course Bring!</p>
-    <a id="discover-feature-recipe-stop" class="waves-effect waves-light btn">Ne plus voir ce message</a>
+    <p>Utilisez les minuteries et ajouter les ingrédients à vos listes de course !</p>
+    <a id="discover-feature-recipe-stop" class="waves-effect waves-light btn">Ne plus voir</a>
   </div>
 </div>
 
@@ -57,26 +92,26 @@ $( document ).ready(function() {
 <div class="card hoverable" itemscope itemtype="http://schema.org/Recipe">
   <div class="card-image">
     {% if recipe.media %}
-      <img itemprop="image" src="{% path recipe.media, 'big' %}">
+    <img itemprop="image" src="{% path recipe.media, 'big' %}">
     {% else %}
-      <img itemprop="image" src="{{ asset('bundles/app/img/default.png') }}">
+    <img itemprop="image" src="{{ asset('bundles/app/img/default.png') }}">
     {% endif %}
   </div>
   <div class="card-content row">
-    <h1 itemprop="name">
+    <h1 class="recipe_name" itemprop="name">
       {{ recipe.name }}
-      <small class="recipe_note">
-        {% for i in 1..5 %}
-        {% if recipe.note - i >= 0 %}
-        <i class="material-icons">star</i>
-        {% elseif recipe.note - i > -1 %}
-        <i class="material-icons">star_half</i>
-        {% else %}
-        <i class="material-icons">star_border</i>
-        {% endif %}
-        {% endfor %}
-      </small>
     </h1>
+    <small class="recipe_note">
+      {% for i in 1..5 %}
+      {% if recipe.note - i >= 0 %}
+      <i class="material-icons">star</i>
+      {% elseif recipe.note - i > -1 %}
+      <i class="material-icons">star_half</i>
+      {% else %}
+      <i class="material-icons">star_border</i>
+      {% endif %}
+      {% endfor %}
+    </small>
 
 
     <span style="display:none" itemprop="author">My recipes</span>
@@ -119,8 +154,16 @@ $( document ).ready(function() {
         </li>
       </ul>
     </div>
-    <div class="col s12 m6">
-      <ul class="collection with-header">
+    <div id="ingredient-wrapper" class="col s12 m6">
+      <!-- Switch -->
+      <div class="switch">
+        <label>
+          Garder les ingrédients affichés
+          <input id="ingredient_modal_switch" type="checkbox">
+          <span class="lever"></span>
+        </label>
+      </div>
+      <ul id="ingredient-list" class="collection with-header">
         {% for part in recipe.ingredients|sortByPart %}
         {% if part.id is defined %}
         <li class="collection-header"><h4>{{part.name}}</h4></li>
@@ -146,7 +189,7 @@ $( document ).ready(function() {
         {% endfor %}
       </ul>
     </div>
-    <div class="col s12">
+    <div id="recipe_steps" class="col s12">
       {% for step in recipe.steps %}
       <div itemprop="recipeInstructions">{{ step.text }}</div><br>
       {% endfor %}
@@ -221,5 +264,31 @@ function timeToString(time){
   if (s<10) s = "0" + s;
   return (h + ' : ' + m + ' : ' + s);
 }
+
+$(document).ready(function(){
+  $('#ingredient-modal').modal({
+    dismissible: false, // Modal can be dismissed by clicking outside of the modal
+    opacity: 0, // Opacity of modal background
+    ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+      $(".modal-overlay").css("display", "none");
+    },
+    complete: function() {
+      $("#recipe_steps").css("margin-bottom", "0");
+
+    }
+  });
+
+  $("#ingredient_modal_switch").change(function(){
+    if (this.checked) {
+      $('#ingredient-modal').modal('open');
+      $("#ingredient-list").hide("slow");
+      $("#recipe_steps").css("margin-bottom", "35%");
+    }
+    else{
+      $("#ingredient-list").show("slow");
+      $('#ingredient-modal').modal('close');
+    }
+  })
+});
 </script>
 {% endblock %}
