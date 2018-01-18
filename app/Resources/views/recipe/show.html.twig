@@ -282,7 +282,7 @@ $(document).ready(function(){
     if (this.checked) {
       $('#ingredient-modal').modal('open');
       $("#ingredient-list").hide("slow");
-      $("#recipe_steps").css("margin-bottom", "35%");
+      $("#recipe_steps").css("margin-bottom", $("#ingredient-modal").height() - 100);
     }
     else{
       $("#ingredient-list").show("slow");
