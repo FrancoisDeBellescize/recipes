@@ -7776,12 +7776,30 @@ footer {
 	transition: padding 0.3s;
 }
 
+body {
+	overflow: auto !important;
+}
+
 td.flex {
 	display: flex !important;
 }
 
 td.flex > i {
 	margin-right: 5px;
+}
+
+#slide-out {
+	z-index: 1500;
+}
+
+#left-bar-menu-button {
+		left: 30px;
+}
+
+#ingredient-modal {
+	z-index: 1000;
+	background-color: white;
+	max-height: 30%;
 }
 
 .timer {
@@ -7817,6 +7835,7 @@ td.flex > i {
 }
 
 #bring_button_left_menu {
+	margin-top: 15px;
 	transform: translate(50%);
 	left: -40%;
 	position: relative;
@@ -7826,6 +7845,83 @@ td.flex > i {
 	text-align: center;
 }
 
-.recipe_note li {
-	margin-left: -5px;
+.recipe_name {
+	display: inline;
+}
+
+.recipe_note {
+	display: inline-block;
+	vertical-align: text-top;
+}
+.recipe_note > .material-icons {
+	margin-right: -5px;
+}
+
+.tap-target {
+	color: white;
+}
+
+li.search {
+	position: relative;
+	left: 0;
+	right: 0;
+	margin-top: 15px;
+	margin-bottom: 5px;
+	padding: 1px 0 0 0;
+	z-index: 2;
+}
+
+li.search .search-wrapper {
+	margin: 0 12px;
+	-webkit-transition: margin 0.25s ease;
+	transition: margin 0.25s ease;
+}
+
+li.search .search-wrapper input#search {
+	display: block;
+	font-size: 16px;
+	font-weight: 300;
+	width: 100%;
+	height: 45px;
+	margin: 0;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0 45px 0 15px;
+	border: 0;
+}
+
+li.search .search-wrapper i.material-icons {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
+}
+
+li.search .search-results {
+	margin: 0;
+	border-top: 1px solid #e9e9e9;
+	background-color: #fff;
+}
+
+#logo_sidenav {
+	text-align: center;
+	margin-top: 30px;
+}
+
+#logo_sidenav > a {
+	height: auto;
+}
+
+#logo_sidenav > a:hover {
+	background-color: transparent;
+}
+
+#ingredient-wrapper {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#recipe_steps {
+	-webkit-transition: all .5s ease;
+	transition: all .5s ease;
 }
