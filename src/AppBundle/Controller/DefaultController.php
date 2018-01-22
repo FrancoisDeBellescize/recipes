@@ -13,6 +13,9 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-      return $this->redirect($this->generateUrl('recipe_index'));
+      $repository = $this->getDoctrine()->getRepository('AppBundle:Recipe');
+      $recipes = $repository->getLast();
+
+      return $this->render('default/index.html.twig', array("recipes" => $recipes));
     }
 }

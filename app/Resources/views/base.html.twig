@@ -3,7 +3,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" type="image/png" href="{{ asset('bundles/app/img/logo.png') }}"/>
-
+  <title>Beat Eat</title>
   {% block stylesheets %}
   {% stylesheets '@AppBundle/Resources/public/css/*' filter='cssrewrite' %}
   <link rel="stylesheet" href="{{ asset_url }}" type="text/css" \>
@@ -65,7 +65,8 @@
         <div class="search-results"></div>
       </div>
     </li>
-    <li><a href="{{ path('recipe_index')}}"><i class="material-icons">home</i> Acceuil</a></li>
+    <li><a href="{{ path('homepage')}}"><i class="material-icons">home</i> Acceuil</a></li>
+    <li><a href="{{ path('recipe_index')}}"><i class="material-icons">library_books</i> Recettes</a></li>
     {% block sidenav %}
     {% endblock %}
   </ul>
@@ -103,6 +104,9 @@ $('.button-collapse').sideNav({
 
 <footer>
 </footer>
+
+{% block javascript %}
+{% endblock %}
 
 </body>
 </html>

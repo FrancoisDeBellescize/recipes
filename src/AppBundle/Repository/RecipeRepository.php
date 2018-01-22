@@ -6,6 +6,15 @@ use Doctrine\ORM\Query\Expr\Join;
 
 class RecipeRepository extends EntityRepository
 {
+  public function getLast($limit = 10){
+    $qb = $this->createQueryBuilder('r');
+    $qb->select('r')
+    ->orderBy('r.created_at')
+    ->setMaxResults($limit);
+
+    return $qb->getQuery()->getResult();
+  }
+
   public function findByIngredients($ingredients){
 
     $query = $this->createQueryBuilder('g');

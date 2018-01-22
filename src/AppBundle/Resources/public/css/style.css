@@ -5,6 +5,10 @@ footer {
 	transition: padding 0.3s;
 }
 
+html {
+	font-family: Quantum Mechanics, sans-serif;
+}
+
 body {
 	overflow: auto !important;
 }
@@ -153,4 +157,9 @@ li.search .search-results {
 #recipe_steps {
 	-webkit-transition: all .5s ease;
 	transition: all .5s ease;
+}
+
+#title_section {
+	margin-bottom: 50px;
+	margin-top: 50px;
 }
