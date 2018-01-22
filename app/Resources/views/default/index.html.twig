@@ -3,78 +3,76 @@
 
 
 {% block body %}
-<div class="container">
-  <div class="row">
-    <div id="title_section" class="center col s12">
-      <p>
-        <img src="{{ asset('bundles/app/img/logo.png') }}"></img>
-      </p>
-      <h1 class="teal-text"><i>Beat Eat</i></h1>
-    </div>
-    <div class="col s12 m4">
-      <div class="center promo">
-        <i class="material-icons teal-text large">pan_tool</i>
-        <p class="promo-caption"><h4>Simplicité</h4></p>
-        <p class="light center">Simple et fonctionnel, vous trouverez tout ce dont vous avez besoin en un seul clic avec une interface agréable. Pas de bub, pas de video qui se lance automatiquement. Un site simple et efficace !</p>
-      </div>
-    </div>
-
-    <div class="col s12 m4">
-      <div class="center promo">
-        <i class="material-icons teal-text large">important_devices</i>
-        <p class="promo-caption"><h4>Responsive</h4></p>
-        <p class="light center">Disponible sur n'importe quel support : PC, tablette, smartphone. Une interface à emporter n'importe ou !</p>
-      </div>
-    </div>
-
-    <div class="col s12 m4">
-      <div class="center promo">
-        <i class="material-icons teal-text large">block</i>
-        <p class="promo-caption"><h4>Aucune publicité</h4></p>
-        <p class="light center">Marre des publicités, des pop-ups et des vidéos qui se lancent toutes seules ? Nous aussi, ici on priorise l'expérience utilisateur !</p>
-      </div>
+<div class="row">
+  <div id="title_section" class="center col s12">
+    <p>
+      <img src="{{ asset('bundles/app/img/logo.png') }}"></img>
+    </p>
+    <h1 class="teal-text"><i>Beat Eat</i></h1>
+  </div>
+  <div class="col s12 m4">
+    <div class="center promo">
+      <i class="material-icons teal-text large">pan_tool</i>
+      <p class="promo-caption"><h4>Simplicité</h4></p>
+      <p class="light center">Simple et fonctionnel, vous trouverez tout ce dont vous avez besoin en un seul clic avec une interface agréable. Pas de bub, pas de video qui se lance automatiquement. Un site simple et efficace !</p>
     </div>
   </div>
-  <div class="row">
-    <div class="offset-m1 col s12 m4">
-      <div class="center promo">
-        <i class="material-icons teal-text large">dashboard</i>
-        <p class="promo-caption"><h4>Une tonne de fonctionnalités</h4></p>
-        <p class="light center">Simplifions-nous la vie ! Découvrez des fonctionnalités qui vous faciliteront la cuisine. Des outils de conversion en passant par des minuteries déjà programmées</p>
-      </div>
-    </div>
-    <div class="col s12 m4 offset-m2">
-      <div class="center promo">
-        <i class="material-icons teal-text large">mail</i>
-        <p class="promo-caption"><h4>À votre écoute</h4></p>
-        <p class="light center">Vous avez des suggestions ou des recettes à proposer ? Envoyez un mail à <i>frdebellescize@hotmail.fr</i></p>
-      </div>
+
+  <div class="col s12 m4">
+    <div class="center promo">
+      <i class="material-icons teal-text large">important_devices</i>
+      <p class="promo-caption"><h4>Responsive</h4></p>
+      <p class="light center">Disponible sur n'importe quel support : PC, tablette, smartphone. Une interface à emporter n'importe ou !</p>
     </div>
   </div>
-  <div class="row">
 
-    <div class="carousel col s12 row">
-      {% for recipe in recipes %}
+  <div class="col s12 m4">
+    <div class="center promo">
+      <i class="material-icons teal-text large">block</i>
+      <p class="promo-caption"><h4>Aucune publicité</h4></p>
+      <p class="light center">Marre des publicités, des pop-ups et des vidéos qui se lancent toutes seules ? Nous aussi, ici on priorise l'expérience utilisateur !</p>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="offset-m1 col s12 m4">
+    <div class="center promo">
+      <i class="material-icons teal-text large">dashboard</i>
+      <p class="promo-caption"><h4>Une tonne de fonctionnalités</h4></p>
+      <p class="light center">Simplifions-nous la vie ! Découvrez des fonctionnalités qui vous faciliteront la cuisine. Des outils de conversion en passant par des minuteries déjà programmées</p>
+    </div>
+  </div>
+  <div class="col s12 m4 offset-m2">
+    <div class="center promo">
+      <i class="material-icons teal-text large">mail</i>
+      <p class="promo-caption"><h4>À votre écoute</h4></p>
+      <p class="light center">Vous avez des suggestions ou des recettes à proposer ? Envoyez un mail à <i>frdebellescize@hotmail.fr</i></p>
+    </div>
+  </div>
+</div>
+<div class="row">
 
-      <a href="#" class="black-text col s4 carousel-item">
-        <div class="card">
-          <div class="card-image">
-            {% if recipe.media %}
-            <img src="{% path recipe.media, 'big' %}">
-            {% else %}
-            <img src="{{ asset('bundles/app/img/default.png') }}">
-            {% endif %}
-          </div>
-          <div class="card-content">
-            {{ recipe.name }}<br>
-            <span><i class="tiny flow-text material-icons">alarm</i> <small>{{ recipe.preparationTime }} min</small></span><br>
-            <span><i class="tiny flow-text material-icons">whatshot</i> <small>{% if recipe.cookTime is not null %}{{ recipe.cookTime }} min {% else %} -- {% endif %}</small></span><br>
-            <span><i class="tiny material-icons">restore</i> <small>{% if recipe.restTime is not null %}{{ recipe.restTime }} min {% else %} -- {% endif %}</small></span>
-          </div>
+  <div class="carousel col s12 row">
+    {% for recipe in recipes %}
+
+    <a href="#" class="black-text col s4 carousel-item">
+      <div class="card">
+        <div class="card-image">
+          {% if recipe.media %}
+          <img src="{% path recipe.media, 'big' %}">
+          {% else %}
+          <img src="{{ asset('bundles/app/img/default.png') }}">
+          {% endif %}
         </div>
-      </a>
-      {% endfor %}
-    </div>
+        <div class="card-content">
+          {{ recipe.name }}<br>
+          <span><i class="tiny flow-text material-icons">alarm</i> <small>{{ recipe.preparationTime }} min</small></span><br>
+          <span><i class="tiny flow-text material-icons">whatshot</i> <small>{% if recipe.cookTime is not null %}{{ recipe.cookTime }} min {% else %} -- {% endif %}</small></span><br>
+          <span><i class="tiny material-icons">restore</i> <small>{% if recipe.restTime is not null %}{{ recipe.restTime }} min {% else %} -- {% endif %}</small></span>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
   </div>
 </div>
 {% endblock %}
