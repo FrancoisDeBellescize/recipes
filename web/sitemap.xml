@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>http://beat-eat.com/</loc>
+  <lastmod>2018-01-23T16:42:37+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://beat-eat.com/recipe</loc>
+  <lastmod>2018-01-23T16:42:37+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://beat-eat.com/recipe/quiche</loc>
+  <lastmod>2018-01-23T16:42:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://beat-eat.com/recipe/tarte-au-citron</loc>
+  <lastmod>2018-01-23T16:42:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://beat-eat.com/recipe/hachis-parmentier</loc>
+  <lastmod>2018-01-23T16:42:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://beat-eat.com/recipe/pizza-vgtarienne</loc>
+  <lastmod>2018-01-23T16:42:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://beat-eat.com/recipe/pizza-champignons-feta</loc>
+  <lastmod>2018-01-23T16:42:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://beat-eat.com/recipe/rouls-de-courgettes-au-saumon-fum</loc>
+  <lastmod>2018-01-23T16:42:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://beat-eat.com/recipe?page=1</loc>
+  <lastmod>2018-01-23T16:42:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://beat-eat.com/recipe?page=2</loc>
+  <lastmod>2018-01-23T16:42:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://beat-eat.com/recipe?page=3</loc>
+  <lastmod>2018-01-23T16:42:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://beat-eat.com/recipe/macarons-facile</loc>
+  <lastmod>2018-01-23T16:42:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://beat-eat.com/recipe/flan</loc>
+  <lastmod>2018-01-23T16:42:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://beat-eat.com/recipe/brownie-cookie</loc>
+  <lastmod>2018-01-23T16:42:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://beat-eat.com/recipe/baguette-magique</loc>
+  <lastmod>2018-01-23T16:42:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://beat-eat.com/recipe/roses-des-sables</loc>
+  <lastmod>2018-01-23T16:42:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://beat-eat.com/recipe/brownies</loc>
+  <lastmod>2018-01-23T16:42:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>http://beat-eat.com/recipe/tiramisu</loc>
+  <lastmod>2018-01-23T16:42:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>
