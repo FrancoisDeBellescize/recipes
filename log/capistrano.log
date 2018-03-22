@@ -18255,3 +18255,511 @@ Debug mode is off.
   INFO [92ab548d] Running /usr/bin/env echo "Branch master (at 8f070eb71ddf333246cda79aa223e2c012800b47) deployed as release 20180322143627 by francoisdebellescize" >> /var/www/recipes/revisions.log as ec2-user@34.243.214.82
  DEBUG [92ab548d] Command: cd /var/www/recipes/releases && ( export SYMFONY_ENV="prod" ; /usr/bin/env echo "Branch master (at 8f070eb71ddf333246cda79aa223e2c012800b47) deployed as release 20180322143627 by francoisdebellescize" >> /var/www/recipes/revisions.log )
   INFO [92ab548d] Finished in 0.111 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-03-22 15:39:19 +0100 cap prod deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [69ae4758] Running /usr/bin/env mkdir -p /tmp as ec2-user@34.243.214.82
+ DEBUG [69ae4758] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -p /tmp )
+  INFO [69ae4758] Finished in 0.458 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-recipes-prod-francoisdebellescize.sh 0.0%
+  INFO Uploading /tmp/git-ssh-recipes-prod-francoisdebellescize.sh 100.0%
+  INFO [2c194434] Running /usr/bin/env chmod 700 /tmp/git-ssh-recipes-prod-francoisdebellescize.sh as ec2-user@34.243.214.82
+ DEBUG [2c194434] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env chmod 700 /tmp/git-ssh-recipes-prod-francoisdebellescize.sh )
+  INFO [2c194434] Finished in 0.113 seconds with exit status 0 (successful).
+  INFO [43a6b2c6] Running /usr/bin/env git ls-remote git@github.com:karma151/recipes.git HEAD as ec2-user@34.243.214.82
+ DEBUG [43a6b2c6] Command: ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-recipes-prod-francoisdebellescize.sh" ; /usr/bin/env git ls-remote git@github.com:karma151/recipes.git HEAD )
+ DEBUG [43a6b2c6] 	5481bef3a3b417fa9ffc98935eebe5004f2b0078	HEAD
+  INFO [43a6b2c6] Finished in 1.570 seconds with exit status 0 (successful).
+  INFO [d25c0b12] Running /usr/bin/env mkdir -p /var/www/recipes/shared /var/www/recipes/releases as ec2-user@34.243.214.82
+ DEBUG [d25c0b12] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -p /var/www/recipes/shared /var/www/recipes/releases )
+  INFO [d25c0b12] Finished in 0.070 seconds with exit status 0 (successful).
+  INFO [0a1a9740] Running /usr/bin/env mkdir -p /var/www/recipes/shared/app/logs /var/www/recipes/shared/web/uploads as ec2-user@34.243.214.82
+ DEBUG [0a1a9740] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -p /var/www/recipes/shared/app/logs /var/www/recipes/shared/web/uploads )
+  INFO [0a1a9740] Finished in 0.111 seconds with exit status 0 (successful).
+  INFO [15d9aa6b] Running /usr/bin/env mkdir -p /var/www/recipes/shared/app/config as ec2-user@34.243.214.82
+ DEBUG [15d9aa6b] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -p /var/www/recipes/shared/app/config )
+  INFO [15d9aa6b] Finished in 0.110 seconds with exit status 0 (successful).
+ DEBUG [f6818628] Running [ -f /var/www/recipes/shared/app/config/parameters.yml ] as ec2-user@34.243.214.82
+ DEBUG [f6818628] Command: [ -f /var/www/recipes/shared/app/config/parameters.yml ]
+ DEBUG [f6818628] Finished in 0.110 seconds with exit status 0 (successful).
+ DEBUG [2ec919c6] Running [ -f /var/www/recipes/current/REVISION ] as ec2-user@34.243.214.82
+ DEBUG [2ec919c6] Command: [ -f /var/www/recipes/current/REVISION ]
+ DEBUG [2ec919c6] Finished in 0.109 seconds with exit status 0 (successful).
+ DEBUG [22a7862b] Running /usr/bin/env cat /var/www/recipes/current/REVISION 2>/dev/null as ec2-user@34.243.214.82
+ DEBUG [22a7862b] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env cat /var/www/recipes/current/REVISION 2>/dev/null )
+ DEBUG [22a7862b] 	8f070eb71ddf333246cda79aa223e2c012800b47
+ DEBUG [22a7862b] Finished in 0.111 seconds with exit status 0 (successful).
+ DEBUG [857b54af] Running if test ! -d /var/www/recipes/shared; then echo "Directory does not exist '/var/www/recipes/shared'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [857b54af] Command: if test ! -d /var/www/recipes/shared; then echo "Directory does not exist '/var/www/recipes/shared'" 1>&2; false; fi
+ DEBUG [857b54af] Finished in 0.111 seconds with exit status 0 (successful).
+ DEBUG [50ffc168] Running /usr/bin/env [ -e composer.phar ] as ec2-user@34.243.214.82
+ DEBUG [50ffc168] Command: cd /var/www/recipes/shared && ( export SYMFONY_ENV="prod" ; /usr/bin/env [ -e composer.phar ] )
+ DEBUG [50ffc168] Finished in 0.112 seconds with exit status 0 (successful).
+ DEBUG [b8b2bcb6] Running [ -f /var/www/recipes/repo/HEAD ] as ec2-user@34.243.214.82
+ DEBUG [b8b2bcb6] Command: [ -f /var/www/recipes/repo/HEAD ]
+ DEBUG [b8b2bcb6] Finished in 0.107 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/recipes/repo
+ DEBUG [681f128f] Running if test ! -d /var/www/recipes/repo; then echo "Directory does not exist '/var/www/recipes/repo'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [681f128f] Command: if test ! -d /var/www/recipes/repo; then echo "Directory does not exist '/var/www/recipes/repo'" 1>&2; false; fi
+ DEBUG [681f128f] Finished in 0.107 seconds with exit status 0 (successful).
+  INFO [013bd733] Running /usr/bin/env git remote set-url origin git@github.com:karma151/recipes.git as ec2-user@34.243.214.82
+ DEBUG [013bd733] Command: cd /var/www/recipes/repo && ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-recipes-prod-francoisdebellescize.sh" ; /usr/bin/env git remote set-url origin git@github.com:karma151/recipes.git )
+  INFO [013bd733] Finished in 0.110 seconds with exit status 0 (successful).
+  INFO [1b80f71d] Running /usr/bin/env git remote update --prune as ec2-user@34.243.214.82
+ DEBUG [1b80f71d] Command: cd /var/www/recipes/repo && ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-recipes-prod-francoisdebellescize.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [1b80f71d] 	Récupération de origin
+ DEBUG [1b80f71d] 	Depuis github.com:karma151/recipes
+   8f070eb..5481bef  master     -> master
+  INFO [1b80f71d] Finished in 1.970 seconds with exit status 0 (successful).
+ DEBUG [c6dfdfef] Running if test ! -d /var/www/recipes/repo; then echo "Directory does not exist '/var/www/recipes/repo'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [c6dfdfef] Command: if test ! -d /var/www/recipes/repo; then echo "Directory does not exist '/var/www/recipes/repo'" 1>&2; false; fi
+ DEBUG [c6dfdfef] Finished in 0.066 seconds with exit status 0 (successful).
+  INFO [b46a4f01] Running /usr/bin/env mkdir -p /var/www/recipes/releases/20180322143922 as ec2-user@34.243.214.82
+ DEBUG [b46a4f01] Command: cd /var/www/recipes/repo && ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-recipes-prod-francoisdebellescize.sh" ; /usr/bin/env mkdir -p /var/www/recipes/releases/20180322143922 )
+  INFO [b46a4f01] Finished in 0.117 seconds with exit status 0 (successful).
+  INFO [e9bcca66] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/recipes/releases/20180322143922 as ec2-user@34.243.214.82
+ DEBUG [e9bcca66] Command: cd /var/www/recipes/repo && ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-recipes-prod-francoisdebellescize.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/recipes/releases/20180322143922 )
+  INFO [e9bcca66] Finished in 0.227 seconds with exit status 0 (successful).
+ DEBUG [9cdf54d8] Running if test ! -d /var/www/recipes/repo; then echo "Directory does not exist '/var/www/recipes/repo'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [9cdf54d8] Command: if test ! -d /var/www/recipes/repo; then echo "Directory does not exist '/var/www/recipes/repo'" 1>&2; false; fi
+ DEBUG [9cdf54d8] Finished in 0.107 seconds with exit status 0 (successful).
+ DEBUG [bbf62ffe] Running /usr/bin/env git rev-list --max-count=1 master as ec2-user@34.243.214.82
+ DEBUG [bbf62ffe] Command: cd /var/www/recipes/repo && ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-recipes-prod-francoisdebellescize.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [bbf62ffe] 	5481bef3a3b417fa9ffc98935eebe5004f2b0078
+ DEBUG [bbf62ffe] Finished in 0.110 seconds with exit status 0 (successful).
+ DEBUG [1a6ad24d] Running if test ! -d /var/www/recipes/releases/20180322143922; then echo "Directory does not exist '/var/www/recipes/releases/20180322143922'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [1a6ad24d] Command: if test ! -d /var/www/recipes/releases/20180322143922; then echo "Directory does not exist '/var/www/recipes/releases/20180322143922'" 1>&2; false; fi
+ DEBUG [1a6ad24d] Finished in 0.110 seconds with exit status 0 (successful).
+  INFO [46a560f2] Running /usr/bin/env echo "5481bef3a3b417fa9ffc98935eebe5004f2b0078" >> REVISION as ec2-user@34.243.214.82
+ DEBUG [46a560f2] Command: cd /var/www/recipes/releases/20180322143922 && ( export SYMFONY_ENV="prod" ; /usr/bin/env echo "5481bef3a3b417fa9ffc98935eebe5004f2b0078" >> REVISION )
+  INFO [46a560f2] Finished in 0.111 seconds with exit status 0 (successful).
+  INFO [3bd23b87] Running /usr/bin/env mkdir -p /var/www/recipes/releases/20180322143922/app/config as ec2-user@34.243.214.82
+ DEBUG [3bd23b87] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -p /var/www/recipes/releases/20180322143922/app/config )
+  INFO [3bd23b87] Finished in 0.111 seconds with exit status 0 (successful).
+ DEBUG [c9db8d68] Running [ -L /var/www/recipes/releases/20180322143922/app/config/parameters.yml ] as ec2-user@34.243.214.82
+ DEBUG [c9db8d68] Command: [ -L /var/www/recipes/releases/20180322143922/app/config/parameters.yml ]
+ DEBUG [c9db8d68] Finished in 0.111 seconds with exit status 1 (failed).
+ DEBUG [0f5ba670] Running [ -f /var/www/recipes/releases/20180322143922/app/config/parameters.yml ] as ec2-user@34.243.214.82
+ DEBUG [0f5ba670] Command: [ -f /var/www/recipes/releases/20180322143922/app/config/parameters.yml ]
+ DEBUG [0f5ba670] Finished in 0.113 seconds with exit status 1 (failed).
+  INFO [8a2f5958] Running /usr/bin/env ln -s /var/www/recipes/shared/app/config/parameters.yml /var/www/recipes/releases/20180322143922/app/config/parameters.yml as ec2-user@34.243.214.82
+ DEBUG [8a2f5958] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env ln -s /var/www/recipes/shared/app/config/parameters.yml /var/www/recipes/releases/20180322143922/app/config/parameters.yml )
+  INFO [8a2f5958] Finished in 0.109 seconds with exit status 0 (successful).
+  INFO [63f2c9d2] Running /usr/bin/env mkdir -p /var/www/recipes/releases/20180322143922/app /var/www/recipes/releases/20180322143922/web as ec2-user@34.243.214.82
+ DEBUG [63f2c9d2] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -p /var/www/recipes/releases/20180322143922/app /var/www/recipes/releases/20180322143922/web )
+  INFO [63f2c9d2] Finished in 0.111 seconds with exit status 0 (successful).
+ DEBUG [a47932f2] Running [ -L /var/www/recipes/releases/20180322143922/app/logs ] as ec2-user@34.243.214.82
+ DEBUG [a47932f2] Command: [ -L /var/www/recipes/releases/20180322143922/app/logs ]
+ DEBUG [a47932f2] Finished in 0.110 seconds with exit status 1 (failed).
+ DEBUG [723b9aa9] Running [ -d /var/www/recipes/releases/20180322143922/app/logs ] as ec2-user@34.243.214.82
+ DEBUG [723b9aa9] Command: [ -d /var/www/recipes/releases/20180322143922/app/logs ]
+ DEBUG [723b9aa9] Finished in 0.109 seconds with exit status 1 (failed).
+  INFO [3eea587d] Running /usr/bin/env ln -s /var/www/recipes/shared/app/logs /var/www/recipes/releases/20180322143922/app/logs as ec2-user@34.243.214.82
+ DEBUG [3eea587d] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env ln -s /var/www/recipes/shared/app/logs /var/www/recipes/releases/20180322143922/app/logs )
+  INFO [3eea587d] Finished in 0.111 seconds with exit status 0 (successful).
+ DEBUG [ea348398] Running [ -L /var/www/recipes/releases/20180322143922/web/uploads ] as ec2-user@34.243.214.82
+ DEBUG [ea348398] Command: [ -L /var/www/recipes/releases/20180322143922/web/uploads ]
+ DEBUG [ea348398] Finished in 0.111 seconds with exit status 1 (failed).
+ DEBUG [71b1e20c] Running [ -d /var/www/recipes/releases/20180322143922/web/uploads ] as ec2-user@34.243.214.82
+ DEBUG [71b1e20c] Command: [ -d /var/www/recipes/releases/20180322143922/web/uploads ]
+ DEBUG [71b1e20c] Finished in 0.111 seconds with exit status 1 (failed).
+  INFO [4ceb328c] Running /usr/bin/env ln -s /var/www/recipes/shared/web/uploads /var/www/recipes/releases/20180322143922/web/uploads as ec2-user@34.243.214.82
+ DEBUG [4ceb328c] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env ln -s /var/www/recipes/shared/web/uploads /var/www/recipes/releases/20180322143922/web/uploads )
+  INFO [4ceb328c] Finished in 0.108 seconds with exit status 0 (successful).
+ DEBUG [11ea6b89] Running if test ! -d /var/www/recipes/releases/20180322143922; then echo "Directory does not exist '/var/www/recipes/releases/20180322143922'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [11ea6b89] Command: if test ! -d /var/www/recipes/releases/20180322143922; then echo "Directory does not exist '/var/www/recipes/releases/20180322143922'" 1>&2; false; fi
+ DEBUG [11ea6b89] Finished in 0.112 seconds with exit status 0 (successful).
+ DEBUG [0cacea1a] Running [ -d /var/www/recipes/releases/20180322143922/app/cache ] as ec2-user@34.243.214.82
+ DEBUG [0cacea1a] Command: [ -d /var/www/recipes/releases/20180322143922/app/cache ]
+ DEBUG [0cacea1a] Finished in 0.110 seconds with exit status 1 (failed).
+  INFO [4511c1cf] Running /usr/bin/env mkdir -pv app/cache as ec2-user@34.243.214.82
+ DEBUG [4511c1cf] Command: cd /var/www/recipes/releases/20180322143922 && ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -pv app/cache )
+ DEBUG [4511c1cf] 	mkdir: création du répertoire « app/cache »
+  INFO [4511c1cf] Finished in 0.113 seconds with exit status 0 (successful).
+ DEBUG [adc13b56] Running if test ! -d /var/www/recipes/releases/20180322143922; then echo "Directory does not exist '/var/www/recipes/releases/20180322143922'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [adc13b56] Command: if test ! -d /var/www/recipes/releases/20180322143922; then echo "Directory does not exist '/var/www/recipes/releases/20180322143922'" 1>&2; false; fi
+ DEBUG [adc13b56] Finished in 0.108 seconds with exit status 0 (successful).
+  INFO [b8ba56da] Running /usr/bin/env composer install --no-interaction --optimize-autoloader as ec2-user@34.243.214.82
+ DEBUG [b8ba56da] Command: cd /var/www/recipes/releases/20180322143922 && ( export SYMFONY_ENV="prod" ; /usr/bin/env composer install --no-interaction --optimize-autoloader )
+ DEBUG [b8ba56da] 	Loading composer repositories with package information
+ DEBUG [b8ba56da] 	Installing dependencies (including require-dev) from lock file
+ DEBUG [b8ba56da] 	Package operations: 71 installs, 0 updates, 0 removals
+ DEBUG [b8ba56da] 	  - Installing cocur/slugify (v3.1): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing doctrine/collections (v1.4.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing twig/twig (v1.35.2): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing symfony/polyfill-util (v1.7.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing paragonie/random_compat (v2.0.11): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing symfony/polyfill-php70 (v1.7.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing symfony/polyfill-php56 (v1.7.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing symfony/polyfill-mbstring (v1.7.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing symfony/symfony (v3.2.14): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	  - Installing symfony/polyfill-intl-icu (v1.7.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing psr/log (1.0.2): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing psr/cache (1.0.1): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing doctrine/lexer (v1.0.1): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing doctrine/inflector (v1.1.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing doctrine/cache (v1.6.2): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing doctrine/annotations (v1.4.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	  - Installing doctrine/common (v2.7.3): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing jdorn/sql-formatter (v1.2.17): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing doctrine/doctrine-cache-bundle (1.3.2): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing doctrine/dbal (v2.5.13): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	  - Installing doctrine/doctrine-bundle (1.8.1): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing queue-interop/queue-interop (0.6.1): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing queue-interop/amqp-interop (0.7.3): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing enqueue/amqp-tools (0.8.23): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing incenteev/composer-parameter-handler (v2.1.3): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing phpoption/phpoption (1.5.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing phpcollection/phpcollection (0.5.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing jms/parser-lib (1.0.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing jms/metadata (1.6.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing doctrine/instantiator (1.0.5): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing jms/serializer (1.11.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing knplabs/knp-menu (2.3.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing knplabs/knp-menu-bundle (v2.2.1): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing knplabs/knp-components (1.3.5): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing knplabs/knp-paginator-bundle (v2.7.2): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing php-amqplib/php-amqplib (v2.7.2): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing psr/http-message (1.0.1): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing composer/ca-bundle (1.1.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing sensiolabs/security-checker (v4.1.8): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing sensio/distribution-bundle (v5.0.21): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing sensio/framework-extra-bundle (v3.0.29): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	  - Installing twig/extensions (v1.5.1): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing sonata-project/datagrid-bundle (2.3.1): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	  - Installing sonata-project/core-bundle (3.9.1): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing sonata-project/cache (1.0.7): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing sonata-project/block-bundle (3.12.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing symfony/security-acl (v3.0.1): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing sonata-project/exporter (1.8.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing sonata-project/admin-bundle (3.32.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing doctrine/orm (v2.5.14): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	  - Installing sonata-project/doctrine-orm-admin-bundle (3.4.2): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing zendframework/zenddiagnostics (v1.1.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing sonata-project/easy-extends-bundle (2.5.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	  - Installing sonata-project/doctrine-extensions (1.0.2): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	  - Installing enqueue/amqp-lib (0.8.23): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing sonata-project/notification-bundle (3.4.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing guzzlehttp/psr7 (1.4.2): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing kriswallsmith/buzz (v0.16.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing knplabs/gaufrette (v0.5.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing jms/serializer-bundle (2.3.1): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing imagine/imagine (v0.7.1): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing sonata-project/media-bundle (3.11.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing kriswallsmith/assetic (v1.4.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing symfony/assetic-bundle (v2.8.2): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing monolog/monolog (1.23.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing symfony/monolog-bundle (v3.2.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing symfony/polyfill-apcu (v1.7.0): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing swiftmailer/swiftmailer (v5.4.9): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing symfony/swiftmailer-bundle (v2.6.7): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing sensio/generator-bundle (v3.1.7): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	  - Installing symfony/phpunit-bridge (v3.4.6): 
+ DEBUG [b8ba56da] 	Loading from cache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	paragonie/random_compat suggests installing ext-libsodium (Provides a modern crypto API that can be used to generate random bytes.)
+ DEBUG [b8ba56da] 	symfony/polyfill-intl-icu suggests installing ext-intl (For best performance)
+ DEBUG [b8ba56da] 	knplabs/knp-components suggests installing doctrine/mongodb-odm (to allow usage pagination with Doctrine ODM MongoDB)
+ DEBUG [b8ba56da] 	knplabs/knp-components suggests installing doctrine/phpcr-odm (to allow usage pagination with Doctrine ODM PHPCR)
+ DEBUG [b8ba56da] 	knplabs/knp-components suggests installing propel/propel1 (to allow usage pagination with Propel ORM)
+ DEBUG [b8ba56da] 	knplabs/knp-components suggests installing ruflin/Elastica (to allow usage pagination with ElasticSearch Client)
+ DEBUG [b8ba56da] 	knplabs/knp-components suggests installing solarium/solarium (to allow usage pagination with Solarium Client)
+ DEBUG [b8ba56da] 	sensio/framework-extra-bundle suggests installing symfony/psr-http-message-bridge (To use the PSR-7 converters)
+ DEBUG [b8ba56da] 	sonata-project/cache suggests installing doctrine/phpcr-odm (PHPCR ODM support)
+ DEBUG [b8ba56da] 	sonata-project/cache suggests installing ext-apc (Caching with ext/apc)
+ DEBUG [b8ba56da] 	sonata-project/cache suggests installing ext-memcached (Caching with ext/memcached)
+ DEBUG [b8ba56da] 	sonata-project/cache suggests installing predis/predis (Install redis php)
+ DEBUG [b8ba56da] 	sonata-project/block-bundle suggests installing jms/di-extra-bundle (Annotations for Block definition)
+ DEBUG [b8ba56da] 	sonata-project/block-bundle suggests installing sonata-project/cache-bundle (^3.0)
+ DEBUG [b8ba56da] 	sonata-project/exporter suggests installing propel/propel1 (^1.6)
+ DEBUG [b8ba56da] 	sonata-project/admin-bundle suggests installing jms/di-extra-bundle (Annotations for Admin definition)
+ DEBUG [b8ba56da] 	sonata-project/admin-bundle suggests installing jms/translation-bundle (Extract message keys from Admins)
+ DEBUG [b8ba56da] 	sonata-project/admin-bundle suggests installing sonata-project/intl-bundle (Add localized date and number into the list)
+ DEBUG [b8ba56da] 	sonata-project/doctrine-orm-admin-bundle suggests installing simplethings/entity-audit-bundle (If you want to support for versioning of entities and their associations.)
+ DEBUG [b8ba56da] 	zendframework/zenddiagnostics suggests installing doctrine/migrations (Required by Check\DoctrineMigration)
+ DEBUG [b8ba56da] 	zendframework/zenddiagnostics suggests installing guzzle/http (Required by Check\GuzzleHttpService)
+ DEBUG [b8ba56da] 	zendframework/zenddiagnostics suggests installing predis/predis (Required by Check\Redis)
+ DEBUG [b8ba56da] 	enqueue/amqp-lib suggests installing enqueue/enqueue (If you'd like to use advanced features like Client abstract layer or Symfony integration features)
+ DEBUG [b8ba56da] 	sonata-project/notification-bundle suggests installing guzzlehttp/guzzle (If you want to get a status report when using the rabbitMQ backend.)
+ DEBUG [b8ba56da] 	sonata-project/notification-bundle suggests installing liip/monitor-bundle (^1.0)
+ DEBUG [b8ba56da] 	knplabs/gaufrette suggests installing gaufrette/aws-s3-adapter (to use AwsS3 adapter (supports SDK v2 and v3))
+ DEBUG [b8ba56da] 	knplabs/gaufrette suggests installing gaufrette/azure-blob-storage-adapter (to use AzureBlobStorage adapter)
+ DEBUG [b8ba56da] 	knplabs/gaufrette suggests installing gaufrette/doctrine-dbal-adapter (to use DBAL adapter)
+ DEBUG [b8ba56da] 	knplabs/gaufrette suggests installing gaufrette/flysystem-adapter (to use Flysystem adapter)
+ DEBUG [b8ba56da] 	knplabs/gaufrette suggests installing gaufrette/ftp-adapter (to use Ftp adapter)
+ DEBUG [b8ba56da] 	knplabs/gaufrette suggests installing gaufrette/gridfs-adapter (to use GridFS adapter)
+ DEBUG [b8ba56da] 	knplabs/gaufrette suggests installing gaufrette/in-memory-adapter (to use InMemory adapter)
+ DEBUG [b8ba56da] 	knplabs/gaufrette suggests installing gaufrette/local-adapter (to use Local adapter)
+ DEBUG [b8ba56da] 	knplabs/gaufrette suggests installing gaufrette/opencloud-adapter (to use Opencloud adapter)
+ DEBUG [b8ba56da] 	knplabs/gaufrette suggests installing gaufrette/phpseclib-sftp-adapter (to use PhpseclibSftp adapter)
+ DEBUG [b8ba56da] 	knplabs/gaufrette suggests installing gaufrette/zip-adapter (to use Zip adapter)
+ DEBUG [b8ba56da] 	knplabs/gaufrette suggests installing google/apiclient (to use GoogleCloudStorage adapter)
+ DEBUG [b8ba56da] 	knplabs/gaufrette suggests installing knplabs/knp-gaufrette-bundle (to use with Symfony2)
+ DEBUG [b8ba56da] 	jms/serializer-bundle suggests installing jms/di-extra-bundle (Required to get lazy loading (de)serialization visitors, ~1.3)
+ DEBUG [b8ba56da] 	imagine/imagine suggests installing ext-gmagick (to use the Gmagick implementation)
+ DEBUG [b8ba56da] 	imagine/imagine suggests installing ext-imagick (to use the Imagick implementation)
+ DEBUG [b8ba56da] 	sonata-project/media-bundle suggests installing liip/imagine-bundle (^0.9)
+ DEBUG [b8ba56da] 	sonata-project/media-bundle suggests installing rackspace/php-opencloud (^1.6)
+ DEBUG [b8ba56da] 	sonata-project/media-bundle suggests installing sonata-project/classification-bundle (If you want to categorize your media items.)
+ DEBUG [b8ba56da] 	sonata-project/media-bundle suggests installing sonata-project/seo-bundle (^2.1)
+ DEBUG [b8ba56da] 	sonata-project/media-bundle suggests installing tilleuls/ckeditor-sonata-media-bundle (^1.0)
+ DEBUG [b8ba56da] 	kriswallsmith/assetic suggests installing leafo/lessphp (Assetic provides the integration with the lessphp LESS compiler)
+ DEBUG [b8ba56da] 	kriswallsmith/assetic suggests installing leafo/scssphp (Assetic provides the integration with the scssphp SCSS compiler)
+ DEBUG [b8ba56da] 	kriswallsmith/assetic suggests installing leafo/scssphp-compass (Assetic provides the integration with the SCSS compass plugin)
+ DEBUG [b8ba56da] 	kriswallsmith/assetic suggests installing patchwork/jsqueeze (Assetic provides the integration with the JSqueeze JavaScript compressor)
+ DEBUG [b8ba56da] 	kriswallsmith/assetic suggests installing ptachoire/cssembed (Assetic provides the integration with phpcssembed to embed data uris)
+ DEBUG [b8ba56da] 	symfony/assetic-bundle suggests installing kriswallsmith/spork (to be able to dump assets in parallel)
+ DEBUG [b8ba56da] 	monolog/monolog suggests installing aws/aws-sdk-php (Allow sending log messages to AWS services like DynamoDB)
+ DEBUG [b8ba56da] 	monolog/monolog suggests installing doctrine/couchdb (Allow sending log messages to a CouchDB server)
+ DEBUG [b8ba56da] 	monolog/monolog suggests installing ext-amqp (Allow sending log messages to an AMQP server (1.0+ required))
+ DEBUG [b8ba56da] 	monolog/monolog suggests installing ext-mongo (Allow sending log messages to a MongoDB server)
+ DEBUG [b8ba56da] 	monolog/monolog suggests installing graylog2/gelf-php (Allow sending log messages to a GrayLog2 server)
+ DEBUG [b8ba56da] 	monolog/monolog suggests installing mongodb/mongodb (Allow sending log messages to a MongoDB server via PHP Driver)
+ DEBUG [b8ba56da] 	monolog/monolog suggests installing php-console/php-console (Allow sending log messages to Google Chrome)
+ DEBUG [b8ba56da] 	monolog/monolog suggests installing rollbar/rollbar (Allow sending log messages to Rollbar)
+ DEBUG [b8ba56da] 	monolog/monolog suggests installing ruflin/elastica (Allow sending log messages to an Elastic Search server)
+ DEBUG [b8ba56da] 	monolog/monolog suggests installing sentry/sentry (Allow sending log messages to a Sentry server)
+ DEBUG [b8ba56da] 	Generating optimized autoload files
+ DEBUG [b8ba56da] 	> Incenteev\ParameterHandler\ScriptHandler::buildParameters
+ DEBUG [b8ba56da] 	Updating the "app/config/parameters.yml" file
+ DEBUG [b8ba56da] 	> Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::buildBootstrap
+ DEBUG [b8ba56da] 	> Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::clearCache
+ DEBUG [b8ba56da] 	
+ DEBUG [b8ba56da] 	 // Clearing the cache for the prod environment with debug                      
+ // false                                                                       
+
+ DEBUG [b8ba56da] 	 [OK] Cache for the "prod" environment (debug=false) was successfully cleared.  
+
+ DEBUG [b8ba56da] 	> Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::installAssets
+ DEBUG [b8ba56da] 	
+ Trying to install assets as relative symbolic links.
+
+ DEBUG [b8ba56da] 	 --- ------------------- ------------------ 
+ DEBUG [b8ba56da] 	      Bundle              Method / Error    
+ --- ------------------- ------------------ 
+ DEBUG [b8ba56da] 	  ✔   SonataCoreBundle    relative symlink  
+ DEBUG [b8ba56da] 	  ✔   SonataAdminBundle   relative symlink  
+ DEBUG [b8ba56da] 	  ✔   SonataMediaBundle   relative symlink  
+ DEBUG [b8ba56da] 	  ✔   AppBundle           relative symlink  
+ --- ------------------- ------------------ 
+
+ DEBUG [b8ba56da] 	 [OK] All assets were successfully installed.                                   
+
+ DEBUG [b8ba56da] 	> Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::installRequirementsFile
+ DEBUG [b8ba56da] 	> Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::prepareDeploymentTarget
+  INFO [b8ba56da] Finished in 6.198 seconds with exit status 0 (successful).
+ DEBUG [a50a5692] Running if test ! -d /var/www/recipes/releases/20180322143922; then echo "Directory does not exist '/var/www/recipes/releases/20180322143922'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [a50a5692] Command: if test ! -d /var/www/recipes/releases/20180322143922; then echo "Directory does not exist '/var/www/recipes/releases/20180322143922'" 1>&2; false; fi
+ DEBUG [a50a5692] Finished in 0.109 seconds with exit status 0 (successful).
+  INFO [85e8540a] Running /usr/bin/env php bin/console cache:warmup  --no-debug as ec2-user@34.243.214.82
+ DEBUG [85e8540a] Command: cd /var/www/recipes/releases/20180322143922 && ( export SYMFONY_ENV="prod" ; /usr/bin/env php bin/console cache:warmup  --no-debug )
+ DEBUG [85e8540a] 	
+ DEBUG [85e8540a] 	 // Warming up the cache for the prod environment with debug                    
+ DEBUG [85e8540a] 	 // false                                                                       
+
+ DEBUG [85e8540a] 	[2018-03-22 15:39:33] assetic.ERROR: The template "SecurityBundle:Collector:security.html.twig" contains an error: Unknown "profiler_dump" function in "SecurityBundle:Collector:security.html.twig" at line 100. [] []
+ DEBUG [85e8540a] 	[2018-03-22 15:39:33] assetic.ERROR: The template "SecurityBundle:Collector:security.html.twig" contains an error: Unknown "profiler_dump" function in "SecurityBundle:Collector:security.html.twig" at line 100.  
+ DEBUG [85e8540a] 	[2018-03-22 15:39:34] assetic.ERROR: The template "DoctrineBundle:Collector:db.html.twig" contains an error: Unknown "profiler_dump" function in "DoctrineBundle:Collector:db.html.twig" at line 243. [] []
+ DEBUG [85e8540a] 	[2018-03-22 15:39:34] assetic.ERROR: The template "DoctrineBundle:Collector:db.html.twig" contains an error: Unknown "profiler_dump" function in "DoctrineBundle:Collector:db.html.twig" at line 243.  
+ DEBUG [85e8540a] 	[2018-03-22 15:39:36] php.INFO: User Deprecated: Form type "Sonata\CoreBundle\Form\Type\TranslatableChoiceType" is deprecated since SonataCoreBundle 2.2.0 and will be removed in 4.0. Use form type "Symfony\Component\Form\Extension\Core\Type\ChoiceType" with "translation_domain" option instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: Form type \"Sonata\\CoreBundle\\Form\\Type\\TranslatableChoiceType\" is deprecated since SonataCoreBundle 2.2.0 and will be removed in 4.0. Use form type \"Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType\" with \"translation_domain\" option instead. at /var/www/recipes/releases/20180322143922/vendor/sonata-project/core-bundle/src/Form/Type/TranslatableChoiceType.php:30)"} []
+ DEBUG [85e8540a] 	[2018-03-22 15:39:38] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:show_orm_many_to_many.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/show_many_to_one.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:show_orm_many_to_many.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/show_many_to_one.html.twig\" instead. at /var/www/recipes/releases/20180322143922/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [85e8540a] 	[2018-03-22 15:39:38] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:list_orm_many_to_one.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/list_many_to_one.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:list_orm_many_to_one.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/list_many_to_one.html.twig\" instead. at /var/www/recipes/releases/20180322143922/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [85e8540a] 	[2018-03-22 15:39:38] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_one.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_one_to_one.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_one.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_one_to_one.html.twig\" instead. at /var/www/recipes/releases/20180322143922/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [85e8540a] 	[2018-03-22 15:39:38] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:show_orm_one_to_many.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/show_one_to_many.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:show_orm_one_to_many.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/show_one_to_many.html.twig\" instead. at /var/www/recipes/releases/20180322143922/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [85e8540a] 	[2018-03-22 15:39:38] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_one_to_many.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_one_to_many.html.twig\" instead. at /var/www/recipes/releases/20180322143922/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [85e8540a] 	[2018-03-22 15:39:38] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_many_to_many.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_many_to_many.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_many_to_many.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_many_to_many.html.twig\" instead. at /var/www/recipes/releases/20180322143922/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [85e8540a] 	[2018-03-22 15:39:38] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:list_orm_many_to_many.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/list_many_to_many.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:list_orm_many_to_many.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/list_many_to_many.html.twig\" instead. at /var/www/recipes/releases/20180322143922/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [85e8540a] 	[2018-03-22 15:39:38] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_inline_table.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_one_to_many_inline_table.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_inline_table.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_one_to_many_inline_table.html.twig\" instead. at /var/www/recipes/releases/20180322143922/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [85e8540a] 	[2018-03-22 15:39:38] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:list_orm_one_to_one.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/list_one_to_one.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:list_orm_one_to_one.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/list_one_to_one.html.twig\" instead. at /var/www/recipes/releases/20180322143922/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [85e8540a] 	[2018-03-22 15:39:38] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_inline_tabs.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_one_to_many_inline_tabs.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_inline_tabs.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_one_to_many_inline_tabs.html.twig\" instead. at /var/www/recipes/releases/20180322143922/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [85e8540a] 	[2018-03-22 15:39:38] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:show_orm_one_to_one.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/show_one_to_one.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:show_orm_one_to_one.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/show_one_to_one.html.twig\" instead. at /var/www/recipes/releases/20180322143922/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [85e8540a] 	[2018-03-22 15:39:38] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_sortable_script_tabs.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_one_to_many_sortable_script_tabs.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_sortable_script_tabs.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_one_to_many_sortable_script_tabs.html.twig\" instead. at /var/www/recipes/releases/20180322143922/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [85e8540a] 	[2018-03-22 15:39:38] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_many_to_one.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_many_to_one.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_many_to_one.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_many_to_one.html.twig\" instead. at /var/www/recipes/releases/20180322143922/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [85e8540a] 	[2018-03-22 15:39:38] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:show_orm_many_to_one.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/show_many_to_one.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:show_orm_many_to_one.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/show_many_to_one.html.twig\" instead. at /var/www/recipes/releases/20180322143922/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [85e8540a] 	[2018-03-22 15:39:38] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:list_orm_one_to_many.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/list_one_to_many.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:list_orm_one_to_many.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/list_one_to_many.html.twig\" instead. at /var/www/recipes/releases/20180322143922/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [85e8540a] 	[2018-03-22 15:39:38] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_sortable_script_table.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_one_to_many_sortable_script_table.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_sortable_script_table.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_one_to_many_sortable_script_table.html.twig\" instead. at /var/www/recipes/releases/20180322143922/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [85e8540a] 	[2018-03-22 15:39:38] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_many_association_script.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_many_script.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_many_association_script.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_many_script.html.twig\" instead. at /var/www/recipes/releases/20180322143922/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [85e8540a] 	[2018-03-22 15:39:38] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_association_script.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_one_script.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_association_script.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_one_script.html.twig\" instead. at /var/www/recipes/releases/20180322143922/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [85e8540a] 	[2018-03-22 15:39:38] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_modal.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_modal.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_modal.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_modal.html.twig\" instead. at /var/www/recipes/releases/20180322143922/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [85e8540a] 	 [OK] Cache for the "prod" environment (debug=false) was successfully warmed.   
+ DEBUG [85e8540a] 	
+  INFO [85e8540a] Finished in 7.329 seconds with exit status 0 (successful).
+ DEBUG [e5ccc449] Running if test ! -d /var/www/recipes/releases/20180322143922/web; then echo "Directory does not exist '/var/www/recipes/releases/20180322143922/web'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [e5ccc449] Command: if test ! -d /var/www/recipes/releases/20180322143922/web; then echo "Directory does not exist '/var/www/recipes/releases/20180322143922/web'" 1>&2; false; fi
+ DEBUG [e5ccc449] Finished in 0.111 seconds with exit status 0 (successful).
+  INFO [b2ffb814] Running /usr/bin/env rm -f app_*.php as ec2-user@34.243.214.82
+ DEBUG [b2ffb814] Command: cd /var/www/recipes/releases/20180322143922/web && ( export SYMFONY_ENV="prod" ; /usr/bin/env rm -f app_*.php )
+  INFO [b2ffb814] Finished in 0.111 seconds with exit status 0 (successful).
+ DEBUG [e94e3471] Running if test ! -d /var/www/recipes/releases/20180322143922; then echo "Directory does not exist '/var/www/recipes/releases/20180322143922'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [e94e3471] Command: if test ! -d /var/www/recipes/releases/20180322143922; then echo "Directory does not exist '/var/www/recipes/releases/20180322143922'" 1>&2; false; fi
+ DEBUG [e94e3471] Finished in 0.110 seconds with exit status 0 (successful).
+  INFO [34023af5] Running /usr/bin/env php bin/console assetic:dump  --no-debug as ec2-user@34.243.214.82
+ DEBUG [34023af5] Command: cd /var/www/recipes/releases/20180322143922 && ( export SYMFONY_ENV="prod" ; /usr/bin/env php bin/console assetic:dump  --no-debug )
+ DEBUG [34023af5] 	Dumping all prod assets.
+Debug mode is off.
+ DEBUG [34023af5] 	
+ DEBUG [34023af5] 	15:39:41 [dir+] /var/www/recipes/releases/20180322143922/app/../web/js
+ DEBUG [34023af5] 	15:39:41 [file+] /var/www/recipes/releases/20180322143922/app/../web/js/2ed8990.js
+ DEBUG [34023af5] 	15:39:41 [dir+] /var/www/recipes/releases/20180322143922/app/../web/css
+ DEBUG [34023af5] 	15:39:41 [file+] /var/www/recipes/releases/20180322143922/app/../web/css/3e7b5a2.css
+  INFO [34023af5] Finished in 0.295 seconds with exit status 0 (successful).
+  INFO [9f885ea7] Running /usr/bin/env ln -s /var/www/recipes/releases/20180322143922 /var/www/recipes/releases/current as ec2-user@34.243.214.82
+ DEBUG [9f885ea7] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env ln -s /var/www/recipes/releases/20180322143922 /var/www/recipes/releases/current )
+  INFO [9f885ea7] Finished in 0.109 seconds with exit status 0 (successful).
+  INFO [34919020] Running /usr/bin/env mv /var/www/recipes/releases/current /var/www/recipes as ec2-user@34.243.214.82
+ DEBUG [34919020] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mv /var/www/recipes/releases/current /var/www/recipes )
+  INFO [34919020] Finished in 0.115 seconds with exit status 0 (successful).
+ DEBUG [baee2844] Running /usr/bin/env ls -x /var/www/recipes/releases as ec2-user@34.243.214.82
+ DEBUG [baee2844] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env ls -x /var/www/recipes/releases )
+ DEBUG [baee2844] 	20180322140233	20180322140327	20180322140430	20180322142910	20180322143627
+20180322143922
+ DEBUG [baee2844] Finished in 0.111 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on 34.243.214.82
+ DEBUG [5a3bb951] Running [ -d /var/www/recipes/current ] as ec2-user@34.243.214.82
+ DEBUG [5a3bb951] Command: [ -d /var/www/recipes/current ]
+ DEBUG [5a3bb951] Finished in 0.116 seconds with exit status 0 (successful).
+ DEBUG [bfcf1964] Running /usr/bin/env readlink /var/www/recipes/current as ec2-user@34.243.214.82
+ DEBUG [bfcf1964] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env readlink /var/www/recipes/current )
+ DEBUG [bfcf1964] 	/var/www/recipes/releases/20180322143922
+ DEBUG [bfcf1964] Finished in 0.112 seconds with exit status 0 (successful).
+  INFO [6710dd06] Running /usr/bin/env rm -rf /var/www/recipes/releases/20180322140233 as ec2-user@34.243.214.82
+ DEBUG [6710dd06] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env rm -rf /var/www/recipes/releases/20180322140233 )
+  INFO [6710dd06] Finished in 0.452 seconds with exit status 0 (successful).
+ DEBUG [e6a80bd1] Running if test ! -d /var/www/recipes/releases; then echo "Directory does not exist '/var/www/recipes/releases'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [e6a80bd1] Command: if test ! -d /var/www/recipes/releases; then echo "Directory does not exist '/var/www/recipes/releases'" 1>&2; false; fi
+ DEBUG [e6a80bd1] Finished in 0.121 seconds with exit status 0 (successful).
+  INFO [615b0a51] Running /usr/bin/env echo "Branch master (at 5481bef3a3b417fa9ffc98935eebe5004f2b0078) deployed as release 20180322143922 by francoisdebellescize" >> /var/www/recipes/revisions.log as ec2-user@34.243.214.82
+ DEBUG [615b0a51] Command: cd /var/www/recipes/releases && ( export SYMFONY_ENV="prod" ; /usr/bin/env echo "Branch master (at 5481bef3a3b417fa9ffc98935eebe5004f2b0078) deployed as release 20180322143922 by francoisdebellescize" >> /var/www/recipes/revisions.log )
+  INFO [615b0a51] Finished in 0.111 seconds with exit status 0 (successful).

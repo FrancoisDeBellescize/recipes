@@ -22,8 +22,8 @@ set :bin_path, "app"
 # The next 3 settings are lazily evaluated from the above values, so take care
 # when modifying them
 set :app_config_path, "app/config"
-set :log_path, "app/logs"
-set :cache_path, "app/cache"
+set :log_path, "var/logs"
+set :cache_path, "var/cache"
 
 set :symfony_console_path, "bin/console"
 set :symfony_console_flags, "--no-debug"
