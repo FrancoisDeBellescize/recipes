@@ -32,7 +32,7 @@ td.flex > i {
 #ingredient-modal {
 	z-index: 1000;
 	background-color: white;
-	max-height: 30%;
+	max-height: 40%;
 }
 
 .timer {
@@ -169,6 +169,7 @@ li.search .search-results {
 }
 
 #top-nav {
+	z-index: 100;
 	top: 0;
 	position:fixed;
 }

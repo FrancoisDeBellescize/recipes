@@ -9,7 +9,7 @@ class RecipeRepository extends EntityRepository
   public function getLast($limit = 10){
     $qb = $this->createQueryBuilder('r');
     $qb->select('r')
-    ->orderBy('r.created_at')
+    ->orderBy('r.created_at', 'DESC')
     ->setMaxResults($limit);
 
     return $qb->getQuery()->getResult();

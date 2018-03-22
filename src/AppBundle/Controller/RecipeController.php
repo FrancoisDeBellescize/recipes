@@ -15,7 +15,7 @@ class RecipeController extends Controller
   public function indexAction(Request $request)
   {
     $em    = $this->get('doctrine.orm.entity_manager');
-    $dql   = "SELECT r FROM AppBundle:Recipe r";
+    $dql   = "SELECT r FROM AppBundle:Recipe r ORDER BY r.created_at DESC";
     $query = $em->createQuery($dql);
 
     $paginator  = $this->get('knp_paginator');
