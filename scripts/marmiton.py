@@ -18,6 +18,7 @@ db = MySQLdb.connect(host="localhost",    # your host, usually localhost
 def clearString(str):
     return " ".join(str.split())
 
+
 def slugify(s):
     s = s.lower()
     for c in [' ', '-', '.', '/']:
@@ -31,46 +32,46 @@ def slugify(s):
     return s
 
 if len(sys.argv) != 2:
-    print "usage : python marmiton.py http://www.marmiton.org/recettes..."
+    print ("usage : python marmiton.py http://www.marmiton.org/recettes...")
 
 if not sys.argv[1].startswith('http://www.marmiton.org/recettes/'):
-    print "It's note a recipe"
+    print ("It's note a recipe")
     sys.exit(0)
 
-print "Scanning " + sys.argv[1] + "..."
+print ("Scanning " + sys.argv[1] + "...")
 
 page = requests.get(sys.argv[1])
 soup = BeautifulSoup(page.content, "lxml")
 
 name = soup.find("h1", {"class": "main-title"})
-print "Name : " + name.text
+print ("Name : " + name.text)
 
 rating = soup.find("span", {"class": "recipe-reviews-list__review__head__infos__rating__value"})
-print "Rating : " + rating.text
+print ("Rating : " + rating.text)
 
 total_time = soup.find("span", {"class": "title-2 recipe-infos__total-time__value"})
-print "Total Time : " + total_time.text
+print ("Total Time : " + total_time.text)
 
 quantity = soup.find("span", {"class": "title-2 recipe-infos__quantity__value"})
-print "Quantity : " + quantity.text
+print ("Quantity : " + quantity.text)
 
 preparation_time = soup.find("div", {"class": "recipe-infos__timmings__preparation"})
 if preparation_time:
     preparation_time = clearString(preparation_time.find("span", {"class": "recipe-infos__timmings__value"}).text)
-print "preparation_time : " + preparation_time
+print ("preparation_time : " + preparation_time)
 
 cooking_time = soup.find("div", {"class": "recipe-infos__timmings__cooking"})
 if cooking_time:
     cooking_time = clearString(cooking_time.find("span", {"class": "recipe-infos__timmings__value"}).text)
-print "cooking_time : " + cooking_time
+print ("cooking_time : " + cooking_time)
 
 steps_data = []
 steps = soup.findAll("li", {"class": "recipe-preparation__list__item"})
 for step in steps:
     steps_data.append(clearString(step.find("h3").next_sibling))
 
-print "Steps :"
-print steps_data
+print ("Steps :")
+print (steps_data)
 
 ingredients_data = []
 ingredients = soup.findAll("li", {"class": "recipe-ingredients__list__item"})
@@ -80,8 +81,8 @@ for ingredient in ingredients:
     ingredient_data["name"] = ingredient.find("p", {"class" : "name_singular"})["data-name-singular"]
     ingredients_data.append(ingredient_data)
 
-print "Ingredients :"
-print ingredients_data
+print ("Ingredients :")
+print (ingredients_data)
 
 comment = sys.argv[1] + "\n"
 for ingredient in ingredients_data:
@@ -100,12 +101,12 @@ results = cur.fetchone()
 for row in results:
     recipe_id = row
 
-print recipe_id
+print (recipe_id)
 
 i = 1
 for step in steps_data:
     cur.execute("INSERT INTO step (recipe_id, text, position) VALUES (%s, %s, %s)", (recipe_id, step, i))
     ++i
-    print step
+    print (step)
 db.commit()
 db.close()
