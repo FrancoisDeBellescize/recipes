@@ -74,9 +74,6 @@
         </div>
         <div class="card-content">
           {{ recipe.name }}<br>
-          <span><i class="tiny flow-text material-icons">alarm</i> <small>{{ recipe.preparationTime }} min</small></span><br>
-          <span><i class="tiny flow-text material-icons">whatshot</i> <small>{% if recipe.cookTime is not null %}{{ recipe.cookTime }} min {% else %} -- {% endif %}</small></span><br>
-          <span><i class="tiny material-icons">restore</i> <small>{% if recipe.restTime is not null %}{{ recipe.restTime }} min {% else %} -- {% endif %}</small></span>
         </div>
       </div>
     </a>

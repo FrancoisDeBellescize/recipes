@@ -16011,3 +16011,2247 @@ monolog/monolog suggests installing rollbar/rollbar (Allow sending log messages 
   INFO [4134d1f9] Running /usr/bin/env echo "Branch master (at 6b270281502db28ea635b4c07c395ea0544cc2c6) deployed as release 20180322140430 by francoisdebellescize" >> /var/www/recipes/revisions.log as ec2-user@34.243.214.82
  DEBUG [4134d1f9] Command: cd /var/www/recipes/releases && ( export SYMFONY_ENV="prod" ; /usr/bin/env echo "Branch master (at 6b270281502db28ea635b4c07c395ea0544cc2c6) deployed as release 20180322140430 by francoisdebellescize" >> /var/www/recipes/revisions.log )
   INFO [4134d1f9] Finished in 0.114 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-03-22 15:29:06 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [11010f82] Running /usr/bin/env mkdir -p /tmp as ec2-user@34.243.214.82
+ DEBUG [11010f82] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -p /tmp )
+  INFO [11010f82] Finished in 0.469 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-recipes-prod-francoisdebellescize.sh 0.0%
+  INFO Uploading /tmp/git-ssh-recipes-prod-francoisdebellescize.sh 100.0%
+  INFO [f2b1091a] Running /usr/bin/env chmod 700 /tmp/git-ssh-recipes-prod-francoisdebellescize.sh as ec2-user@34.243.214.82
+ DEBUG [f2b1091a] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env chmod 700 /tmp/git-ssh-recipes-prod-francoisdebellescize.sh )
+  INFO [f2b1091a] Finished in 0.114 seconds with exit status 0 (successful).
+  INFO [36653fc6] Running /usr/bin/env git ls-remote git@github.com:karma151/recipes.git HEAD as ec2-user@34.243.214.82
+ DEBUG [36653fc6] Command: ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-recipes-prod-francoisdebellescize.sh" ; /usr/bin/env git ls-remote git@github.com:karma151/recipes.git HEAD )
+ DEBUG [36653fc6] 	8f070eb71ddf333246cda79aa223e2c012800b47	HEAD
+  INFO [36653fc6] Finished in 1.797 seconds with exit status 0 (successful).
+  INFO [8a48ac16] Running /usr/bin/env mkdir -p /var/www/recipes/shared /var/www/recipes/releases as ec2-user@34.243.214.82
+ DEBUG [8a48ac16] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -p /var/www/recipes/shared /var/www/recipes/releases )
+  INFO [8a48ac16] Finished in 0.070 seconds with exit status 0 (successful).
+  INFO [d7b83462] Running /usr/bin/env mkdir -p /var/www/recipes/shared/app/logs /var/www/recipes/shared/web/uploads as ec2-user@34.243.214.82
+ DEBUG [d7b83462] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -p /var/www/recipes/shared/app/logs /var/www/recipes/shared/web/uploads )
+  INFO [d7b83462] Finished in 0.117 seconds with exit status 0 (successful).
+  INFO [ab198973] Running /usr/bin/env mkdir -p /var/www/recipes/shared/app/config as ec2-user@34.243.214.82
+ DEBUG [ab198973] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -p /var/www/recipes/shared/app/config )
+  INFO [ab198973] Finished in 0.118 seconds with exit status 0 (successful).
+ DEBUG [6f7871f9] Running [ -f /var/www/recipes/shared/app/config/parameters.yml ] as ec2-user@34.243.214.82
+ DEBUG [6f7871f9] Command: [ -f /var/www/recipes/shared/app/config/parameters.yml ]
+ DEBUG [6f7871f9] Finished in 0.108 seconds with exit status 0 (successful).
+ DEBUG [53878c67] Running [ -f /var/www/recipes/current/REVISION ] as ec2-user@34.243.214.82
+ DEBUG [53878c67] Command: [ -f /var/www/recipes/current/REVISION ]
+ DEBUG [53878c67] Finished in 0.115 seconds with exit status 0 (successful).
+ DEBUG [d51fd59a] Running /usr/bin/env cat /var/www/recipes/current/REVISION 2>/dev/null as ec2-user@34.243.214.82
+ DEBUG [d51fd59a] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env cat /var/www/recipes/current/REVISION 2>/dev/null )
+ DEBUG [d51fd59a] 	6b270281502db28ea635b4c07c395ea0544cc2c6
+ DEBUG [d51fd59a] Finished in 0.110 seconds with exit status 0 (successful).
+ DEBUG [dd7023c9] Running if test ! -d /var/www/recipes/shared; then echo "Directory does not exist '/var/www/recipes/shared'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [dd7023c9] Command: if test ! -d /var/www/recipes/shared; then echo "Directory does not exist '/var/www/recipes/shared'" 1>&2; false; fi
+ DEBUG [dd7023c9] Finished in 0.117 seconds with exit status 0 (successful).
+ DEBUG [03d8779b] Running /usr/bin/env [ -e composer.phar ] as ec2-user@34.243.214.82
+ DEBUG [03d8779b] Command: cd /var/www/recipes/shared && ( export SYMFONY_ENV="prod" ; /usr/bin/env [ -e composer.phar ] )
+ DEBUG [03d8779b] Finished in 0.120 seconds with exit status 0 (successful).
+ DEBUG [93627bbf] Running [ -f /var/www/recipes/repo/HEAD ] as ec2-user@34.243.214.82
+ DEBUG [93627bbf] Command: [ -f /var/www/recipes/repo/HEAD ]
+ DEBUG [93627bbf] Finished in 0.113 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/recipes/repo
+ DEBUG [52d40f35] Running if test ! -d /var/www/recipes/repo; then echo "Directory does not exist '/var/www/recipes/repo'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [52d40f35] Command: if test ! -d /var/www/recipes/repo; then echo "Directory does not exist '/var/www/recipes/repo'" 1>&2; false; fi
+ DEBUG [52d40f35] Finished in 0.109 seconds with exit status 0 (successful).
+  INFO [09fa7117] Running /usr/bin/env git remote set-url origin git@github.com:karma151/recipes.git as ec2-user@34.243.214.82
+ DEBUG [09fa7117] Command: cd /var/www/recipes/repo && ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-recipes-prod-francoisdebellescize.sh" ; /usr/bin/env git remote set-url origin git@github.com:karma151/recipes.git )
+  INFO [09fa7117] Finished in 0.113 seconds with exit status 0 (successful).
+  INFO [b0801702] Running /usr/bin/env git remote update --prune as ec2-user@34.243.214.82
+ DEBUG [b0801702] Command: cd /var/www/recipes/repo && ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-recipes-prod-francoisdebellescize.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [b0801702] 	Récupération de origin
+ DEBUG [b0801702] 	Depuis github.com:karma151/recipes
+   6b27028..8f070eb  master     -> master
+  INFO [b0801702] Finished in 2.093 seconds with exit status 0 (successful).
+ DEBUG [082a0cf1] Running if test ! -d /var/www/recipes/repo; then echo "Directory does not exist '/var/www/recipes/repo'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [082a0cf1] Command: if test ! -d /var/www/recipes/repo; then echo "Directory does not exist '/var/www/recipes/repo'" 1>&2; false; fi
+ DEBUG [082a0cf1] Finished in 0.061 seconds with exit status 0 (successful).
+  INFO [a3ed4ad6] Running /usr/bin/env mkdir -p /var/www/recipes/releases/20180322142910 as ec2-user@34.243.214.82
+ DEBUG [a3ed4ad6] Command: cd /var/www/recipes/repo && ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-recipes-prod-francoisdebellescize.sh" ; /usr/bin/env mkdir -p /var/www/recipes/releases/20180322142910 )
+  INFO [a3ed4ad6] Finished in 0.109 seconds with exit status 0 (successful).
+  INFO [cdb2f8e6] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/recipes/releases/20180322142910 as ec2-user@34.243.214.82
+ DEBUG [cdb2f8e6] Command: cd /var/www/recipes/repo && ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-recipes-prod-francoisdebellescize.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/recipes/releases/20180322142910 )
+  INFO [cdb2f8e6] Finished in 0.225 seconds with exit status 0 (successful).
+ DEBUG [517e5b8c] Running if test ! -d /var/www/recipes/repo; then echo "Directory does not exist '/var/www/recipes/repo'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [517e5b8c] Command: if test ! -d /var/www/recipes/repo; then echo "Directory does not exist '/var/www/recipes/repo'" 1>&2; false; fi
+ DEBUG [517e5b8c] Finished in 0.112 seconds with exit status 0 (successful).
+ DEBUG [7d928b79] Running /usr/bin/env git rev-list --max-count=1 master as ec2-user@34.243.214.82
+ DEBUG [7d928b79] Command: cd /var/www/recipes/repo && ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-recipes-prod-francoisdebellescize.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [7d928b79] 	8f070eb71ddf333246cda79aa223e2c012800b47
+ DEBUG [7d928b79] Finished in 0.115 seconds with exit status 0 (successful).
+ DEBUG [756bbc80] Running if test ! -d /var/www/recipes/releases/20180322142910; then echo "Directory does not exist '/var/www/recipes/releases/20180322142910'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [756bbc80] Command: if test ! -d /var/www/recipes/releases/20180322142910; then echo "Directory does not exist '/var/www/recipes/releases/20180322142910'" 1>&2; false; fi
+ DEBUG [756bbc80] Finished in 0.112 seconds with exit status 0 (successful).
+  INFO [dd763e23] Running /usr/bin/env echo "8f070eb71ddf333246cda79aa223e2c012800b47" >> REVISION as ec2-user@34.243.214.82
+ DEBUG [dd763e23] Command: cd /var/www/recipes/releases/20180322142910 && ( export SYMFONY_ENV="prod" ; /usr/bin/env echo "8f070eb71ddf333246cda79aa223e2c012800b47" >> REVISION )
+  INFO [dd763e23] Finished in 0.119 seconds with exit status 0 (successful).
+  INFO [aae26db3] Running /usr/bin/env mkdir -p /var/www/recipes/releases/20180322142910/app/config as ec2-user@34.243.214.82
+ DEBUG [aae26db3] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -p /var/www/recipes/releases/20180322142910/app/config )
+  INFO [aae26db3] Finished in 0.111 seconds with exit status 0 (successful).
+ DEBUG [bf7d79cc] Running [ -L /var/www/recipes/releases/20180322142910/app/config/parameters.yml ] as ec2-user@34.243.214.82
+ DEBUG [bf7d79cc] Command: [ -L /var/www/recipes/releases/20180322142910/app/config/parameters.yml ]
+ DEBUG [bf7d79cc] Finished in 0.116 seconds with exit status 1 (failed).
+ DEBUG [6b833084] Running [ -f /var/www/recipes/releases/20180322142910/app/config/parameters.yml ] as ec2-user@34.243.214.82
+ DEBUG [6b833084] Command: [ -f /var/www/recipes/releases/20180322142910/app/config/parameters.yml ]
+ DEBUG [6b833084] Finished in 0.108 seconds with exit status 1 (failed).
+  INFO [db35631b] Running /usr/bin/env ln -s /var/www/recipes/shared/app/config/parameters.yml /var/www/recipes/releases/20180322142910/app/config/parameters.yml as ec2-user@34.243.214.82
+ DEBUG [db35631b] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env ln -s /var/www/recipes/shared/app/config/parameters.yml /var/www/recipes/releases/20180322142910/app/config/parameters.yml )
+  INFO [db35631b] Finished in 0.110 seconds with exit status 0 (successful).
+  INFO [65155eab] Running /usr/bin/env mkdir -p /var/www/recipes/releases/20180322142910/app /var/www/recipes/releases/20180322142910/web as ec2-user@34.243.214.82
+ DEBUG [65155eab] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -p /var/www/recipes/releases/20180322142910/app /var/www/recipes/releases/20180322142910/web )
+  INFO [65155eab] Finished in 0.115 seconds with exit status 0 (successful).
+ DEBUG [fb2d4dd1] Running [ -L /var/www/recipes/releases/20180322142910/app/logs ] as ec2-user@34.243.214.82
+ DEBUG [fb2d4dd1] Command: [ -L /var/www/recipes/releases/20180322142910/app/logs ]
+ DEBUG [fb2d4dd1] Finished in 0.116 seconds with exit status 1 (failed).
+ DEBUG [088410a7] Running [ -d /var/www/recipes/releases/20180322142910/app/logs ] as ec2-user@34.243.214.82
+ DEBUG [088410a7] Command: [ -d /var/www/recipes/releases/20180322142910/app/logs ]
+ DEBUG [088410a7] Finished in 0.109 seconds with exit status 1 (failed).
+  INFO [fa067ab2] Running /usr/bin/env ln -s /var/www/recipes/shared/app/logs /var/www/recipes/releases/20180322142910/app/logs as ec2-user@34.243.214.82
+ DEBUG [fa067ab2] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env ln -s /var/www/recipes/shared/app/logs /var/www/recipes/releases/20180322142910/app/logs )
+  INFO [fa067ab2] Finished in 0.115 seconds with exit status 0 (successful).
+ DEBUG [38866008] Running [ -L /var/www/recipes/releases/20180322142910/web/uploads ] as ec2-user@34.243.214.82
+ DEBUG [38866008] Command: [ -L /var/www/recipes/releases/20180322142910/web/uploads ]
+ DEBUG [38866008] Finished in 0.111 seconds with exit status 1 (failed).
+ DEBUG [738570b6] Running [ -d /var/www/recipes/releases/20180322142910/web/uploads ] as ec2-user@34.243.214.82
+ DEBUG [738570b6] Command: [ -d /var/www/recipes/releases/20180322142910/web/uploads ]
+ DEBUG [738570b6] Finished in 0.108 seconds with exit status 1 (failed).
+  INFO [6ebbe22d] Running /usr/bin/env ln -s /var/www/recipes/shared/web/uploads /var/www/recipes/releases/20180322142910/web/uploads as ec2-user@34.243.214.82
+ DEBUG [6ebbe22d] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env ln -s /var/www/recipes/shared/web/uploads /var/www/recipes/releases/20180322142910/web/uploads )
+  INFO [6ebbe22d] Finished in 0.110 seconds with exit status 0 (successful).
+ DEBUG [19c093ee] Running if test ! -d /var/www/recipes/releases/20180322142910; then echo "Directory does not exist '/var/www/recipes/releases/20180322142910'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [19c093ee] Command: if test ! -d /var/www/recipes/releases/20180322142910; then echo "Directory does not exist '/var/www/recipes/releases/20180322142910'" 1>&2; false; fi
+ DEBUG [19c093ee] Finished in 0.110 seconds with exit status 0 (successful).
+ DEBUG [ff94b3b6] Running [ -d /var/www/recipes/releases/20180322142910/app/cache ] as ec2-user@34.243.214.82
+ DEBUG [ff94b3b6] Command: [ -d /var/www/recipes/releases/20180322142910/app/cache ]
+ DEBUG [ff94b3b6] Finished in 0.111 seconds with exit status 1 (failed).
+  INFO [2026a593] Running /usr/bin/env mkdir -pv app/cache as ec2-user@34.243.214.82
+ DEBUG [2026a593] Command: cd /var/www/recipes/releases/20180322142910 && ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -pv app/cache )
+ DEBUG [2026a593] 	mkdir: création du répertoire « app/cache »
+  INFO [2026a593] Finished in 0.110 seconds with exit status 0 (successful).
+ DEBUG [f47b7469] Running if test ! -d /var/www/recipes/releases/20180322142910; then echo "Directory does not exist '/var/www/recipes/releases/20180322142910'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [f47b7469] Command: if test ! -d /var/www/recipes/releases/20180322142910; then echo "Directory does not exist '/var/www/recipes/releases/20180322142910'" 1>&2; false; fi
+ DEBUG [f47b7469] Finished in 0.114 seconds with exit status 0 (successful).
+  INFO [f5341dee] Running /usr/bin/env composer install --no-interaction --optimize-autoloader as ec2-user@34.243.214.82
+ DEBUG [f5341dee] Command: cd /var/www/recipes/releases/20180322142910 && ( export SYMFONY_ENV="prod" ; /usr/bin/env composer install --no-interaction --optimize-autoloader )
+ DEBUG [f5341dee] 	Loading composer repositories with package information
+ DEBUG [f5341dee] 	Installing dependencies (including require-dev) from lock file
+ DEBUG [f5341dee] 	Package operations: 71 installs, 0 updates, 0 removals
+ DEBUG [f5341dee] 	  - Installing cocur/slugify (v3.1): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (25%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (50%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (60%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (65%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (70%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing doctrine/collections (v1.4.0): 
+ DEBUG [f5341dee] 	Loading from cache
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing twig/twig (v1.35.2): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (25%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (35%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (60%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (65%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (70%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing symfony/polyfill-util (v1.7.0): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing paragonie/random_compat (v2.0.11): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (35%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (70%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing symfony/polyfill-php70 (v1.7.0): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing symfony/polyfill-php56 (v1.7.0): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing symfony/polyfill-mbstring (v1.7.0): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (60%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing symfony/symfony (v3.2.14): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (25%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (35%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (50%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (60%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (65%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (70%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing symfony/polyfill-intl-icu (v1.7.0): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (50%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing psr/log (1.0.2): 
+ DEBUG [f5341dee] 	Loading from cache
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing psr/cache (1.0.1): 
+ DEBUG [f5341dee] 	Loading from cache
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing doctrine/lexer (v1.0.1): 
+ DEBUG [f5341dee] 	Loading from cache
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing doctrine/inflector (v1.1.0): 
+ DEBUG [f5341dee] 	Loading from cache
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing doctrine/cache (v1.6.2): 
+ DEBUG [f5341dee] 	Loading from cache
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing doctrine/annotations (v1.4.0): 
+ DEBUG [f5341dee] 	Loading from cache
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing doctrine/common (v2.7.3): 
+ DEBUG [f5341dee] 	Loading from cache
+ DEBUG [f5341dee] 	  - Installing jdorn/sql-formatter (v1.2.17): 
+ DEBUG [f5341dee] 	Loading from cache
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing doctrine/doctrine-cache-bundle (1.3.2): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (25%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (35%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (50%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (65%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (70%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing doctrine/dbal (v2.5.13): 
+ DEBUG [f5341dee] 	Loading from cache
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing doctrine/doctrine-bundle (1.8.1): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (25%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing queue-interop/queue-interop (0.6.1): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing queue-interop/amqp-interop (0.7.3): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (65%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing enqueue/amqp-tools (0.8.23): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (25%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (50%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing incenteev/composer-parameter-handler (v2.1.3): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (25%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (35%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (70%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing phpoption/phpoption (1.5.0): 
+ DEBUG [f5341dee] 	Loading from cache
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing phpcollection/phpcollection (0.5.0): 
+ DEBUG [f5341dee] 	Loading from cache
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing jms/parser-lib (1.0.0): 
+ DEBUG [f5341dee] 	Loading from cache
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing jms/metadata (1.6.0): 
+ DEBUG [f5341dee] 	Loading from cache
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing doctrine/instantiator (1.0.5): 
+ DEBUG [f5341dee] 	Loading from cache
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing jms/serializer (1.11.0): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (25%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (35%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (50%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (60%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing knplabs/knp-menu (2.3.0): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (25%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (70%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing knplabs/knp-menu-bundle (v2.2.1): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (60%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing knplabs/knp-components (1.3.5): 
+ DEBUG [f5341dee] 	Loading from cache
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing knplabs/knp-paginator-bundle (v2.7.2): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (70%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing php-amqplib/php-amqplib (v2.7.2): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (50%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (65%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (70%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing psr/http-message (1.0.1): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing composer/ca-bundle (1.1.0): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (25%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	Downloading (35%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (50%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (60%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (65%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (70%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing sensiolabs/security-checker (v4.1.8): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (35%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (70%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing sensio/distribution-bundle (v5.0.21): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (50%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing sensio/framework-extra-bundle (v3.0.29): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (25%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (35%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (50%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (60%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (65%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (70%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing twig/extensions (v1.5.1): 
+ DEBUG [f5341dee] 	Loading from cache
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing sonata-project/datagrid-bundle (2.3.1): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing sonata-project/core-bundle (3.9.1): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (25%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (35%)
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (50%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (60%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (65%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (70%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing sonata-project/cache (1.0.7): 
+ DEBUG [f5341dee] 	Loading from cache
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing sonata-project/block-bundle (3.12.0): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (25%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (35%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (50%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (60%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (65%)
+ DEBUG [f5341dee] 	Downloading (75%)Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing symfony/security-acl (v3.0.1): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (35%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (65%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing sonata-project/exporter (1.8.0): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (65%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing sonata-project/admin-bundle (3.32.0): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (25%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (35%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (50%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (60%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (65%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (70%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing doctrine/orm (v2.5.14): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (25%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (35%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (50%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (60%)
+ DEBUG [f5341dee] 	Downloading (65%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (70%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing sonata-project/doctrine-orm-admin-bundle (3.4.2): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (50%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (60%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing zendframework/zenddiagnostics (v1.1.0): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (25%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (65%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (70%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing sonata-project/easy-extends-bundle (2.5.0): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (35%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (65%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing sonata-project/doctrine-extensions (1.0.2): 
+ DEBUG [f5341dee] 	Loading from cache
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing enqueue/amqp-lib (0.8.23): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	Downloading (35%)
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing sonata-project/notification-bundle (3.4.0): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (25%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (60%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (65%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (70%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing guzzlehttp/psr7 (1.4.2): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing kriswallsmith/buzz (v0.16.0): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (60%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing knplabs/gaufrette (v0.5.0): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (25%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (35%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (50%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (60%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (65%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing jms/serializer-bundle (2.3.1): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (25%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (60%)
+ DEBUG [f5341dee] 	Downloading (65%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing imagine/imagine (v0.7.1): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (25%)
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (35%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (50%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (60%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (65%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (70%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing sonata-project/media-bundle (3.11.0): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (25%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (35%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (50%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (60%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (65%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (70%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing kriswallsmith/assetic (v1.4.0): 
+ DEBUG [f5341dee] 	Loading from cache
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing symfony/assetic-bundle (v2.8.2): 
+ DEBUG [f5341dee] 	Loading from cache
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing monolog/monolog (1.23.0): 
+ DEBUG [f5341dee] 	Loading from cache
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing symfony/monolog-bundle (v3.2.0): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (60%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (65%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (70%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing symfony/polyfill-apcu (v1.7.0): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing swiftmailer/swiftmailer (v5.4.9): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (25%)
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (35%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	Downloading (50%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (60%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing symfony/swiftmailer-bundle (v2.6.7): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (10%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (50%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (60%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (70%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing sensio/generator-bundle (v3.1.7): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (15%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (20%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (35%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (40%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (50%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (65%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (70%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (90%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (95%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	  - Installing symfony/phpunit-bridge (v3.4.6): 
+ DEBUG [f5341dee] 	Downloading (connecting...)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (0%)
+ DEBUG [f5341dee] 	           
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (5%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (25%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (30%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (35%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (45%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (50%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (55%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (75%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (80%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (85%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	Downloading (100%)
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	paragonie/random_compat suggests installing ext-libsodium (Provides a modern crypto API that can be used to generate random bytes.)
+ DEBUG [f5341dee] 	symfony/polyfill-intl-icu suggests installing ext-intl (For best performance)
+ DEBUG [f5341dee] 	knplabs/knp-components suggests installing doctrine/mongodb-odm (to allow usage pagination with Doctrine ODM MongoDB)
+ DEBUG [f5341dee] 	knplabs/knp-components suggests installing doctrine/phpcr-odm (to allow usage pagination with Doctrine ODM PHPCR)
+ DEBUG [f5341dee] 	knplabs/knp-components suggests installing propel/propel1 (to allow usage pagination with Propel ORM)
+ DEBUG [f5341dee] 	knplabs/knp-components suggests installing ruflin/Elastica (to allow usage pagination with ElasticSearch Client)
+ DEBUG [f5341dee] 	knplabs/knp-components suggests installing solarium/solarium (to allow usage pagination with Solarium Client)
+ DEBUG [f5341dee] 	sensio/framework-extra-bundle suggests installing symfony/psr-http-message-bridge (To use the PSR-7 converters)
+ DEBUG [f5341dee] 	sonata-project/cache suggests installing doctrine/phpcr-odm (PHPCR ODM support)
+ DEBUG [f5341dee] 	sonata-project/cache suggests installing ext-apc (Caching with ext/apc)
+ DEBUG [f5341dee] 	sonata-project/cache suggests installing ext-memcached (Caching with ext/memcached)
+ DEBUG [f5341dee] 	sonata-project/cache suggests installing predis/predis (Install redis php)
+ DEBUG [f5341dee] 	sonata-project/block-bundle suggests installing jms/di-extra-bundle (Annotations for Block definition)
+ DEBUG [f5341dee] 	sonata-project/block-bundle suggests installing sonata-project/cache-bundle (^3.0)
+ DEBUG [f5341dee] 	sonata-project/exporter suggests installing propel/propel1 (^1.6)
+ DEBUG [f5341dee] 	sonata-project/admin-bundle suggests installing jms/di-extra-bundle (Annotations for Admin definition)
+ DEBUG [f5341dee] 	sonata-project/admin-bundle suggests installing jms/translation-bundle (Extract message keys from Admins)
+ DEBUG [f5341dee] 	sonata-project/admin-bundle suggests installing sonata-project/intl-bundle (Add localized date and number into the list)
+ DEBUG [f5341dee] 	sonata-project/doctrine-orm-admin-bundle suggests installing simplethings/entity-audit-bundle (If you want to support for versioning of entities and their associations.)
+ DEBUG [f5341dee] 	zendframework/zenddiagnostics suggests installing doctrine/migrations (Required by Check\DoctrineMigration)
+ DEBUG [f5341dee] 	zendframework/zenddiagnostics suggests installing guzzle/http (Required by Check\GuzzleHttpService)
+ DEBUG [f5341dee] 	zendframework/zenddiagnostics suggests installing predis/predis (Required by Check\Redis)
+ DEBUG [f5341dee] 	enqueue/amqp-lib suggests installing enqueue/enqueue (If you'd like to use advanced features like Client abstract layer or Symfony integration features)
+ DEBUG [f5341dee] 	sonata-project/notification-bundle suggests installing guzzlehttp/guzzle (If you want to get a status report when using the rabbitMQ backend.)
+ DEBUG [f5341dee] 	sonata-project/notification-bundle suggests installing liip/monitor-bundle (^1.0)
+ DEBUG [f5341dee] 	knplabs/gaufrette suggests installing gaufrette/aws-s3-adapter (to use AwsS3 adapter (supports SDK v2 and v3))
+ DEBUG [f5341dee] 	knplabs/gaufrette suggests installing gaufrette/azure-blob-storage-adapter (to use AzureBlobStorage adapter)
+ DEBUG [f5341dee] 	knplabs/gaufrette suggests installing gaufrette/doctrine-dbal-adapter (to use DBAL adapter)
+ DEBUG [f5341dee] 	knplabs/gaufrette suggests installing gaufrette/flysystem-adapter (to use Flysystem adapter)
+ DEBUG [f5341dee] 	knplabs/gaufrette suggests installing gaufrette/ftp-adapter (to use Ftp adapter)
+ DEBUG [f5341dee] 	knplabs/gaufrette suggests installing gaufrette/gridfs-adapter (to use GridFS adapter)
+ DEBUG [f5341dee] 	knplabs/gaufrette suggests installing gaufrette/in-memory-adapter (to use InMemory adapter)
+ DEBUG [f5341dee] 	knplabs/gaufrette suggests installing gaufrette/local-adapter (to use Local adapter)
+ DEBUG [f5341dee] 	knplabs/gaufrette suggests installing gaufrette/opencloud-adapter (to use Opencloud adapter)
+ DEBUG [f5341dee] 	knplabs/gaufrette suggests installing gaufrette/phpseclib-sftp-adapter (to use PhpseclibSftp adapter)
+ DEBUG [f5341dee] 	knplabs/gaufrette suggests installing gaufrette/zip-adapter (to use Zip adapter)
+ DEBUG [f5341dee] 	knplabs/gaufrette suggests installing google/apiclient (to use GoogleCloudStorage adapter)
+ DEBUG [f5341dee] 	knplabs/gaufrette suggests installing knplabs/knp-gaufrette-bundle (to use with Symfony2)
+ DEBUG [f5341dee] 	jms/serializer-bundle suggests installing jms/di-extra-bundle (Required to get lazy loading (de)serialization visitors, ~1.3)
+ DEBUG [f5341dee] 	imagine/imagine suggests installing ext-gmagick (to use the Gmagick implementation)
+ DEBUG [f5341dee] 	imagine/imagine suggests installing ext-imagick (to use the Imagick implementation)
+ DEBUG [f5341dee] 	sonata-project/media-bundle suggests installing liip/imagine-bundle (^0.9)
+ DEBUG [f5341dee] 	sonata-project/media-bundle suggests installing rackspace/php-opencloud (^1.6)
+ DEBUG [f5341dee] 	sonata-project/media-bundle suggests installing sonata-project/classification-bundle (If you want to categorize your media items.)
+ DEBUG [f5341dee] 	sonata-project/media-bundle suggests installing sonata-project/seo-bundle (^2.1)
+ DEBUG [f5341dee] 	sonata-project/media-bundle suggests installing tilleuls/ckeditor-sonata-media-bundle (^1.0)
+kriswallsmith/assetic suggests installing leafo/lessphp (Assetic provides the integration with the lessphp LESS compiler)
+ DEBUG [f5341dee] 	kriswallsmith/assetic suggests installing leafo/scssphp (Assetic provides the integration with the scssphp SCSS compiler)
+ DEBUG [f5341dee] 	kriswallsmith/assetic suggests installing leafo/scssphp-compass (Assetic provides the integration with the SCSS compass plugin)
+ DEBUG [f5341dee] 	kriswallsmith/assetic suggests installing patchwork/jsqueeze (Assetic provides the integration with the JSqueeze JavaScript compressor)
+ DEBUG [f5341dee] 	kriswallsmith/assetic suggests installing ptachoire/cssembed (Assetic provides the integration with phpcssembed to embed data uris)
+ DEBUG [f5341dee] 	symfony/assetic-bundle suggests installing kriswallsmith/spork (to be able to dump assets in parallel)
+ DEBUG [f5341dee] 	monolog/monolog suggests installing aws/aws-sdk-php (Allow sending log messages to AWS services like DynamoDB)
+ DEBUG [f5341dee] 	monolog/monolog suggests installing doctrine/couchdb (Allow sending log messages to a CouchDB server)
+ DEBUG [f5341dee] 	monolog/monolog suggests installing ext-amqp (Allow sending log messages to an AMQP server (1.0+ required))
+ DEBUG [f5341dee] 	monolog/monolog suggests installing ext-mongo (Allow sending log messages to a MongoDB server)
+ DEBUG [f5341dee] 	monolog/monolog suggests installing graylog2/gelf-php (Allow sending log messages to a GrayLog2 server)
+ DEBUG [f5341dee] 	monolog/monolog suggests installing mongodb/mongodb (Allow sending log messages to a MongoDB server via PHP Driver)
+ DEBUG [f5341dee] 	monolog/monolog suggests installing php-console/php-console (Allow sending log messages to Google Chrome)
+ DEBUG [f5341dee] 	monolog/monolog suggests installing rollbar/rollbar (Allow sending log messages to Rollbar)
+ DEBUG [f5341dee] 	monolog/monolog suggests installing ruflin/elastica (Allow sending log messages to an Elastic Search server)
+ DEBUG [f5341dee] 	monolog/monolog suggests installing sentry/sentry (Allow sending log messages to a Sentry server)
+ DEBUG [f5341dee] 	Generating optimized autoload files
+ DEBUG [f5341dee] 	> Incenteev\ParameterHandler\ScriptHandler::buildParameters
+ DEBUG [f5341dee] 	Updating the "app/config/parameters.yml" file
+ DEBUG [f5341dee] 	> Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::buildBootstrap
+ DEBUG [f5341dee] 	> Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::clearCache
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	 // Clearing the cache for the prod environment with debug                      
+ DEBUG [f5341dee] 	 // false                                                                       
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	 [OK] Cache for the "prod" environment (debug=false) was successfully cleared.  
+
+ DEBUG [f5341dee] 	> Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::installAssets
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	 Trying to install assets as relative symbolic links.
+
+ DEBUG [f5341dee] 	 --- ------------------- ------------------ 
+ DEBUG [f5341dee] 	      Bundle              Method / Error    
+ DEBUG [f5341dee] 	 --- ------------------- ------------------ 
+ DEBUG [f5341dee] 	  ✔   SonataCoreBundle    relative symlink  
+ DEBUG [f5341dee] 	  ✔   SonataAdminBundle   relative symlink  
+ DEBUG [f5341dee] 	  ✔   SonataMediaBundle   relative symlink  
+ DEBUG [f5341dee] 	  ✔   AppBundle           relative symlink  
+ DEBUG [f5341dee] 	 --- ------------------- ------------------ 
+
+ DEBUG [f5341dee] 	 [OK] All assets were successfully installed.                                   
+ DEBUG [f5341dee] 	
+ DEBUG [f5341dee] 	> Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::installRequirementsFile
+ DEBUG [f5341dee] 	> Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::prepareDeploymentTarget
+  INFO [f5341dee] Finished in 74.947 seconds with exit status 0 (successful).
+ DEBUG [75b03043] Running if test ! -d /var/www/recipes/releases/20180322142910; then echo "Directory does not exist '/var/www/recipes/releases/20180322142910'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [75b03043] Command: if test ! -d /var/www/recipes/releases/20180322142910; then echo "Directory does not exist '/var/www/recipes/releases/20180322142910'" 1>&2; false; fi
+ DEBUG [75b03043] Finished in 0.111 seconds with exit status 0 (successful).
+  INFO [5d7fcb72] Running /usr/bin/env php bin/console cache:warmup  --no-debug as ec2-user@34.243.214.82
+ DEBUG [5d7fcb72] Command: cd /var/www/recipes/releases/20180322142910 && ( export SYMFONY_ENV="prod" ; /usr/bin/env php bin/console cache:warmup  --no-debug )
+ DEBUG [5d7fcb72] 	
+ DEBUG [5d7fcb72] 	 // Warming up the cache for the prod environment with debug                    
+ DEBUG [5d7fcb72] 	 // false                                                                       
+ DEBUG [5d7fcb72] 	
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:30] assetic.ERROR: The template "SecurityBundle:Collector:security.html.twig" contains an error: Unknown "profiler_dump" function in "SecurityBundle:Collector:security.html.twig" at line 100. [] []
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:30] assetic.ERROR: The template "SecurityBundle:Collector:security.html.twig" contains an error: Unknown "profiler_dump" function in "SecurityBundle:Collector:security.html.twig" at line 100.  
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:30] assetic.ERROR: The template "DoctrineBundle:Collector:db.html.twig" contains an error: Unknown "profiler_dump" function in "DoctrineBundle:Collector:db.html.twig" at line 243. [] []
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:30] assetic.ERROR: The template "DoctrineBundle:Collector:db.html.twig" contains an error: Unknown "profiler_dump" function in "DoctrineBundle:Collector:db.html.twig" at line 243.  
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:32] php.INFO: User Deprecated: Form type "Sonata\CoreBundle\Form\Type\TranslatableChoiceType" is deprecated since SonataCoreBundle 2.2.0 and will be removed in 4.0. Use form type "Symfony\Component\Form\Extension\Core\Type\ChoiceType" with "translation_domain" option instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: Form type \"Sonata\\CoreBundle\\Form\\Type\\TranslatableChoiceType\" is deprecated since SonataCoreBundle 2.2.0 and will be removed in 4.0. Use form type \"Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType\" with \"translation_domain\" option instead. at /var/www/recipes/releases/20180322142910/vendor/sonata-project/core-bundle/src/Form/Type/TranslatableChoiceType.php:30)"} []
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:34] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:show_orm_many_to_many.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/show_many_to_one.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:show_orm_many_to_many.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/show_many_to_one.html.twig\" instead. at /var/www/recipes/releases/20180322142910/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:34] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:list_orm_many_to_one.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/list_many_to_one.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:list_orm_many_to_one.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/list_many_to_one.html.twig\" instead. at /var/www/recipes/releases/20180322142910/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:34] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_one.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_one_to_one.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_one.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_one_to_one.html.twig\" instead. at /var/www/recipes/releases/20180322142910/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:34] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:show_orm_one_to_many.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/show_one_to_many.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:show_orm_one_to_many.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/show_one_to_many.html.twig\" instead. at /var/www/recipes/releases/20180322142910/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:34] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_one_to_many.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_one_to_many.html.twig\" instead. at /var/www/recipes/releases/20180322142910/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:34] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_many_to_many.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_many_to_many.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_many_to_many.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_many_to_many.html.twig\" instead. at /var/www/recipes/releases/20180322142910/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:34] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:list_orm_many_to_many.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/list_many_to_many.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:list_orm_many_to_many.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/list_many_to_many.html.twig\" instead. at /var/www/recipes/releases/20180322142910/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:34] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_inline_table.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_one_to_many_inline_table.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_inline_table.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_one_to_many_inline_table.html.twig\" instead. at /var/www/recipes/releases/20180322142910/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:35] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:list_orm_one_to_one.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/list_one_to_one.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:list_orm_one_to_one.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/list_one_to_one.html.twig\" instead. at /var/www/recipes/releases/20180322142910/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:35] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_inline_tabs.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_one_to_many_inline_tabs.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_inline_tabs.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_one_to_many_inline_tabs.html.twig\" instead. at /var/www/recipes/releases/20180322142910/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:35] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:show_orm_one_to_one.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/show_one_to_one.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:show_orm_one_to_one.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/show_one_to_one.html.twig\" instead. at /var/www/recipes/releases/20180322142910/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:35] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_sortable_script_tabs.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_one_to_many_sortable_script_tabs.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_sortable_script_tabs.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_one_to_many_sortable_script_tabs.html.twig\" instead. at /var/www/recipes/releases/20180322142910/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:35] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_many_to_one.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_many_to_one.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_many_to_one.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_many_to_one.html.twig\" instead. at /var/www/recipes/releases/20180322142910/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:35] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:show_orm_many_to_one.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/show_many_to_one.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:show_orm_many_to_one.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/show_many_to_one.html.twig\" instead. at /var/www/recipes/releases/20180322142910/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:35] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:list_orm_one_to_many.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/list_one_to_many.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:list_orm_one_to_many.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/list_one_to_many.html.twig\" instead. at /var/www/recipes/releases/20180322142910/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:35] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_sortable_script_table.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_one_to_many_sortable_script_table.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_sortable_script_table.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_one_to_many_sortable_script_table.html.twig\" instead. at /var/www/recipes/releases/20180322142910/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:35] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_many_association_script.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_many_script.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_many_association_script.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_many_script.html.twig\" instead. at /var/www/recipes/releases/20180322142910/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:35] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_association_script.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_one_script.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_association_script.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_one_script.html.twig\" instead. at /var/www/recipes/releases/20180322142910/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [5d7fcb72] 	[2018-03-22 15:30:35] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_modal.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_modal.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_modal.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_modal.html.twig\" instead. at /var/www/recipes/releases/20180322142910/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [5d7fcb72] 	 [OK] Cache for the "prod" environment (debug=false) was successfully warmed.   
+ DEBUG [5d7fcb72] 	
+  INFO [5d7fcb72] Finished in 7.543 seconds with exit status 0 (successful).
+ DEBUG [9849d18c] Running if test ! -d /var/www/recipes/releases/20180322142910/web; then echo "Directory does not exist '/var/www/recipes/releases/20180322142910/web'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [9849d18c] Command: if test ! -d /var/www/recipes/releases/20180322142910/web; then echo "Directory does not exist '/var/www/recipes/releases/20180322142910/web'" 1>&2; false; fi
+ DEBUG [9849d18c] Finished in 0.106 seconds with exit status 0 (successful).
+  INFO [8a29ead7] Running /usr/bin/env rm -f app_*.php as ec2-user@34.243.214.82
+ DEBUG [8a29ead7] Command: cd /var/www/recipes/releases/20180322142910/web && ( export SYMFONY_ENV="prod" ; /usr/bin/env rm -f app_*.php )
+  INFO [8a29ead7] Finished in 0.109 seconds with exit status 0 (successful).
+ DEBUG [8d769c65] Running if test ! -d /var/www/recipes/releases/20180322142910; then echo "Directory does not exist '/var/www/recipes/releases/20180322142910'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [8d769c65] Command: if test ! -d /var/www/recipes/releases/20180322142910; then echo "Directory does not exist '/var/www/recipes/releases/20180322142910'" 1>&2; false; fi
+ DEBUG [8d769c65] Finished in 0.116 seconds with exit status 0 (successful).
+  INFO [c060063b] Running /usr/bin/env php bin/console assetic:dump  --no-debug as ec2-user@34.243.214.82
+ DEBUG [c060063b] Command: cd /var/www/recipes/releases/20180322142910 && ( export SYMFONY_ENV="prod" ; /usr/bin/env php bin/console assetic:dump  --no-debug )
+ DEBUG [c060063b] 	Dumping all prod assets.
+ DEBUG [c060063b] 	Debug mode is off.
+ DEBUG [c060063b] 	
+ DEBUG [c060063b] 	15:30:38 [dir+] /var/www/recipes/releases/20180322142910/app/../web/js
+ DEBUG [c060063b] 	15:30:38 [file+] /var/www/recipes/releases/20180322142910/app/../web/js/2ed8990.js
+ DEBUG [c060063b] 	15:30:38 [dir+] /var/www/recipes/releases/20180322142910/app/../web/css
+ DEBUG [c060063b] 	15:30:38 [file+] /var/www/recipes/releases/20180322142910/app/../web/css/3e7b5a2.css
+  INFO [c060063b] Finished in 0.288 seconds with exit status 0 (successful).
+  INFO [d72d21df] Running /usr/bin/env ln -s /var/www/recipes/releases/20180322142910 /var/www/recipes/releases/current as ec2-user@34.243.214.82
+ DEBUG [d72d21df] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env ln -s /var/www/recipes/releases/20180322142910 /var/www/recipes/releases/current )
+  INFO [d72d21df] Finished in 0.113 seconds with exit status 0 (successful).
+  INFO [81add5a8] Running /usr/bin/env mv /var/www/recipes/releases/current /var/www/recipes as ec2-user@34.243.214.82
+ DEBUG [81add5a8] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mv /var/www/recipes/releases/current /var/www/recipes )
+  INFO [81add5a8] Finished in 0.108 seconds with exit status 0 (successful).
+ DEBUG [ddd3a03b] Running /usr/bin/env ls -x /var/www/recipes/releases as ec2-user@34.243.214.82
+ DEBUG [ddd3a03b] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env ls -x /var/www/recipes/releases )
+ DEBUG [ddd3a03b] 	20180322133456	20180322140049	20180322140233	20180322140327	20180322140430
+20180322142910
+ DEBUG [ddd3a03b] Finished in 0.110 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on 34.243.214.82
+ DEBUG [0c73e6ec] Running [ -d /var/www/recipes/current ] as ec2-user@34.243.214.82
+ DEBUG [0c73e6ec] Command: [ -d /var/www/recipes/current ]
+ DEBUG [0c73e6ec] Finished in 0.109 seconds with exit status 0 (successful).
+ DEBUG [a31fe731] Running /usr/bin/env readlink /var/www/recipes/current as ec2-user@34.243.214.82
+ DEBUG [a31fe731] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env readlink /var/www/recipes/current )
+ DEBUG [a31fe731] 	/var/www/recipes/releases/20180322142910
+ DEBUG [a31fe731] Finished in 0.109 seconds with exit status 0 (successful).
+  INFO [37b6f553] Running /usr/bin/env rm -rf /var/www/recipes/releases/20180322133456 as ec2-user@34.243.214.82
+ DEBUG [37b6f553] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env rm -rf /var/www/recipes/releases/20180322133456 )
+  INFO [37b6f553] Finished in 0.358 seconds with exit status 0 (successful).
+ DEBUG [7f5b0161] Running if test ! -d /var/www/recipes/releases; then echo "Directory does not exist '/var/www/recipes/releases'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [7f5b0161] Command: if test ! -d /var/www/recipes/releases; then echo "Directory does not exist '/var/www/recipes/releases'" 1>&2; false; fi
+ DEBUG [7f5b0161] Finished in 0.110 seconds with exit status 0 (successful).
+  INFO [de196cfe] Running /usr/bin/env echo "Branch master (at 8f070eb71ddf333246cda79aa223e2c012800b47) deployed as release 20180322142910 by francoisdebellescize" >> /var/www/recipes/revisions.log as ec2-user@34.243.214.82
+ DEBUG [de196cfe] Command: cd /var/www/recipes/releases && ( export SYMFONY_ENV="prod" ; /usr/bin/env echo "Branch master (at 8f070eb71ddf333246cda79aa223e2c012800b47) deployed as release 20180322142910 by francoisdebellescize" >> /var/www/recipes/revisions.log )
+  INFO [de196cfe] Finished in 0.112 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2018-03-22 15:36:23 +0100 cap prod deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [d5d7388e] Running /usr/bin/env mkdir -p /tmp as ec2-user@34.243.214.82
+ DEBUG [d5d7388e] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -p /tmp )
+  INFO [d5d7388e] Finished in 0.470 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-recipes-prod-francoisdebellescize.sh 0.0%
+  INFO Uploading /tmp/git-ssh-recipes-prod-francoisdebellescize.sh 100.0%
+  INFO [a1db188c] Running /usr/bin/env chmod 700 /tmp/git-ssh-recipes-prod-francoisdebellescize.sh as ec2-user@34.243.214.82
+ DEBUG [a1db188c] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env chmod 700 /tmp/git-ssh-recipes-prod-francoisdebellescize.sh )
+  INFO [a1db188c] Finished in 0.111 seconds with exit status 0 (successful).
+  INFO [e7d80541] Running /usr/bin/env git ls-remote git@github.com:karma151/recipes.git HEAD as ec2-user@34.243.214.82
+ DEBUG [e7d80541] Command: ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-recipes-prod-francoisdebellescize.sh" ; /usr/bin/env git ls-remote git@github.com:karma151/recipes.git HEAD )
+ DEBUG [e7d80541] 	8f070eb71ddf333246cda79aa223e2c012800b47	HEAD
+  INFO [e7d80541] Finished in 1.598 seconds with exit status 0 (successful).
+  INFO [d2b586d3] Running /usr/bin/env mkdir -p /var/www/recipes/shared /var/www/recipes/releases as ec2-user@34.243.214.82
+ DEBUG [d2b586d3] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -p /var/www/recipes/shared /var/www/recipes/releases )
+  INFO [d2b586d3] Finished in 0.066 seconds with exit status 0 (successful).
+  INFO [13fbacfc] Running /usr/bin/env mkdir -p /var/www/recipes/shared/app/logs /var/www/recipes/shared/web/uploads as ec2-user@34.243.214.82
+ DEBUG [13fbacfc] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -p /var/www/recipes/shared/app/logs /var/www/recipes/shared/web/uploads )
+  INFO [13fbacfc] Finished in 0.112 seconds with exit status 0 (successful).
+  INFO [a48ee06f] Running /usr/bin/env mkdir -p /var/www/recipes/shared/app/config as ec2-user@34.243.214.82
+ DEBUG [a48ee06f] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -p /var/www/recipes/shared/app/config )
+  INFO [a48ee06f] Finished in 0.110 seconds with exit status 0 (successful).
+ DEBUG [9b60b20a] Running [ -f /var/www/recipes/shared/app/config/parameters.yml ] as ec2-user@34.243.214.82
+ DEBUG [9b60b20a] Command: [ -f /var/www/recipes/shared/app/config/parameters.yml ]
+ DEBUG [9b60b20a] Finished in 0.109 seconds with exit status 0 (successful).
+ DEBUG [74ec0c87] Running [ -f /var/www/recipes/current/REVISION ] as ec2-user@34.243.214.82
+ DEBUG [74ec0c87] Command: [ -f /var/www/recipes/current/REVISION ]
+ DEBUG [74ec0c87] Finished in 0.113 seconds with exit status 0 (successful).
+ DEBUG [7640b236] Running /usr/bin/env cat /var/www/recipes/current/REVISION 2>/dev/null as ec2-user@34.243.214.82
+ DEBUG [7640b236] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env cat /var/www/recipes/current/REVISION 2>/dev/null )
+ DEBUG [7640b236] 	8f070eb71ddf333246cda79aa223e2c012800b47
+ DEBUG [7640b236] Finished in 0.109 seconds with exit status 0 (successful).
+ DEBUG [835d07e4] Running if test ! -d /var/www/recipes/shared; then echo "Directory does not exist '/var/www/recipes/shared'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [835d07e4] Command: if test ! -d /var/www/recipes/shared; then echo "Directory does not exist '/var/www/recipes/shared'" 1>&2; false; fi
+ DEBUG [835d07e4] Finished in 0.111 seconds with exit status 0 (successful).
+ DEBUG [52d4b8fe] Running /usr/bin/env [ -e composer.phar ] as ec2-user@34.243.214.82
+ DEBUG [52d4b8fe] Command: cd /var/www/recipes/shared && ( export SYMFONY_ENV="prod" ; /usr/bin/env [ -e composer.phar ] )
+ DEBUG [52d4b8fe] Finished in 0.112 seconds with exit status 0 (successful).
+ DEBUG [ca2dff94] Running [ -f /var/www/recipes/repo/HEAD ] as ec2-user@34.243.214.82
+ DEBUG [ca2dff94] Command: [ -f /var/www/recipes/repo/HEAD ]
+ DEBUG [ca2dff94] Finished in 0.111 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/recipes/repo
+ DEBUG [8c8fefdc] Running if test ! -d /var/www/recipes/repo; then echo "Directory does not exist '/var/www/recipes/repo'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [8c8fefdc] Command: if test ! -d /var/www/recipes/repo; then echo "Directory does not exist '/var/www/recipes/repo'" 1>&2; false; fi
+ DEBUG [8c8fefdc] Finished in 0.109 seconds with exit status 0 (successful).
+  INFO [90db561f] Running /usr/bin/env git remote set-url origin git@github.com:karma151/recipes.git as ec2-user@34.243.214.82
+ DEBUG [90db561f] Command: cd /var/www/recipes/repo && ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-recipes-prod-francoisdebellescize.sh" ; /usr/bin/env git remote set-url origin git@github.com:karma151/recipes.git )
+  INFO [90db561f] Finished in 0.112 seconds with exit status 0 (successful).
+  INFO [367a3661] Running /usr/bin/env git remote update --prune as ec2-user@34.243.214.82
+ DEBUG [367a3661] Command: cd /var/www/recipes/repo && ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-recipes-prod-francoisdebellescize.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [367a3661] 	Récupération de origin
+  INFO [367a3661] Finished in 1.631 seconds with exit status 0 (successful).
+ DEBUG [ffd2f720] Running if test ! -d /var/www/recipes/repo; then echo "Directory does not exist '/var/www/recipes/repo'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [ffd2f720] Command: if test ! -d /var/www/recipes/repo; then echo "Directory does not exist '/var/www/recipes/repo'" 1>&2; false; fi
+ DEBUG [ffd2f720] Finished in 0.067 seconds with exit status 0 (successful).
+  INFO [cddbf66f] Running /usr/bin/env mkdir -p /var/www/recipes/releases/20180322143627 as ec2-user@34.243.214.82
+ DEBUG [cddbf66f] Command: cd /var/www/recipes/repo && ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-recipes-prod-francoisdebellescize.sh" ; /usr/bin/env mkdir -p /var/www/recipes/releases/20180322143627 )
+  INFO [cddbf66f] Finished in 0.121 seconds with exit status 0 (successful).
+  INFO [d9fe4a86] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/recipes/releases/20180322143627 as ec2-user@34.243.214.82
+ DEBUG [d9fe4a86] Command: cd /var/www/recipes/repo && ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-recipes-prod-francoisdebellescize.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/recipes/releases/20180322143627 )
+  INFO [d9fe4a86] Finished in 0.225 seconds with exit status 0 (successful).
+ DEBUG [a8792d7c] Running if test ! -d /var/www/recipes/repo; then echo "Directory does not exist '/var/www/recipes/repo'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [a8792d7c] Command: if test ! -d /var/www/recipes/repo; then echo "Directory does not exist '/var/www/recipes/repo'" 1>&2; false; fi
+ DEBUG [a8792d7c] Finished in 0.108 seconds with exit status 0 (successful).
+ DEBUG [337e34ea] Running /usr/bin/env git rev-list --max-count=1 master as ec2-user@34.243.214.82
+ DEBUG [337e34ea] Command: cd /var/www/recipes/repo && ( export SYMFONY_ENV="prod" GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-recipes-prod-francoisdebellescize.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [337e34ea] 	8f070eb71ddf333246cda79aa223e2c012800b47
+ DEBUG [337e34ea] Finished in 0.116 seconds with exit status 0 (successful).
+ DEBUG [3623b735] Running if test ! -d /var/www/recipes/releases/20180322143627; then echo "Directory does not exist '/var/www/recipes/releases/20180322143627'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [3623b735] Command: if test ! -d /var/www/recipes/releases/20180322143627; then echo "Directory does not exist '/var/www/recipes/releases/20180322143627'" 1>&2; false; fi
+ DEBUG [3623b735] Finished in 0.107 seconds with exit status 0 (successful).
+  INFO [ea569fda] Running /usr/bin/env echo "8f070eb71ddf333246cda79aa223e2c012800b47" >> REVISION as ec2-user@34.243.214.82
+ DEBUG [ea569fda] Command: cd /var/www/recipes/releases/20180322143627 && ( export SYMFONY_ENV="prod" ; /usr/bin/env echo "8f070eb71ddf333246cda79aa223e2c012800b47" >> REVISION )
+  INFO [ea569fda] Finished in 0.112 seconds with exit status 0 (successful).
+  INFO [ebb1951b] Running /usr/bin/env mkdir -p /var/www/recipes/releases/20180322143627/app/config as ec2-user@34.243.214.82
+ DEBUG [ebb1951b] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -p /var/www/recipes/releases/20180322143627/app/config )
+  INFO [ebb1951b] Finished in 0.112 seconds with exit status 0 (successful).
+ DEBUG [4b52ff66] Running [ -L /var/www/recipes/releases/20180322143627/app/config/parameters.yml ] as ec2-user@34.243.214.82
+ DEBUG [4b52ff66] Command: [ -L /var/www/recipes/releases/20180322143627/app/config/parameters.yml ]
+ DEBUG [4b52ff66] Finished in 0.110 seconds with exit status 1 (failed).
+ DEBUG [56e6561c] Running [ -f /var/www/recipes/releases/20180322143627/app/config/parameters.yml ] as ec2-user@34.243.214.82
+ DEBUG [56e6561c] Command: [ -f /var/www/recipes/releases/20180322143627/app/config/parameters.yml ]
+ DEBUG [56e6561c] Finished in 0.109 seconds with exit status 1 (failed).
+  INFO [99209c10] Running /usr/bin/env ln -s /var/www/recipes/shared/app/config/parameters.yml /var/www/recipes/releases/20180322143627/app/config/parameters.yml as ec2-user@34.243.214.82
+ DEBUG [99209c10] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env ln -s /var/www/recipes/shared/app/config/parameters.yml /var/www/recipes/releases/20180322143627/app/config/parameters.yml )
+  INFO [99209c10] Finished in 0.110 seconds with exit status 0 (successful).
+  INFO [a12ff29f] Running /usr/bin/env mkdir -p /var/www/recipes/releases/20180322143627/app /var/www/recipes/releases/20180322143627/web as ec2-user@34.243.214.82
+ DEBUG [a12ff29f] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -p /var/www/recipes/releases/20180322143627/app /var/www/recipes/releases/20180322143627/web )
+  INFO [a12ff29f] Finished in 0.113 seconds with exit status 0 (successful).
+ DEBUG [cd407a2d] Running [ -L /var/www/recipes/releases/20180322143627/app/logs ] as ec2-user@34.243.214.82
+ DEBUG [cd407a2d] Command: [ -L /var/www/recipes/releases/20180322143627/app/logs ]
+ DEBUG [cd407a2d] Finished in 0.110 seconds with exit status 1 (failed).
+ DEBUG [2e928bf9] Running [ -d /var/www/recipes/releases/20180322143627/app/logs ] as ec2-user@34.243.214.82
+ DEBUG [2e928bf9] Command: [ -d /var/www/recipes/releases/20180322143627/app/logs ]
+ DEBUG [2e928bf9] Finished in 0.112 seconds with exit status 1 (failed).
+  INFO [5f7fb931] Running /usr/bin/env ln -s /var/www/recipes/shared/app/logs /var/www/recipes/releases/20180322143627/app/logs as ec2-user@34.243.214.82
+ DEBUG [5f7fb931] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env ln -s /var/www/recipes/shared/app/logs /var/www/recipes/releases/20180322143627/app/logs )
+  INFO [5f7fb931] Finished in 0.112 seconds with exit status 0 (successful).
+ DEBUG [b590d230] Running [ -L /var/www/recipes/releases/20180322143627/web/uploads ] as ec2-user@34.243.214.82
+ DEBUG [b590d230] Command: [ -L /var/www/recipes/releases/20180322143627/web/uploads ]
+ DEBUG [b590d230] Finished in 0.112 seconds with exit status 1 (failed).
+ DEBUG [ae3f32e3] Running [ -d /var/www/recipes/releases/20180322143627/web/uploads ] as ec2-user@34.243.214.82
+ DEBUG [ae3f32e3] Command: [ -d /var/www/recipes/releases/20180322143627/web/uploads ]
+ DEBUG [ae3f32e3] Finished in 0.117 seconds with exit status 1 (failed).
+  INFO [2bc2e0f6] Running /usr/bin/env ln -s /var/www/recipes/shared/web/uploads /var/www/recipes/releases/20180322143627/web/uploads as ec2-user@34.243.214.82
+ DEBUG [2bc2e0f6] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env ln -s /var/www/recipes/shared/web/uploads /var/www/recipes/releases/20180322143627/web/uploads )
+  INFO [2bc2e0f6] Finished in 0.118 seconds with exit status 0 (successful).
+ DEBUG [fa4128b2] Running if test ! -d /var/www/recipes/releases/20180322143627; then echo "Directory does not exist '/var/www/recipes/releases/20180322143627'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [fa4128b2] Command: if test ! -d /var/www/recipes/releases/20180322143627; then echo "Directory does not exist '/var/www/recipes/releases/20180322143627'" 1>&2; false; fi
+ DEBUG [fa4128b2] Finished in 0.108 seconds with exit status 0 (successful).
+ DEBUG [4caa1751] Running [ -d /var/www/recipes/releases/20180322143627/app/cache ] as ec2-user@34.243.214.82
+ DEBUG [4caa1751] Command: [ -d /var/www/recipes/releases/20180322143627/app/cache ]
+ DEBUG [4caa1751] Finished in 0.112 seconds with exit status 1 (failed).
+  INFO [f2cf895c] Running /usr/bin/env mkdir -pv app/cache as ec2-user@34.243.214.82
+ DEBUG [f2cf895c] Command: cd /var/www/recipes/releases/20180322143627 && ( export SYMFONY_ENV="prod" ; /usr/bin/env mkdir -pv app/cache )
+ DEBUG [f2cf895c] 	mkdir: création du répertoire « app/cache »
+  INFO [f2cf895c] Finished in 0.111 seconds with exit status 0 (successful).
+ DEBUG [41c2cc4d] Running if test ! -d /var/www/recipes/releases/20180322143627; then echo "Directory does not exist '/var/www/recipes/releases/20180322143627'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [41c2cc4d] Command: if test ! -d /var/www/recipes/releases/20180322143627; then echo "Directory does not exist '/var/www/recipes/releases/20180322143627'" 1>&2; false; fi
+ DEBUG [41c2cc4d] Finished in 0.107 seconds with exit status 0 (successful).
+  INFO [c32b2418] Running /usr/bin/env composer install --no-interaction --optimize-autoloader as ec2-user@34.243.214.82
+ DEBUG [c32b2418] Command: cd /var/www/recipes/releases/20180322143627 && ( export SYMFONY_ENV="prod" ; /usr/bin/env composer install --no-interaction --optimize-autoloader )
+ DEBUG [c32b2418] 	Loading composer repositories with package information
+ DEBUG [c32b2418] 	Installing dependencies (including require-dev) from lock file
+ DEBUG [c32b2418] 	Package operations: 71 installs, 0 updates, 0 removals
+ DEBUG [c32b2418] 	  - Installing cocur/slugify (v3.1): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing doctrine/collections (v1.4.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing twig/twig (v1.35.2): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing symfony/polyfill-util (v1.7.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing paragonie/random_compat (v2.0.11): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing symfony/polyfill-php70 (v1.7.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing symfony/polyfill-php56 (v1.7.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing symfony/polyfill-mbstring (v1.7.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing symfony/symfony (v3.2.14): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing symfony/polyfill-intl-icu (v1.7.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing psr/log (1.0.2): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing psr/cache (1.0.1): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing doctrine/lexer (v1.0.1): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing doctrine/inflector (v1.1.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing doctrine/cache (v1.6.2): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing doctrine/annotations (v1.4.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing doctrine/common (v2.7.3): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	  - Installing jdorn/sql-formatter (v1.2.17): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing doctrine/doctrine-cache-bundle (1.3.2): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing doctrine/dbal (v2.5.13): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing doctrine/doctrine-bundle (1.8.1): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing queue-interop/queue-interop (0.6.1): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing queue-interop/amqp-interop (0.7.3): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing enqueue/amqp-tools (0.8.23): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing incenteev/composer-parameter-handler (v2.1.3): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing phpoption/phpoption (1.5.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing phpcollection/phpcollection (0.5.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing jms/parser-lib (1.0.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	  - Installing jms/metadata (1.6.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing doctrine/instantiator (1.0.5): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing jms/serializer (1.11.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	  - Installing knplabs/knp-menu (2.3.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing knplabs/knp-menu-bundle (v2.2.1): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing knplabs/knp-components (1.3.5): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing knplabs/knp-paginator-bundle (v2.7.2): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing php-amqplib/php-amqplib (v2.7.2): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing psr/http-message (1.0.1): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing composer/ca-bundle (1.1.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing sensiolabs/security-checker (v4.1.8): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing sensio/distribution-bundle (v5.0.21): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	  - Installing sensio/framework-extra-bundle (v3.0.29): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing twig/extensions (v1.5.1): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing sonata-project/datagrid-bundle (2.3.1): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing sonata-project/core-bundle (3.9.1): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing sonata-project/cache (1.0.7): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing sonata-project/block-bundle (3.12.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing symfony/security-acl (v3.0.1): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing sonata-project/exporter (1.8.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing sonata-project/admin-bundle (3.32.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing doctrine/orm (v2.5.14): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing sonata-project/doctrine-orm-admin-bundle (3.4.2): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing zendframework/zenddiagnostics (v1.1.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing sonata-project/easy-extends-bundle (2.5.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing sonata-project/doctrine-extensions (1.0.2): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing enqueue/amqp-lib (0.8.23): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing sonata-project/notification-bundle (3.4.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing guzzlehttp/psr7 (1.4.2): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing kriswallsmith/buzz (v0.16.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing knplabs/gaufrette (v0.5.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing jms/serializer-bundle (2.3.1): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing imagine/imagine (v0.7.1): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing sonata-project/media-bundle (3.11.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing kriswallsmith/assetic (v1.4.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing symfony/assetic-bundle (v2.8.2): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing monolog/monolog (1.23.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing symfony/monolog-bundle (v3.2.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing symfony/polyfill-apcu (v1.7.0): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing swiftmailer/swiftmailer (v5.4.9): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing symfony/swiftmailer-bundle (v2.6.7): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing sensio/generator-bundle (v3.1.7): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	  - Installing symfony/phpunit-bridge (v3.4.6): 
+ DEBUG [c32b2418] 	Loading from cache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	paragonie/random_compat suggests installing ext-libsodium (Provides a modern crypto API that can be used to generate random bytes.)
+ DEBUG [c32b2418] 	symfony/polyfill-intl-icu suggests installing ext-intl (For best performance)
+ DEBUG [c32b2418] 	knplabs/knp-components suggests installing doctrine/mongodb-odm (to allow usage pagination with Doctrine ODM MongoDB)
+ DEBUG [c32b2418] 	knplabs/knp-components suggests installing doctrine/phpcr-odm (to allow usage pagination with Doctrine ODM PHPCR)
+ DEBUG [c32b2418] 	knplabs/knp-components suggests installing propel/propel1 (to allow usage pagination with Propel ORM)
+ DEBUG [c32b2418] 	knplabs/knp-components suggests installing ruflin/Elastica (to allow usage pagination with ElasticSearch Client)
+knplabs/knp-components suggests installing solarium/solarium (to allow usage pagination with Solarium Client)
+ DEBUG [c32b2418] 	sensio/framework-extra-bundle suggests installing symfony/psr-http-message-bridge (To use the PSR-7 converters)
+ DEBUG [c32b2418] 	sonata-project/cache suggests installing doctrine/phpcr-odm (PHPCR ODM support)
+ DEBUG [c32b2418] 	sonata-project/cache suggests installing ext-apc (Caching with ext/apc)
+ DEBUG [c32b2418] 	sonata-project/cache suggests installing ext-memcached (Caching with ext/memcached)
+ DEBUG [c32b2418] 	sonata-project/cache suggests installing predis/predis (Install redis php)
+ DEBUG [c32b2418] 	sonata-project/block-bundle suggests installing jms/di-extra-bundle (Annotations for Block definition)
+ DEBUG [c32b2418] 	sonata-project/block-bundle suggests installing sonata-project/cache-bundle (^3.0)
+ DEBUG [c32b2418] 	sonata-project/exporter suggests installing propel/propel1 (^1.6)
+ DEBUG [c32b2418] 	sonata-project/admin-bundle suggests installing jms/di-extra-bundle (Annotations for Admin definition)
+ DEBUG [c32b2418] 	sonata-project/admin-bundle suggests installing jms/translation-bundle (Extract message keys from Admins)
+ DEBUG [c32b2418] 	sonata-project/admin-bundle suggests installing sonata-project/intl-bundle (Add localized date and number into the list)
+ DEBUG [c32b2418] 	sonata-project/doctrine-orm-admin-bundle suggests installing simplethings/entity-audit-bundle (If you want to support for versioning of entities and their associations.)
+ DEBUG [c32b2418] 	zendframework/zenddiagnostics suggests installing doctrine/migrations (Required by Check\DoctrineMigration)
+ DEBUG [c32b2418] 	zendframework/zenddiagnostics suggests installing guzzle/http (Required by Check\GuzzleHttpService)
+ DEBUG [c32b2418] 	zendframework/zenddiagnostics suggests installing predis/predis (Required by Check\Redis)
+ DEBUG [c32b2418] 	enqueue/amqp-lib suggests installing enqueue/enqueue (If you'd like to use advanced features like Client abstract layer or Symfony integration features)
+ DEBUG [c32b2418] 	sonata-project/notification-bundle suggests installing guzzlehttp/guzzle (If you want to get a status report when using the rabbitMQ backend.)
+ DEBUG [c32b2418] 	sonata-project/notification-bundle suggests installing liip/monitor-bundle (^1.0)
+ DEBUG [c32b2418] 	knplabs/gaufrette suggests installing gaufrette/aws-s3-adapter (to use AwsS3 adapter (supports SDK v2 and v3))
+ DEBUG [c32b2418] 	knplabs/gaufrette suggests installing gaufrette/azure-blob-storage-adapter (to use AzureBlobStorage adapter)
+ DEBUG [c32b2418] 	knplabs/gaufrette suggests installing gaufrette/doctrine-dbal-adapter (to use DBAL adapter)
+ DEBUG [c32b2418] 	knplabs/gaufrette suggests installing gaufrette/flysystem-adapter (to use Flysystem adapter)
+ DEBUG [c32b2418] 	knplabs/gaufrette suggests installing gaufrette/ftp-adapter (to use Ftp adapter)
+ DEBUG [c32b2418] 	knplabs/gaufrette suggests installing gaufrette/gridfs-adapter (to use GridFS adapter)
+ DEBUG [c32b2418] 	knplabs/gaufrette suggests installing gaufrette/in-memory-adapter (to use InMemory adapter)
+ DEBUG [c32b2418] 	knplabs/gaufrette suggests installing gaufrette/local-adapter (to use Local adapter)
+knplabs/gaufrette suggests installing gaufrette/opencloud-adapter (to use Opencloud adapter)
+ DEBUG [c32b2418] 	knplabs/gaufrette suggests installing gaufrette/phpseclib-sftp-adapter (to use PhpseclibSftp adapter)
+ DEBUG [c32b2418] 	knplabs/gaufrette suggests installing gaufrette/zip-adapter (to use Zip adapter)
+ DEBUG [c32b2418] 	knplabs/gaufrette suggests installing google/apiclient (to use GoogleCloudStorage adapter)
+ DEBUG [c32b2418] 	knplabs/gaufrette suggests installing knplabs/knp-gaufrette-bundle (to use with Symfony2)
+ DEBUG [c32b2418] 	jms/serializer-bundle suggests installing jms/di-extra-bundle (Required to get lazy loading (de)serialization visitors, ~1.3)
+ DEBUG [c32b2418] 	imagine/imagine suggests installing ext-gmagick (to use the Gmagick implementation)
+ DEBUG [c32b2418] 	imagine/imagine suggests installing ext-imagick (to use the Imagick implementation)
+ DEBUG [c32b2418] 	sonata-project/media-bundle suggests installing liip/imagine-bundle (^0.9)
+ DEBUG [c32b2418] 	sonata-project/media-bundle suggests installing rackspace/php-opencloud (^1.6)
+ DEBUG [c32b2418] 	sonata-project/media-bundle suggests installing sonata-project/classification-bundle (If you want to categorize your media items.)
+ DEBUG [c32b2418] 	sonata-project/media-bundle suggests installing sonata-project/seo-bundle (^2.1)
+ DEBUG [c32b2418] 	sonata-project/media-bundle suggests installing tilleuls/ckeditor-sonata-media-bundle (^1.0)
+ DEBUG [c32b2418] 	kriswallsmith/assetic suggests installing leafo/lessphp (Assetic provides the integration with the lessphp LESS compiler)
+ DEBUG [c32b2418] 	kriswallsmith/assetic suggests installing leafo/scssphp (Assetic provides the integration with the scssphp SCSS compiler)
+ DEBUG [c32b2418] 	kriswallsmith/assetic suggests installing leafo/scssphp-compass (Assetic provides the integration with the SCSS compass plugin)
+ DEBUG [c32b2418] 	kriswallsmith/assetic suggests installing patchwork/jsqueeze (Assetic provides the integration with the JSqueeze JavaScript compressor)
+ DEBUG [c32b2418] 	kriswallsmith/assetic suggests installing ptachoire/cssembed (Assetic provides the integration with phpcssembed to embed data uris)
+ DEBUG [c32b2418] 	symfony/assetic-bundle suggests installing kriswallsmith/spork (to be able to dump assets in parallel)
+ DEBUG [c32b2418] 	monolog/monolog suggests installing aws/aws-sdk-php (Allow sending log messages to AWS services like DynamoDB)
+ DEBUG [c32b2418] 	monolog/monolog suggests installing doctrine/couchdb (Allow sending log messages to a CouchDB server)
+ DEBUG [c32b2418] 	monolog/monolog suggests installing ext-amqp (Allow sending log messages to an AMQP server (1.0+ required))
+ DEBUG [c32b2418] 	monolog/monolog suggests installing ext-mongo (Allow sending log messages to a MongoDB server)
+ DEBUG [c32b2418] 	monolog/monolog suggests installing graylog2/gelf-php (Allow sending log messages to a GrayLog2 server)
+ DEBUG [c32b2418] 	monolog/monolog suggests installing mongodb/mongodb (Allow sending log messages to a MongoDB server via PHP Driver)
+ DEBUG [c32b2418] 	monolog/monolog suggests installing php-console/php-console (Allow sending log messages to Google Chrome)
+ DEBUG [c32b2418] 	monolog/monolog suggests installing rollbar/rollbar (Allow sending log messages to Rollbar)
+ DEBUG [c32b2418] 	monolog/monolog suggests installing ruflin/elastica (Allow sending log messages to an Elastic Search server)
+ DEBUG [c32b2418] 	monolog/monolog suggests installing sentry/sentry (Allow sending log messages to a Sentry server)
+ DEBUG [c32b2418] 	Generating optimized autoload files
+ DEBUG [c32b2418] 	> Incenteev\ParameterHandler\ScriptHandler::buildParameters
+ DEBUG [c32b2418] 	Updating the "app/config/parameters.yml" file
+ DEBUG [c32b2418] 	> Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::buildBootstrap
+ DEBUG [c32b2418] 	> Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::clearCache
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	 // Clearing the cache for the prod environment with debug                      
+ DEBUG [c32b2418] 	 // false                                                                       
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	 [OK] Cache for the "prod" environment (debug=false) was successfully cleared.  
+
+ DEBUG [c32b2418] 	> Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::installAssets
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	 Trying to install assets as relative symbolic links.
+
+ DEBUG [c32b2418] 	 --- ------------------- ------------------ 
+ DEBUG [c32b2418] 	      Bundle              Method / Error    
+ DEBUG [c32b2418] 	 --- ------------------- ------------------ 
+ DEBUG [c32b2418] 	  ✔   SonataCoreBundle    relative symlink  
+ DEBUG [c32b2418] 	  ✔   SonataAdminBundle   relative symlink  
+ DEBUG [c32b2418] 	  ✔   SonataMediaBundle   relative symlink  
+ DEBUG [c32b2418] 	  ✔   AppBundle           relative symlink  
+ DEBUG [c32b2418] 	 --- ------------------- ------------------ 
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	 [OK] All assets were successfully installed.                                   
+ DEBUG [c32b2418] 	
+ DEBUG [c32b2418] 	> Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::installRequirementsFile
+ DEBUG [c32b2418] 	> Sensio\Bundle\DistributionBundle\Composer\ScriptHandler::prepareDeploymentTarget
+  INFO [c32b2418] Finished in 6.280 seconds with exit status 0 (successful).
+ DEBUG [45ac1852] Running if test ! -d /var/www/recipes/releases/20180322143627; then echo "Directory does not exist '/var/www/recipes/releases/20180322143627'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [45ac1852] Command: if test ! -d /var/www/recipes/releases/20180322143627; then echo "Directory does not exist '/var/www/recipes/releases/20180322143627'" 1>&2; false; fi
+ DEBUG [45ac1852] Finished in 0.110 seconds with exit status 0 (successful).
+  INFO [22f1da2d] Running /usr/bin/env php bin/console cache:warmup  --no-debug as ec2-user@34.243.214.82
+ DEBUG [22f1da2d] Command: cd /var/www/recipes/releases/20180322143627 && ( export SYMFONY_ENV="prod" ; /usr/bin/env php bin/console cache:warmup  --no-debug )
+ DEBUG [22f1da2d] 	
+ DEBUG [22f1da2d] 	 // Warming up the cache for the prod environment with debug                    
+ DEBUG [22f1da2d] 	 // false                                                                       
+ DEBUG [22f1da2d] 	
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:38] assetic.ERROR: The template "SecurityBundle:Collector:security.html.twig" contains an error: Unknown "profiler_dump" function in "SecurityBundle:Collector:security.html.twig" at line 100. [] []
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:38] assetic.ERROR: The template "SecurityBundle:Collector:security.html.twig" contains an error: Unknown "profiler_dump" function in "SecurityBundle:Collector:security.html.twig" at line 100.  
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:38] assetic.ERROR: The template "DoctrineBundle:Collector:db.html.twig" contains an error: Unknown "profiler_dump" function in "DoctrineBundle:Collector:db.html.twig" at line 243. [] []
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:38] assetic.ERROR: The template "DoctrineBundle:Collector:db.html.twig" contains an error: Unknown "profiler_dump" function in "DoctrineBundle:Collector:db.html.twig" at line 243.  
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:40] php.INFO: User Deprecated: Form type "Sonata\CoreBundle\Form\Type\TranslatableChoiceType" is deprecated since SonataCoreBundle 2.2.0 and will be removed in 4.0. Use form type "Symfony\Component\Form\Extension\Core\Type\ChoiceType" with "translation_domain" option instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: Form type \"Sonata\\CoreBundle\\Form\\Type\\TranslatableChoiceType\" is deprecated since SonataCoreBundle 2.2.0 and will be removed in 4.0. Use form type \"Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType\" with \"translation_domain\" option instead. at /var/www/recipes/releases/20180322143627/vendor/sonata-project/core-bundle/src/Form/Type/TranslatableChoiceType.php:30)"} []
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:42] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:show_orm_many_to_many.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/show_many_to_one.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:show_orm_many_to_many.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/show_many_to_one.html.twig\" instead. at /var/www/recipes/releases/20180322143627/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:42] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:list_orm_many_to_one.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/list_many_to_one.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:list_orm_many_to_one.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/list_many_to_one.html.twig\" instead. at /var/www/recipes/releases/20180322143627/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:42] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_one.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_one_to_one.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_one.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_one_to_one.html.twig\" instead. at /var/www/recipes/releases/20180322143627/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:42] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:show_orm_one_to_many.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/show_one_to_many.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:show_orm_one_to_many.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/show_one_to_many.html.twig\" instead. at /var/www/recipes/releases/20180322143627/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:42] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_one_to_many.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_one_to_many.html.twig\" instead. at /var/www/recipes/releases/20180322143627/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:43] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_many_to_many.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_many_to_many.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_many_to_many.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_many_to_many.html.twig\" instead. at /var/www/recipes/releases/20180322143627/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:43] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:list_orm_many_to_many.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/list_many_to_many.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:list_orm_many_to_many.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/list_many_to_many.html.twig\" instead. at /var/www/recipes/releases/20180322143627/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:43] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_inline_table.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_one_to_many_inline_table.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_inline_table.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_one_to_many_inline_table.html.twig\" instead. at /var/www/recipes/releases/20180322143627/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:43] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:list_orm_one_to_one.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/list_one_to_one.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:list_orm_one_to_one.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/list_one_to_one.html.twig\" instead. at /var/www/recipes/releases/20180322143627/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:43] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_inline_tabs.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_one_to_many_inline_tabs.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_inline_tabs.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_one_to_many_inline_tabs.html.twig\" instead. at /var/www/recipes/releases/20180322143627/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:43] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:show_orm_one_to_one.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/show_one_to_one.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:show_orm_one_to_one.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/show_one_to_one.html.twig\" instead. at /var/www/recipes/releases/20180322143627/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:43] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_sortable_script_tabs.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_one_to_many_sortable_script_tabs.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_sortable_script_tabs.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_one_to_many_sortable_script_tabs.html.twig\" instead. at /var/www/recipes/releases/20180322143627/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:43] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_many_to_one.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_many_to_one.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_many_to_one.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_many_to_one.html.twig\" instead. at /var/www/recipes/releases/20180322143627/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:43] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:show_orm_many_to_one.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/show_many_to_one.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:show_orm_many_to_one.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/show_many_to_one.html.twig\" instead. at /var/www/recipes/releases/20180322143627/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:43] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:list_orm_one_to_many.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/list_one_to_many.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:list_orm_one_to_many.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/list_one_to_many.html.twig\" instead. at /var/www/recipes/releases/20180322143627/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:43] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_sortable_script_table.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_one_to_many_sortable_script_table.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_to_many_sortable_script_table.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_one_to_many_sortable_script_table.html.twig\" instead. at /var/www/recipes/releases/20180322143627/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:43] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_many_association_script.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_many_script.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_many_association_script.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_many_script.html.twig\" instead. at /var/www/recipes/releases/20180322143627/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:43] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_association_script.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_one_script.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_orm_one_association_script.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_one_script.html.twig\" instead. at /var/www/recipes/releases/20180322143627/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [22f1da2d] 	[2018-03-22 15:36:43] php.INFO: User Deprecated: The "SonataDoctrineORMAdminBundle:CRUD:edit_modal.html.twig" template is deprecated. Use "@SonataAdmin/CRUD/Association/edit_modal.html.twig" instead. {"exception":"[object] (ErrorException(code: 0): User Deprecated: The \"SonataDoctrineORMAdminBundle:CRUD:edit_modal.html.twig\" template is deprecated. Use \"@SonataAdmin/CRUD/Association/edit_modal.html.twig\" instead. at /var/www/recipes/releases/20180322143627/vendor/sonata-project/core-bundle/src/Twig/Node/DeprecatedTemplateNode.php:37)"} []
+ DEBUG [22f1da2d] 	 [OK] Cache for the "prod" environment (debug=false) was successfully warmed.   
+ DEBUG [22f1da2d] 	
+  INFO [22f1da2d] Finished in 7.323 seconds with exit status 0 (successful).
+ DEBUG [88c200e8] Running if test ! -d /var/www/recipes/releases/20180322143627/web; then echo "Directory does not exist '/var/www/recipes/releases/20180322143627/web'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [88c200e8] Command: if test ! -d /var/www/recipes/releases/20180322143627/web; then echo "Directory does not exist '/var/www/recipes/releases/20180322143627/web'" 1>&2; false; fi
+ DEBUG [88c200e8] Finished in 0.113 seconds with exit status 0 (successful).
+  INFO [0b43b350] Running /usr/bin/env rm -f app_*.php as ec2-user@34.243.214.82
+ DEBUG [0b43b350] Command: cd /var/www/recipes/releases/20180322143627/web && ( export SYMFONY_ENV="prod" ; /usr/bin/env rm -f app_*.php )
+  INFO [0b43b350] Finished in 0.110 seconds with exit status 0 (successful).
+ DEBUG [c3f56834] Running if test ! -d /var/www/recipes/releases/20180322143627; then echo "Directory does not exist '/var/www/recipes/releases/20180322143627'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [c3f56834] Command: if test ! -d /var/www/recipes/releases/20180322143627; then echo "Directory does not exist '/var/www/recipes/releases/20180322143627'" 1>&2; false; fi
+ DEBUG [c3f56834] Finished in 0.111 seconds with exit status 0 (successful).
+  INFO [84c875cd] Running /usr/bin/env php bin/console assetic:dump  --no-debug as ec2-user@34.243.214.82
+ DEBUG [84c875cd] Command: cd /var/www/recipes/releases/20180322143627 && ( export SYMFONY_ENV="prod" ; /usr/bin/env php bin/console assetic:dump  --no-debug )
+ DEBUG [84c875cd] 	Dumping all prod assets.
+Debug mode is off.
+ DEBUG [84c875cd] 	
+ DEBUG [84c875cd] 	15:36:46 [dir+] /var/www/recipes/releases/20180322143627/app/../web/js
+ DEBUG [84c875cd] 	15:36:46 [file+] /var/www/recipes/releases/20180322143627/app/../web/js/2ed8990.js
+ DEBUG [84c875cd] 	15:36:46 [dir+] /var/www/recipes/releases/20180322143627/app/../web/css
+ DEBUG [84c875cd] 	15:36:46 [file+] /var/www/recipes/releases/20180322143627/app/../web/css/3e7b5a2.css
+  INFO [84c875cd] Finished in 0.296 seconds with exit status 0 (successful).
+  INFO [3099c144] Running /usr/bin/env ln -s /var/www/recipes/releases/20180322143627 /var/www/recipes/releases/current as ec2-user@34.243.214.82
+ DEBUG [3099c144] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env ln -s /var/www/recipes/releases/20180322143627 /var/www/recipes/releases/current )
+  INFO [3099c144] Finished in 0.111 seconds with exit status 0 (successful).
+  INFO [2f4158f9] Running /usr/bin/env mv /var/www/recipes/releases/current /var/www/recipes as ec2-user@34.243.214.82
+ DEBUG [2f4158f9] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env mv /var/www/recipes/releases/current /var/www/recipes )
+  INFO [2f4158f9] Finished in 0.114 seconds with exit status 0 (successful).
+ DEBUG [bf0cb15f] Running /usr/bin/env ls -x /var/www/recipes/releases as ec2-user@34.243.214.82
+ DEBUG [bf0cb15f] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env ls -x /var/www/recipes/releases )
+ DEBUG [bf0cb15f] 	20180322140049	20180322140233	20180322140327	20180322140430	20180322142910
+20180322143627
+ DEBUG [bf0cb15f] Finished in 0.109 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on 34.243.214.82
+ DEBUG [dab2962e] Running [ -d /var/www/recipes/current ] as ec2-user@34.243.214.82
+ DEBUG [dab2962e] Command: [ -d /var/www/recipes/current ]
+ DEBUG [dab2962e] Finished in 0.111 seconds with exit status 0 (successful).
+ DEBUG [bb0998d1] Running /usr/bin/env readlink /var/www/recipes/current as ec2-user@34.243.214.82
+ DEBUG [bb0998d1] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env readlink /var/www/recipes/current )
+ DEBUG [bb0998d1] 	/var/www/recipes/releases/20180322143627
+ DEBUG [bb0998d1] Finished in 0.115 seconds with exit status 0 (successful).
+  INFO [65bb3f5a] Running /usr/bin/env rm -rf /var/www/recipes/releases/20180322140049 as ec2-user@34.243.214.82
+ DEBUG [65bb3f5a] Command: ( export SYMFONY_ENV="prod" ; /usr/bin/env rm -rf /var/www/recipes/releases/20180322140049 )
+  INFO [65bb3f5a] Finished in 0.356 seconds with exit status 0 (successful).
+ DEBUG [0a492a25] Running if test ! -d /var/www/recipes/releases; then echo "Directory does not exist '/var/www/recipes/releases'" 1>&2; false; fi as ec2-user@34.243.214.82
+ DEBUG [0a492a25] Command: if test ! -d /var/www/recipes/releases; then echo "Directory does not exist '/var/www/recipes/releases'" 1>&2; false; fi
+ DEBUG [0a492a25] Finished in 0.110 seconds with exit status 0 (successful).
+  INFO [92ab548d] Running /usr/bin/env echo "Branch master (at 8f070eb71ddf333246cda79aa223e2c012800b47) deployed as release 20180322143627 by francoisdebellescize" >> /var/www/recipes/revisions.log as ec2-user@34.243.214.82
+ DEBUG [92ab548d] Command: cd /var/www/recipes/releases && ( export SYMFONY_ENV="prod" ; /usr/bin/env echo "Branch master (at 8f070eb71ddf333246cda79aa223e2c012800b47) deployed as release 20180322143627 by francoisdebellescize" >> /var/www/recipes/revisions.log )
+  INFO [92ab548d] Finished in 0.111 seconds with exit status 0 (successful).
