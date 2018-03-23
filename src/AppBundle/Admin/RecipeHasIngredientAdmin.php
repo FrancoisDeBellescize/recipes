@@ -18,7 +18,10 @@ class RecipeHasIngredientAdmin extends AbstractAdmin
           array('link_parameters' => array())
       )
       ->add('position', 'hidden')
-      ->add('part', 'sonata_type_model');
+      ->add('part', 'sonata_type_model', array(
+        "required" => false,
+        'empty_data' => ''
+      ));
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)

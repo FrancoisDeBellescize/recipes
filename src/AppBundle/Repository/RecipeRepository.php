@@ -6,7 +6,7 @@ use Doctrine\ORM\Query\Expr\Join;
 
 class RecipeRepository extends EntityRepository
 {
-  public function getLast($limit = 10){
+  public function getLast($limit = 3){
     $qb = $this->createQueryBuilder('r');
     $qb->select('r')
     ->orderBy('r.created_at', 'DESC')
