@@ -9,6 +9,21 @@ html {
 	font-family: Quantum Mechanics, sans-serif;
 }
 
+.header {
+	color: #ee6e73;
+	font-weight: 300;
+}
+
+#ingredient-list {
+	margin-top: 30px;
+}
+
+#number_person_parameter{
+	/* color: #ee6e73; */
+	font-weight: 600;
+	font-size: 18px;
+}
+
 body {
 	overflow: auto !important;
 }

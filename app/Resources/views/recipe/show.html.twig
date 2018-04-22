@@ -165,16 +165,25 @@ $( document ).ready(function() {
         </label>
       </div>
       <ul id="ingredient-list" class="collection with-header">
+
+        <div class="text-center">
+          Pour
+          <a id="remove_number_person_parameter" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">remove</i></a>
+          <span id="number_person_parameter" data="{{ recipe.forPerson }}">{{ recipe.forPerson }}</span>
+          <a id="add_number_person_parameter" class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">add</i></a>
+          personnes
+        </div>
+
         {% for part in recipe.ingredients|sortByPart %}
         {% if part.id is defined %}
         <li class="collection-header"><h4>{{part.name}}</h4></li>
         {% endif %}
         {% for recipeHasIngredient in part.ingredients %}
-        <li itemprop="ingredients" class="collection-item">
+        <li class="collection-item">
           {{ recipeHasIngredient.ingredient.name }}
           <span class="secondary-content">
             {% if recipeHasIngredient.ingredient.units|length > 0  %}
-            <span>{{ recipeHasIngredient.value }}</span>
+            <span class="ingredient_value" data="{{ recipeHasIngredient.value }}">{{ recipeHasIngredient.value }}</span>
             <select class="selectIngredient" data="{{ recipeHasIngredient.value }}">
               <option value="1">{{ recipeHasIngredient.ingredient.defaultUnit.symbol }}</option>
               {% for ingredientHasUnit in recipeHasIngredient.ingredient.units %}
@@ -182,7 +191,8 @@ $( document ).ready(function() {
               {% endfor %}
             </select>
             {% else %}
-            {{ recipeHasIngredient|getUnit }}
+            <span data="{{ recipeHasIngredient.value }}" class="ingredient_value">{{ recipeHasIngredient.value }}</span>
+            <span>{{ recipeHasIngredient.ingredient.defaultUnit.symbol }}</span>
             {% endif %}
           </span>
         </li>
@@ -191,7 +201,8 @@ $( document ).ready(function() {
       </ul>
     </div>
     <div id="recipe_steps" class="col s12">
-      {% for step in recipe.steps %}
+      {% for key, step in recipe.steps %}
+      <h5 class="header">Étape {{ key + 1 }}</h5>
       <div itemprop="recipeInstructions">{{ step.text }}</div><br>
       {% endfor %}
     </div>
@@ -200,6 +211,10 @@ $( document ).ready(function() {
 
 <script async="async" src="//platform.getbring.com/widgets/import.js"></script>
 <script>
+
+var default_value = 0;
+var current_value = 0;
+
 function notifyBrowser(title, desc)
 {
   if (Notification.permission !== "granted")
@@ -289,6 +304,34 @@ $(document).ready(function(){
       $("#ingredient-list").show("slow");
       $('#ingredient-modal').modal('close');
     }
+  })
+
+  function updateIngredientsValue() {
+    // console.log(default_value);
+    // console.log(current_value);
+    $(".ingredient_value").each(function() {
+      var def = parseInt($(this).attr("data"));
+      $(this).html(Math.round(def / default_value * current_value));
+      // console.log($(this).html());
+    });
+  }
+
+  $("#remove_number_person_parameter").click(function() {
+    default_value = $("#number_person_parameter").attr("data");
+    var current = $("#number_person_parameter").html();
+    if (current == 1)
+      return;
+    $("#number_person_parameter").html(parseInt(current) - 1);
+    current_value = parseInt($("#number_person_parameter").html());
+    updateIngredientsValue();
+  })
+
+  $("#add_number_person_parameter").click(function() {
+    default_value = $("#number_person_parameter").attr("data");
+    var current = $("#number_person_parameter").html();
+    $("#number_person_parameter").html(parseInt(current) + 1);
+    current_value = parseInt($("#number_person_parameter").html());
+    updateIngredientsValue();
   })
 });
 </script>
