@@ -70,24 +70,47 @@ class RecipeController extends Controller
   */
   public function searchAutocompleteAction(Request $request)
   {
-    $names = array();
+    $data = array();
     $term = trim(strip_tags($request->get('term')));
 
     $em = $this->getDoctrine()->getManager();
 
-    $entities = $em->getRepository('AppBundle:Ingredient')->createQueryBuilder('c')
+    $recipes = $em->getRepository('AppBundle:Recipe')->createQueryBuilder('c')
     ->where('c.name LIKE :name')
     ->setParameter('name', '%'.$term.'%')
+    ->setMaxResults(3)
     ->getQuery()
     ->getResult();
 
-    foreach ($entities as $entity)
+    $data["recipes"] = array();
+    foreach ($recipes as $recipe)
     {
-      $names[] = array("name" => $entity->getName(), "id" => $entity->getId());
+      $data["recipes"][] = array(
+        "name" => $recipe->getName(),
+         "id" => $recipe->getId(),
+         "slug" => $recipe->getSlug(),
+         "image" => $this->container->get('sonata.media.twig.extension')->path($recipe->getMedia(), 'reference')
+       );
+    }
+
+    $ingredients = $em->getRepository('AppBundle:Ingredient')->createQueryBuilder('i')
+    ->where('i.name LIKE :name')
+    ->setParameter('name', '%'.$term.'%')
+    ->setMaxResults(5)
+    ->getQuery()
+    ->getResult();
+
+    $data["ingredients"] = array();
+    foreach ($ingredients as $ingredient)
+    {
+      $data["ingredients"][] = array(
+        "name" => $ingredient->getName(),
+         "id" => $ingredient->getId()
+       );
     }
 
     $response = new JsonResponse();
-    $response->setData($names);
+    $response->setData($data);
 
     return $response;
   }

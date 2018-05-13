@@ -12,7 +12,8 @@
       {% endif %}
     </div>
     <div class="card-action">
-      <span class="card-title activator grey-text text-darken-4">{{ recipe.name }}<br>
+      <span class="card-title activator grey-text text-darken-4">
+        <div class="recipe-name">{{ recipe.name }}</div>
         <i class="flow-text material-icons">alarm</i> {{ recipe.preparationTime }} min
         <i class="flow-text material-icons">whatshot</i> {% if recipe.cookTime is not null %}{{ recipe.cookTime }} min {% else %} -- {% endif %}
         <i class="material-icons">restore</i> {% if recipe.restTime is not null %}{{ recipe.restTime }} min {% else %} -- {% endif %}

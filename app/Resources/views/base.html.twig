@@ -70,6 +70,22 @@
     {% block sidenav %}
     {% endblock %}
   </ul>
+
+  <div id="search_tab">
+    <img id='search_tab_loader' src="{{ asset('bundles/app/img/loader.gif') }}"></img>
+    <h5 class="header">Recettes</h5>
+    <div id="search_tab_recipes_result" class="row">
+    </div>
+    <div id="search_tab_recipes_result_not_found" class="blue-grey-text">
+      Aucune recette n'a été trouvée
+    </div>
+    <h5 class="header">Ingrédients</h5>
+    <div id="search_tab_ingredients_result" class="row">
+    </div>
+    <div id="search_tab_ingredients_result_not_found" class="blue-grey-text">
+      Aucun ingrédient n'a été trouvée
+    </div>
+  </div>
 </header>
 
 
@@ -86,6 +102,71 @@
 
 <!--- Scripts --->
 <script>
+var changeTimer = false;
+
+$("#search").keyup(function(){
+  let inputSearch = $(this).val();
+  if (inputSearch.length > 0) {
+    $("#search_tab").show("slow");
+    $("#search_tab_loader").show();
+  }
+  else {
+    $("#search_tab").hide("slow");
+  }
+
+  if(changeTimer !== false) clearTimeout(changeTimer);
+  changeTimer = setTimeout(function(){
+    search_tab(inputSearch);
+    changeTimer = false;
+  },300);
+});
+
+function search_tab(term){
+  $.ajax({
+    url : '{{ path('recipe_search_autocomplete') }}',
+    type : 'GET',
+    data : {
+      'term' : term
+    },
+    dataType:'json',
+    success : function(data) {
+      $("#search_tab_loader").hide();
+      $("#search_tab_recipes_result").html("");
+      $("#search_tab_ingredients_result").html("");
+
+      //Display recipes
+      if (data["recipes"].length > 0)
+      $("#search_tab_recipes_result_not_found").hide("slow");
+      else
+      $("#search_tab_recipes_result_not_found").show("slow");
+
+      $.each(data["recipes"], function(index, recipe) {
+        let recipe_url = "{{ path('recipe_show', { 'slug': "__SLUG__" }) }}";
+        recipe_url = recipe_url.replace("__SLUG__", recipe["slug"]);
+        $("#search_tab_recipes_result").append("<a href='" + recipe_url + "'><div class='col s12'><div class='card'><div class='card-image'><img src='" + recipe["image"] + "'></div><div class='card-action'>" + recipe["name"] + "</div></div></div></a>");
+      });
+
+      //Display ingredients
+      if (data["ingredients"].length > 0)
+      $("#search_tab_ingredients_result_not_found").hide("slow");
+      else
+      $("#search_tab_ingredients_result_not_found").show("slow");
+
+      $.each(data["ingredients"], function(index, ingredient) {
+        // let recipe_url = "{{ path('recipe_show', { 'slug': "__SLUG__" }) }}";
+        // recipe_url = recipe_url.replace("__SLUG__", ingredient["slug"]);
+        $("#search_tab_ingredients_result").append("<div class='col s12'><div class='card'><div class='card-image'><div class='card-action'><a href='" + "#" + "'>" + ingredient["name"] + "</a></div></div></div>");
+      });
+      console.log(data);
+    },
+    error : function(request,error)
+    {
+      $("#search_tab_loader").hide();
+      console.log(JSON.stringify(request));
+    }
+  });
+}
+
 $('.button-collapse').sideNav({
   menuWidth: 300, // Default is 300
   edge: 'left', // Choose the horizontal origin
@@ -96,9 +177,20 @@ $('.button-collapse').sideNav({
   },
   onClose: function(el) {
     $("header, main, footer, #ingredient-modal").css("padding-left", "0px");
+    $("#search_tab").hide("slow");
   }
 }
 );
+
+$(document).ready(function(){
+  $('.card-action').each(function(){
+    var highestBox = 0;
+    if($(this).height() > highestBox) {
+      highestBox = $(this).height();
+    }
+    $('.card-action').height(highestBox);
+  });
+});
 </script>
 
 
